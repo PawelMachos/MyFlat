@@ -34,23 +34,22 @@ public class SecurityLayerConfiguration extends WebSecurityConfigurerAdapter {
         auth.jdbcAuthentication()
                 .dataSource(dataSource)
                 .passwordEncoder(passwordEncoder())
-                .usersByUsernameQuery("SELECT username, password FROM users WHERE username = ?")
-                .authoritiesByUsernameQuery("SELECT username, role FROM users WHERE username = ?");
+                .usersByUsernameQuery("SELECT username, password, active FROM users WHERE username = ?")
+                .authoritiesByUsernameQuery("SELECT username, 'ROLE_USER' FROM users WHERE username = ?");
     }
 
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/register", "register/**").permitAll()
-                .antMatchers("/login", "/logout").authenticated()
-                .antMatchers("/user", "/user/**").hasRole("USER")
-                .antMatchers("/manager", "/manager/**").hasRole("MANAGER")
-                .antMatchers("/admin", "/admin/**").hasRole("ADMIN")
+                .antMatchers("/register").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
+                .defaultSuccessUrl("/index.html")
                 .and()
-                .httpBasic();
+                .logout()
+                .logoutSuccessUrl("/index.html");
+
     }
 }
