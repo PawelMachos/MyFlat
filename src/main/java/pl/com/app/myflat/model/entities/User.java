@@ -24,6 +24,8 @@ public class User {
     String flatNumber;
     @Column
     String role;
+
+
     boolean active;
 
 }
