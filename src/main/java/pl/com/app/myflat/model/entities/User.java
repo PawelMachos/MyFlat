@@ -10,11 +10,11 @@ import javax.persistence.*;
 @Entity
 @Getter @Setter @ToString (exclude = "password")
 @Table(name="users")
-public class User {
+public class User extends EntityBase {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    private Long id;
     @Column(unique = true, nullable = false)
     private String username;
     @Column(nullable = false)
