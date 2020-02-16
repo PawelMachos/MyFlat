@@ -15,7 +15,7 @@ import javax.persistence.*;
 @EqualsAndHashCode
 
 @Table(name = "flats")
-public class Flats extends EntityBase {
+public class Flat extends EntityBase {
 
     @Column(nullable = false)
     private String flatNumber;

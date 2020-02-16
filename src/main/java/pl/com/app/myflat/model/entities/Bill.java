@@ -25,7 +25,7 @@ public class Bill extends EntityBase {
     @Column(nullable = false)
     private Integer vat;
     @Column(nullable = false)
-    private Integer brutto = netto + (netto*vat);
+    private Integer brutto;
     @Column(nullable = false)
     private String company;
     @Column(nullable = false)

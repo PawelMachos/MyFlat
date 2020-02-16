@@ -32,10 +32,6 @@
                     <label for="lastName">Last name</label>
                     <input type="text" required name="lastName" id="lastName" class="form-control" placeholder="Enter your last name"/>
                 </div>
-<%--                <div class="form-group">--%>
-<%--                    <label for="password">Password</label>--%>
-<%--                    <input type="password" required name="password" id="password" class="form-control" placeholder="*****"/>--%>
-<%--                </div>--%>
 
                 <div class="form-group">
                 <label for="password">Password</label>

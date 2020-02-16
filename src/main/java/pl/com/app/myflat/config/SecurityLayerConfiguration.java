@@ -42,6 +42,7 @@ public class SecurityLayerConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .antMatchers("/").permitAll()
+                .antMatchers("/register").permitAll()
                 .antMatchers("/login").anonymous()
                 .antMatchers("/logout").authenticated()
                 .antMatchers("/user", "/user/**").hasRole("USER")
@@ -49,18 +50,12 @@ public class SecurityLayerConfiguration extends WebSecurityConfigurerAdapter {
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
-<<<<<<< HEAD
-                .defaultSuccessUrl("/home-page")
+                .loginPage("/login")
+                .defaultSuccessUrl("/")
                 .and()
                 .logout()
-                .logoutSuccessUrl("/login");
-=======
-                .and()
-                .logout()
-                .logoutSuccessUrl("/login")
+                .logoutSuccessUrl("/")
                 .and()
                 .csrf().disable();
->>>>>>> 727231ee27de9bf6a81db22fd027d495abda4ede
-
     }
 }

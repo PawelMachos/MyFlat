@@ -39,10 +39,10 @@ public class User extends EntityBase {
     private List<Bill> bills;
 
     @OneToOne(mappedBy = "user")
-    private Flats flat;
+    private Flat flat;
 
     @OneToMany(mappedBy = "user")
-    private List<Adverts> advert;
+    private List<Advert> advert;
 
     @ManyToMany(cascade = {CascadeType.ALL})
     @JoinTable(
