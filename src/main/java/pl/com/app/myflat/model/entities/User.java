@@ -35,5 +35,5 @@ public class User extends EntityBase {
 
     @OneToMany(mappedBy = "user")
     private List<Bill> bills;
-    
+
 }
