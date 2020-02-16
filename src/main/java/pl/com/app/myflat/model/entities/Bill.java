@@ -1,5 +1,6 @@
 package pl.com.app.myflat.model.entities;
 
+import jdk.nashorn.internal.objects.annotations.Constructor;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -14,21 +15,30 @@ import java.util.Date;
 @Table(name="bills")
 public class Bill extends EntityBase {
 
-    @Column(nullable = false)
+    public Bill() {
+    }
+
+    @Column
     private String category;
-    @Column(nullable = false)
+    @Column
     private String invoiceNumber;
-    @Column(nullable = false)
+    @Column
     private Date invoiceDate;
-    @Column(nullable = false)
+    @Column
     private Integer netto;
-    @Column(nullable = false)
+    @Column
     private Integer vat;
+<<<<<<< HEAD
     @Column(nullable = false)
     private Integer brutto;
     @Column(nullable = false)
+=======
+    @Column
+    private Integer brutto;
+    @Column
+>>>>>>> b3db494bf02443ba8f33882fd3638d6dbfccf3e7
     private String company;
-    @Column(nullable = false)
+    @Column
     private Boolean active = true;
 
     @ManyToOne

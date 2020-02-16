@@ -1,6 +1,7 @@
 package pl.com.app.myflat.model.entities;
 
 
+import jdk.nashorn.internal.objects.annotations.Constructor;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -15,7 +16,10 @@ import java.util.Set;
 @Table(name="users")
 public class User extends EntityBase {
 
-//    @Id
+    public User() {
+    }
+
+    //    @Id
 //    @GeneratedValue(strategy = GenerationType.IDENTITY)
 //    private Long id;
     @Column(unique = true, nullable = false)
