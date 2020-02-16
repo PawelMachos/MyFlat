@@ -8,9 +8,18 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>main-section</title>
+<style>
+    .main {
+    margin-left: 140px; /* Same width as the sidebar + left position in px */
+    font-size: 28px; /* Increased text to enable scrolling */
+    padding: 0px 10px;
+    }
+</style>
 </head>
 <body>
 
+<div class="main">
+
+</div>
 </body>
 </html>

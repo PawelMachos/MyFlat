@@ -15,9 +15,7 @@ import java.util.Date;
 @Table(name="bills")
 public class Bill extends EntityBase {
 
-    public Bill() {
-    }
-
+    
     @Column(nullable = false)
     private String category;
     @Column(nullable = false)
@@ -30,14 +28,11 @@ public class Bill extends EntityBase {
     private Integer vat;
     @Column(nullable = false)
     private Integer brutto;
-    @Column(nullable = false)
+    @Column
     private String company;
     @Column(nullable = false)
     private Boolean active = true;
-
     @ManyToOne
     @JoinColumn(name="user_id", nullable = false)
     private User user;
-
-
 }
