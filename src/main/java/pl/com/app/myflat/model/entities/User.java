@@ -6,15 +6,18 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Getter @Setter @ToString (exclude = "password")
 @Table(name="users")
-public class User {
+public class User extends EntityBase {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    private Long id;
     @Column(unique = true, nullable = false)
     private String username;
     @Column(nullable = false)
@@ -31,5 +34,23 @@ public class User {
     private String role;
     @Column
     Boolean active = false;
+
+    @OneToMany(mappedBy = "user")
+    private List<Bill> bills;
+
+    @OneToOne(mappedBy = "user")
+    private Flats flat;
+
+    @OneToMany(mappedBy = "user")
+    private List<Adverts> advert;
+
+    @ManyToMany(cascade = {CascadeType.ALL})
+    @JoinTable(
+        name="users_tasks",
+            joinColumns = {@JoinColumn(name="user_id")},
+            inverseJoinColumns = {@JoinColumn(name="task_id")}
+    )
+    Set<Task> tasks = new HashSet<>();
+
 
 }
