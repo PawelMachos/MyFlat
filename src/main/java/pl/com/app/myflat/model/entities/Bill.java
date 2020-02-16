@@ -1,5 +1,6 @@
 package pl.com.app.myflat.model.entities;
 
+import jdk.nashorn.internal.objects.annotations.Constructor;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -13,6 +14,9 @@ import java.util.Date;
 @ToString
 @Table(name="bills")
 public class Bill extends EntityBase {
+
+    public Bill() {
+    }
 
     @Column(nullable = false)
     private String category;
