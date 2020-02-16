@@ -16,8 +16,6 @@ import java.util.Set;
 @Table(name="users")
 public class User extends EntityBase {
 
-    public User() {
-    }
 
     //    @Id
 //    @GeneratedValue(strategy = GenerationType.IDENTITY)

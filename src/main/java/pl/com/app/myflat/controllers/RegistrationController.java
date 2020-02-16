@@ -19,12 +19,10 @@ import java.util.List;
 @RequestMapping("/register")
 public class RegistrationController {
 
-    private final UserRepository userRepository;
     private final UserService userService;
 
     @Autowired
-    public RegistrationController(UserRepository userRepository, UserService userService) {
-        this.userRepository = userRepository;
+    public RegistrationController(UserService userService) {
         this.userService = userService;
     }
 
@@ -42,15 +40,12 @@ public class RegistrationController {
     @PostMapping
     public String processRegistrationPage(RegisterUserDTO userDTO) {
         try {
-            User user = userService.saveUser(userDTO);
-            userRepository.save(user);
-        } catch (
-                DataIntegrityViolationException d){
+            userService.saveUser(userDTO);
+        } catch (RuntimeException d){
             d.printStackTrace();
             return "redirect:/register";
         }
         return "login-page";
-
     }
 
 }
