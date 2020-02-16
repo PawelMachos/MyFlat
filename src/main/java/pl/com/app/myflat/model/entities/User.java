@@ -6,15 +6,16 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter @Setter @ToString (exclude = "password")
 @Table(name="users")
-public class User {
+public class User extends EntityBase {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    private Long id;
     @Column(unique = true, nullable = false)
     private String username;
     @Column(nullable = false)
@@ -32,4 +33,12 @@ public class User {
     @Column
     Boolean active = false;
 
+    @OneToMany(mappedBy = "user")
+    private List<Bill> bills;
+
+    @OneToOne(mappedBy = "user")
+    private Flats flat;
+
+    @OneToMany(mappedBy = "user")
+    private List<Adverts> advert;
 }
