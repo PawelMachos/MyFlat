@@ -13,7 +13,7 @@ import javax.persistence.*;
 @ToString
 @EqualsAndHashCode
 @Table(name = "adverts")
-public class Adverts extends EntityBase{
+public class Advert extends EntityBase{
 
     @Column(nullable = false)
     private String title;

@@ -1,5 +1,6 @@
 package pl.com.app.myflat.model.entities;
 
+import jdk.nashorn.internal.objects.annotations.Constructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;

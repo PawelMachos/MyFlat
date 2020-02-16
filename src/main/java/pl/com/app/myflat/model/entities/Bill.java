@@ -28,9 +28,15 @@ public class Bill extends EntityBase {
     private Integer netto;
     @Column
     private Integer vat;
+<<<<<<< HEAD
+    @Column(nullable = false)
+    private Integer brutto;
+    @Column(nullable = false)
+=======
     @Column
     private Integer brutto;
     @Column
+>>>>>>> b3db494bf02443ba8f33882fd3638d6dbfccf3e7
     private String company;
     @Column
     private Boolean active = true;

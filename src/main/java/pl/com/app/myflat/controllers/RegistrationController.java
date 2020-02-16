@@ -1,6 +1,7 @@
 package pl.com.app.myflat.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -44,6 +45,8 @@ public class RegistrationController {
                                           String lastName,
                                           String email,
                                           String flatNumber) {
+
+        try{
         String encode = passwordEncoder.encode(password);
 
         User user = new User();
@@ -57,7 +60,12 @@ public class RegistrationController {
         user.setActive(true);
 
         userRepository.save(user);
-        return "redirect:/index.html";
+    } catch (
+    DataIntegrityViolationException d){
+        d.printStackTrace();
+        return "redirect:/register";
     }
+        return "redirect:/login-page.jsp";
+}
 
 }
