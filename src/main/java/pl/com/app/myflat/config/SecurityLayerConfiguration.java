@@ -46,10 +46,10 @@ public class SecurityLayerConfiguration extends WebSecurityConfigurerAdapter {
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
-                .defaultSuccessUrl("/index.html")
+                .defaultSuccessUrl("/home-page")
                 .and()
                 .logout()
-                .logoutSuccessUrl("/index.html");
+                .logoutSuccessUrl("/login");
 
     }
 }
