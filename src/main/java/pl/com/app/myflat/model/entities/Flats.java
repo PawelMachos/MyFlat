@@ -6,10 +6,7 @@ import lombok.Setter;
 import lombok.ToString;
 import org.springframework.web.bind.annotation.Mapping;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Getter
@@ -24,6 +21,10 @@ public class Flats extends EntityBase {
     private String flatNumber;
     @Column(nullable = false)
     private Boolean active;
+
+    @OneToOne
+    @JoinColumn(name="user_id", nullable = false)
+    private User user;
 
 
 }
