@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Entity
 @Getter
 @Setter
-@ToString
+@ToString(exclude = "user")
 @EqualsAndHashCode
 @Table(name = "adverts")
 public class Advert extends EntityBase{

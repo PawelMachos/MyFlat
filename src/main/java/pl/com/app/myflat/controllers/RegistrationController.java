@@ -35,7 +35,7 @@ public class RegistrationController {
 
     @GetMapping
     public String prepareRegistrationPage() {
-        return "/WEB-INF/views/register-form.jsp";
+        return "register-form";
     }
 
     @PostMapping
@@ -65,7 +65,7 @@ public class RegistrationController {
         d.printStackTrace();
         return "redirect:/register";
     }
-        return "redirect:/login-page.jsp";
+        return "redirect:/login-page";
 }
 
 }

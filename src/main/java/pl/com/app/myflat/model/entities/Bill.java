@@ -1,6 +1,7 @@
 package pl.com.app.myflat.model.entities;
 
 import jdk.nashorn.internal.objects.annotations.Constructor;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -11,11 +12,12 @@ import java.util.Date;
 @Entity
 @Getter
 @Setter
-@ToString
+@ToString(exclude = {"user"})
+@EqualsAndHashCode(of="id")
 @Table(name="bills")
 public class Bill extends EntityBase {
 
-    
+
     @Column(nullable = false)
     private String category;
     @Column(nullable = false)

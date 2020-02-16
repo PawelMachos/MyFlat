@@ -14,7 +14,7 @@ import java.util.Set;
 @Entity
 @Getter
 @Setter
-@ToString
+@ToString(exclude ="users" )
 @Table(name="tasks")
 public class Task extends EntityBase{
     @Column(nullable = false)

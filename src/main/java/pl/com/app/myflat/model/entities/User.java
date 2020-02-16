@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
-@Getter @Setter @ToString (exclude = "password")
+@Getter @Setter @ToString (exclude = {"password", "bills","flat","tasks"})
 @Table(name="users")
 public class User extends EntityBase {
 
