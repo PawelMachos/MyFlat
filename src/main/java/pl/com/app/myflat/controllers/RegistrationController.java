@@ -41,7 +41,9 @@ public class RegistrationController {
     public String processRegistrationPage(String username,
                                           String password,
                                           String firstName,
-                                          String lastName) {
+                                          String lastName,
+                                          String email,
+                                          String flatNumber) {
         String encode = passwordEncoder.encode(password);
 
         User user = new User();
@@ -49,6 +51,9 @@ public class RegistrationController {
         user.setUsername(username);
         user.setFirstName(firstName);
         user.setLastName(lastName);
+        user.setEmail(email);
+        user.setFlatNumber(flatNumber);
+        user.setRole("USER");
         user.setActive(true);
 
         userRepository.save(user);

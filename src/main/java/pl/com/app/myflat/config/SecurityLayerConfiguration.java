@@ -38,18 +38,29 @@ public class SecurityLayerConfiguration extends WebSecurityConfigurerAdapter {
                 .authoritiesByUsernameQuery("SELECT username, 'ROLE_USER' FROM users WHERE username = ?");
     }
 
-
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/register").permitAll()
+                .antMatchers("/").permitAll()
+                .antMatchers("/login").anonymous()
+                .antMatchers("/logout").authenticated()
+                .antMatchers("/user", "/user/**").hasRole("USER")
+                .antMatchers("/admin", "/admin/**").hasRole("ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
-                .defaultSuccessUrl("/index.html")
+<<<<<<< HEAD
+                .defaultSuccessUrl("/home-page")
                 .and()
                 .logout()
-                .logoutSuccessUrl("/index.html");
+                .logoutSuccessUrl("/login");
+=======
+                .and()
+                .logout()
+                .logoutSuccessUrl("/login")
+                .and()
+                .csrf().disable();
+>>>>>>> 727231ee27de9bf6a81db22fd027d495abda4ede
 
     }
 }
