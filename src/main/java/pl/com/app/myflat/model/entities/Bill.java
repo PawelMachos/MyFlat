@@ -18,21 +18,21 @@ public class Bill extends EntityBase {
     public Bill() {
     }
 
-    @Column(nullable = false)
+    @Column
     private String category;
-    @Column(nullable = false)
+    @Column
     private String invoiceNumber;
-    @Column(nullable = false)
+    @Column
     private Date invoiceDate;
-    @Column(nullable = false)
+    @Column
     private Integer netto;
-    @Column(nullable = false)
+    @Column
     private Integer vat;
-    @Column(nullable = false)
-    private Integer brutto = netto + (netto*vat);
-    @Column(nullable = false)
+    @Column
+    private Integer brutto;
+    @Column
     private String company;
-    @Column(nullable = false)
+    @Column
     private Boolean active = true;
 
     @ManyToOne

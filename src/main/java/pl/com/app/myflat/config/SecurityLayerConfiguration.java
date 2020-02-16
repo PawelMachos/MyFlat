@@ -49,18 +49,14 @@ public class SecurityLayerConfiguration extends WebSecurityConfigurerAdapter {
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
-<<<<<<< HEAD
+
                 .defaultSuccessUrl("/home-page")
-                .and()
-                .logout()
-                .logoutSuccessUrl("/login");
-=======
                 .and()
                 .logout()
                 .logoutSuccessUrl("/login")
                 .and()
                 .csrf().disable();
->>>>>>> 727231ee27de9bf6a81db22fd027d495abda4ede
+
 
     }
 }
