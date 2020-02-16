@@ -1,21 +1,23 @@
 package pl.com.app.myflat.service;
 
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import pl.com.app.myflat.dto.RegisterUserDTO;
 import pl.com.app.myflat.model.entities.User;
+import pl.com.app.myflat.model.repositories.UserRepository;
 
 @Service
 public class UserService {
 
     private final PasswordEncoder passwordEncoder;
+    private final UserRepository userRepository;
 
-    public UserService(PasswordEncoder passwordEncoder) {
+    public UserService(PasswordEncoder passwordEncoder, UserRepository userRepository) {
         this.passwordEncoder = passwordEncoder;
+        this.userRepository = userRepository;
     }
 
-    public User saveUser(RegisterUserDTO userDTO){
+    public void saveUser(RegisterUserDTO userDTO){
 
             String encodedPassword = passwordEncoder.encode(userDTO.getPassword());
 
@@ -28,8 +30,7 @@ public class UserService {
             user.setPassword(encodedPassword);
             user.setActive(true);
             user.setRole("USER");
-
-            return user;
+            userRepository.save(user);
 
     }
 

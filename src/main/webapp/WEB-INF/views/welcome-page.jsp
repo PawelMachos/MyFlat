@@ -13,7 +13,7 @@
 </head>
 <body>
 
-<h1>SIEMANKO !!!</h1>
+<h1>SIEMANKO LUDZISKA!!!</h1>
 
 OGŁOSZENIE DEWELOPERA: MIESZKANIA DO KUPIENIA.
 &nbsp;
