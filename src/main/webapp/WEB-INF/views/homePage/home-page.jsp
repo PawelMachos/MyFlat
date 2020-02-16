@@ -24,7 +24,10 @@
 
     <jsp:include page="main-section.jsp"/>
 
+    HomePage po zalogowaniu
+
     <jsp:include page="footer.jsp"/>
+
 </div>
 </body>
 </html>

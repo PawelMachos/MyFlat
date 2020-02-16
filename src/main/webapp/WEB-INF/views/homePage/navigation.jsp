@@ -12,7 +12,7 @@
 </head>
 <body>
 <div class="navigation-bar">
-    <a href="/login-page.jsp">Logout</a>
+    <a href="/logout">Logout</a>
     <a href="#">MyAccount</a>
 </div>
 </body>
