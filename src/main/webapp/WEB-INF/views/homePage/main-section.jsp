@@ -10,9 +10,12 @@
 <head>
 <style>
     .main {
-    margin-left: 140px; /* Same width as the sidebar + left position in px */
+    object-position: right; /* Same width as the sidebar + left position in px */
     font-size: 28px; /* Increased text to enable scrolling */
     padding: 0px 10px;
+        border: darkcyan;
+        border-bottom-style: solid;
+        border-width: thin;
     }
 </style>
 </head>

@@ -8,6 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <footer>
-    <p><%= LocalDate.now().getYear() %>
+    <p>Footer:<%= LocalDate.now().getYear() %>
     </p>
+
 </footer>
