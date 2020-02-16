@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -20,23 +21,42 @@
         <div class="col-6">
             <form method="post" action="/register">
                 <div class="form-group">
-                    <label for="username">Nazwa użytkownika</label>
-                    <input type="text" required name="username" id="username" class="form-control" placeholder="Podaj nazwę użytkownika"/>
+                    <label for="username">Username</label>
+                    <input type="text" required name="username" id="username" class="form-control" placeholder="Enter your username"/>
                 </div>
                 <div class="form-group">
-                    <label for="firstName">Imię</label>
-                    <input type="text" required name="firstName" id="firstName" class="form-control" placeholder="Podaj imię"/>
+                    <label for="firstName">First name</label>
+                    <input type="text" required name="firstName" id="firstName" class="form-control" placeholder="Enter your first name"/>
                 </div>
                 <div class="form-group">
-                    <label for="lastName">Nazwisko</label>
-                    <input type="text" required name="lastName" id="lastName" class="form-control" placeholder="Podaj nazwisko"/>
+                    <label for="lastName">Last name</label>
+                    <input type="text" required name="lastName" id="lastName" class="form-control" placeholder="Enter your last name"/>
                 </div>
+<%--                <div class="form-group">--%>
+<%--                    <label for="password">Password</label>--%>
+<%--                    <input type="password" required name="password" id="password" class="form-control" placeholder="*****"/>--%>
+<%--                </div>--%>
+
                 <div class="form-group">
-                    <label for="password">Hasło</label>
-                    <input type="password" required name="password" id="password" class="form-control" placeholder="Podaj hasło"/>
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" class="form-control" title="Must contain at
+                least one number and one uppercase and lowercase letter, and at least 8 or more characters" required
+                placeholder="Enter your password">
                 </div>
-                <button class="btn btn-primary" type="submit">Zarejestruj</button>
-                <button class="btn btn-secondary" type="reset">Wyczyść dane</button>
+
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" required name="email" id="email" class="form-control" placeholder="Enter your e-mail"/>
+                </div>
+                <div><label for="flatNumber">Flat number:</label>
+                    <select name="flatNumber" id="flatNumber">
+                        <option value="-" selected> --Choose flat number--</option>
+                        <c:forEach items="${flatNumbers}" var="flatNumber">
+                            <option value="${flatNumber}">${flatNumber}</option>
+                        </c:forEach>
+                    </select></div>
+                <button class="btn btn-primary" type="submit">Register</button>
+                <button class="btn btn-secondary" type="reset">Clean</button>
                 <sec:csrfInput/>
             </form>
         </div>
