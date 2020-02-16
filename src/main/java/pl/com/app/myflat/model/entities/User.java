@@ -14,23 +14,22 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
+    @Column(unique = true, nullable = false)
+    private String username;
+    @Column(nullable = false)
+    private String password;
+    @Column(nullable = false)
+    private String firstName;
+    @Column(nullable = false)
+    private String lastName;
+    @Column(nullable = false)
+    private String email;
+    @Column(nullable = false)
+    private String flatNumber;
+    @Column(nullable = false)
+    private String role;
     @Column
-    String username;
-    @Column
-    String password;
-    @Column
-    String firstName;
-    @Column
-    String lastName;
-    @Column
-    String email;
-    @Column
-    String flatNumber;
-    @Column
-    String role;
-
-
-    boolean active;
+    Boolean active = false;
 
 }
