@@ -6,6 +6,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter @Setter @ToString (exclude = "password")
@@ -31,5 +32,8 @@ public class User extends EntityBase {
     private String role;
     @Column
     Boolean active = false;
+
+    @OneToMany(mappedBy = "user")
+    private List<Bill> bills;
 
 }
