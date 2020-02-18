@@ -11,9 +11,6 @@ public class BillDTO {
     private Category category;
     private String invoiceNumber;
     private Date invoiceDate;
-    private Integer netto;
-    private Integer vat;
-    private Integer brutto;
-    private String company;
+    private Integer grossAmount;
     private Boolean active = true;
 }

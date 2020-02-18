@@ -8,5 +8,6 @@ public enum Category {
     CENTRAL_HEATING,
     WASTE_DISPOSAL,
     WATER_HEATING,
-    COLD_WATER_AND_SEWAGE;
+    COLD_WATER_AND_SEWAGE,
+    ENERGY;
 }
