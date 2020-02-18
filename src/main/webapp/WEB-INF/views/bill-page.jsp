@@ -9,9 +9,11 @@
 <%@ page isELIgnored="false" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Bill section</title>
 </head>
 <body>
-
+<div id="container">
+    
+</div>
 </body>
 </html>
