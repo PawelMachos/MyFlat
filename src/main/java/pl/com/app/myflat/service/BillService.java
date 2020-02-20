@@ -1,13 +1,17 @@
 package pl.com.app.myflat.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import pl.com.app.myflat.dto.BillDTO;
 import pl.com.app.myflat.dto.LoggedUserDTO;
 import pl.com.app.myflat.model.entities.Bill;
 import pl.com.app.myflat.model.entities.User;
+import pl.com.app.myflat.model.enums.Category;
 import pl.com.app.myflat.model.repositories.BillRepository;
 import pl.com.app.myflat.model.repositories.UserRepository;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @Service
@@ -21,14 +25,34 @@ public class BillService {
         this.userRepository = userRepository;
     }
 
-    public Integer showAllBillsToPay(LoggedUserDTO userDTO){
-        int sum = 0;
-        List<Bill> billsToPay = userRepository.findAllBillsToPayForUser(userDTO.getId())
+    public Double showAllBillsToPay(Long id){
+        double sum = 0;
+        List<Bill> billsToPay = userRepository.findAllBillsToPayForUser(id)
                 .stream().filter(bill-> bill.getActive()==true).collect(Collectors.toList());
         for(Bill b : billsToPay){
             sum+=b.getGrossAmount();
         }
         return sum;
+    }
+
+    public Map<Category,Integer> allUnpaidBillsByCategory(Long id){
+        List<BillDTO> bills = userRepository.findAllBillsToPayForUser(id)
+                .stream()
+                .map(bill->{
+                    BillDTO billDTO = new BillDTO();
+                    billDTO.setActive(bill.getActive());
+                    billDTO.setCategory(bill.getCategory());
+                    billDTO.setGrossAmount(bill.getGrossAmount());
+                    billDTO.setInvoiceDate(bill.getInvoiceDate());
+                    billDTO.setInvoiceNumber(bill.getInvoiceNumber());
+                    return billDTO;
+                })
+                .filter(billDTO-> billDTO.getActive()==true).collect(Collectors.toList());
+        Map<Category,Integer> billsByCategory = new HashMap<>();
+        for(BillDTO b : bills){
+            billsByCategory.put(b.getCategory(),b.getGrossAmount());
+        }
+        return billsByCategory;
     }
 
 }

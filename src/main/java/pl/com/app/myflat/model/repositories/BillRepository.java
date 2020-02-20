@@ -10,5 +10,5 @@ import java.util.List;
 public interface BillRepository extends JpaRepository<Bill, Long> {
 
    // Bill findBillByCategoryAndInvoiceDate_Month(Category category, int month);
-   List<Bill>findAllBillByActiveAndUserId(Boolean activeStatus, Long userId);
+
 }
