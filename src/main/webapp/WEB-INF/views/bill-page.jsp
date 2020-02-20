@@ -123,6 +123,11 @@
             padding-top:8px;
             float:right;
         }
+        .button{
+            border: 1px solid black;
+            margin:10px;
+            height:25%;
+        }
     </style>
     <script>
         window.onload = function() {
@@ -208,7 +213,11 @@
             </div>
         </div>
         <div id="stat">
-            <div id="slicer"></div>
+            <div id="slicer">
+                <div class="button"></div>
+                <div class="button"></div>
+                <div class="button"></div>
+            </div>
             <div id="lineChart"></div>
         </div>
 

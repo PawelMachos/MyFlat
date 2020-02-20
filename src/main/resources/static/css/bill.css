@@ -43,7 +43,7 @@ body{
     border: 1px solid black;
     height:90%;
     margin: 10px;
-    width: 40%;
+    width: 60%;
     float: left;
     display: inline-block;
 }
@@ -51,7 +51,7 @@ body{
     border: 1px solid black;
     height:90%;
     margin: 10px;
-    width: 45%;
+    width: 35%;
     float: right;
 }
 #slicer{
@@ -73,6 +73,7 @@ body{
 #sum{
     border: 1px solid black;
     text-align: center;
+    font-size: 35px;
 }
 
 #pay{
@@ -96,4 +97,9 @@ body{
     text-align:center;
     padding-top:8px;
     float:right;
+}
+.button{
+    border: 1px solid black;
+    margin:10px;
+    height:25%;
 }
