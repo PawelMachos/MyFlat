@@ -10,7 +10,7 @@ public interface AdvertRepository extends JpaRepository<Advert, Long> {
 
     List<Advert> findAllBy();
 
-    List<Advert> findAllByCreatedDesc();
+    //List<Advert> findAllByCreatedAtOrderByUpdatedAt();
 
     List<Advert> findAllByOrderByUserFirstName();
 
@@ -18,5 +18,5 @@ public interface AdvertRepository extends JpaRepository<Advert, Long> {
 
     List<Advert> findAllByOrderByTitle();
 
-    Optional<Advert> findByIdAndOwnerUsername(Long advertId, String username);
+   // Optional<Advert> findByIdAndOwnerUsername(Long advertId, String username);
 }
