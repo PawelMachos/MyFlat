@@ -1,3 +1,4 @@
+<%@ page import="pl.com.app.myflat.model.enums.Category" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
@@ -10,6 +11,15 @@
 <%@ page isELIgnored="false" %>
 <html>
 <head>
+    <c:set var="embarkedFund" value="<%=Category.EARMARKED_FUND%>" />
+    <c:set var="repairFund" value="<%=Category.REPAIR_FUND%>" />
+    <c:set var="coAndCW" value="<%=Category.CO_AND_CW_FIXED_FEE%>" />
+    <c:set var="managementCosts" value="<%=Category.MANAGEMENT_COSTS%>" />
+    <c:set var="centralHeating" value="<%=Category.CENTRAL_HEATING%>" />
+    <c:set var="wasteDisposal" value="<%=Category.WASTE_DISPOSAL%>" />
+    <c:set var="waterHeating" value="<%=Category.WATER_HEATING%>" />
+    <c:set var="coldWater" value="<%=Category.COLD_WATER_AND_SEWAGE%>" />
+    <c:set var="energy" value="<%=Category.ENERGY%>" />
     <title>Bill section</title>
 <%--    <link href="css/bill.css" type="text/css" rel="stylesheet"> nie dziala poki co--%>
     <style>
@@ -113,50 +123,81 @@
             float:right;
         }
     </style>
+    <script>
+        window.onload = function() {
+
+            var chart = new CanvasJS.Chart("pieChart", {
+                animationEnabled: true,
+                title: {
+                    text: "Chart of generated costs"
+                },
+                data: [{
+                    type: "pie",
+                    startAngle: 240,
+                    yValueFormatString: "##0.00\"%\"",
+                    indexLabel: "{label} {y}",
+                    dataPoints: [
+                        {y: ${percentage.get(embarkedFund)}, label: "Fundusz celowy"},
+                        {y: ${percentage.get(repairFund)}, label: "Fundusz remontowy"},
+                        {y: ${percentage.get(coAndCW)}, label: "CO i CW - Opłata stała"},
+                        {y: ${percentage.get(managementCosts)}, label: "Koszty zarządu"},
+                        {y: ${percentage.get(centralHeating)}, label: "Centralne ogrzewanie"},
+                        {y: ${percentage.get(wasteDisposal)}, label: "Wywóz nieczystości"},
+                        {y: ${percentage.get(waterHeating)}, label: "Podgrzanie wody"},
+                        {y: ${percentage.get(coldWater)}, label: "Zimna woda i ścieki"},
+                        {y: ${percentage.get(energy)}, label: "Prąd"}
+                    ]
+                }]
+            });
+            chart.render();
+
+        }
+    </script>
+
 </head>
 <body>
 <div id="container">
     <div id="leftbar">
         <div class="fundbar">
             <div class="fundname">Fundusz celowy</div>
-            <div class="fundvalue">${bills.get('EARMARKED_FUND')}</div>
+            <div class="fundvalue">${bills.get(embarkedFund)}</div>
         </div>
         <div class="fundbar">
             <div class="fundname">Fundusz remontowy</div>
-            <div class="fundvalue">${bills.get('REPAIR_FUND')}</div>
+            <div class="fundvalue">${bills.get(repairFund)}</div>
         </div>
         <div class="fundbar">
             <div class="fundname">CO i CW - Opłata stała</div>
-            <div class="fundvalue">${bills.get('CO_AND_CW_FIXED_FEE')}</div>
+            <div class="fundvalue">${bills.get(coAndCW)}</div>
         </div>
         <div class="fundbar">
             <div class="fundname">Koszty zarządu</div>
-            <div class="fundvalue">${bills.get('MANAGEMENT_COSTS')}</div>
+            <div class="fundvalue">${bills.get(managementCosts)}</div>
         </div>
         <div class="fundbar">
             <div class="fundname">Centralne ogrzewanie</div>
-            <div class="fundvalue">${bills.get('CENTRAL_HEATING')}</div>
+            <div class="fundvalue">${bills.get(centralHeating)}</div>
         </div>
         <div class="fundbar">
             <div class="fundname">Wywóz nieczystości</div>
-            <div class="fundvalue">${bills.get('WASTE_DISPOSAL')}</div>
+            <div class="fundvalue">${bills.get(wasteDisposal)}</div>
         </div>
         <div class="fundbar">
             <div class="fundname">Podgrzanie wody</div>
-            <div class="fundvalue">${bills.get('WATER_HEATING')}</div>
+            <div class="fundvalue">${bills.get(waterHeating)}</div>
         </div>
         <div class="fundbar">
             <div class="fundname">Zimna woda i ścieki</div>
-            <div class="fundvalue">${bills.get('COLD_WATER_AND_SEWAGE')}</div>
+            <div class="fundvalue">${bills.get(coldWater)}</div>
         </div>
         <div class="fundbar">
             <div class="fundname">Prąd</div>
-            <div class="fundvalue">${bills.get('ENERGY')}</div>
+            <div class="fundvalue">${bills.get(energy)}</div>
         </div>
     </div>
     <div id="rightbar">
         <div id="topbar">
-            <div id="pieChart"></div>
+            <div id="pieChart"><script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script></div>
             <div id="menu">
                 <fieldset style="margin:15px; height:45%;">
                     <legend style="text-align:center">THE TOTAL AMOUNT TO PAY:</legend>

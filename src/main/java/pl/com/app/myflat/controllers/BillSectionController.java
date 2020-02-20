@@ -26,6 +26,7 @@ public class BillSectionController {
         LoggedUserDTO user = userService.getUser(principal.getName());
             model.addAttribute("billsToPay",billService.showAllBillsToPay(user.getId()));
             model.addAttribute("bills",billService.allUnpaidBillsByCategory(user.getId()));
+            model.addAttribute("percentage",billService.percentageOfGeneratedCosts(user.getId()));
         return  "bill-page";
     }
 }

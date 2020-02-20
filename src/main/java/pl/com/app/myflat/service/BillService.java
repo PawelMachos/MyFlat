@@ -55,4 +55,14 @@ public class BillService {
         return billsByCategory;
     }
 
+    public Map<Category,Double> percentageOfGeneratedCosts(Long id){
+        double sum = showAllBillsToPay(id);
+        Map<Category,Integer> bills = allUnpaidBillsByCategory(id);
+        Map<Category,Double> percentageMap = new HashMap<>();
+        for(Map.Entry<Category,Integer> e: bills.entrySet()){
+            percentageMap.put(e.getKey(),(e.getValue()*100)/sum);
+        }
+        return percentageMap;
+    }
+
 }
