@@ -50,10 +50,10 @@
 
 
 <div class="side-menu">
-    <a href="home-page.jsp">Homepage</a>
+    <a href="home">Homepage</a>
     <a href="#">Bills</a>
     <a href="#">Messages</a>
-    <a href="#">Adverts</a>
+    <a href="adverts">Adverts</a>
     <a href="#">Organizer</a>
 </div>
 
