@@ -68,7 +68,7 @@
         border: 1px solid black;
         height:90%;
         margin: 10px;
-        width: 40%;
+        width: 60%;
         float: left;
         display: inline-block;
         }
@@ -76,7 +76,7 @@
         border: 1px solid black;
         height:90%;
         margin: 10px;
-        width: 45%;
+        width: 35%;
         float: right;
         }
         #slicer{
@@ -98,6 +98,7 @@
         #sum{
         border: 1px solid black;
         text-align: center;
+        font-size: 35px;
         }
 
         #pay{
@@ -160,39 +161,39 @@
     <div id="leftbar">
         <div class="fundbar">
             <div class="fundname">Fundusz celowy</div>
-            <div class="fundvalue">${bills.get(embarkedFund)}</div>
+            <div class="fundvalue">${bills.get(embarkedFund)} pln</div>
         </div>
         <div class="fundbar">
             <div class="fundname">Fundusz remontowy</div>
-            <div class="fundvalue">${bills.get(repairFund)}</div>
+            <div class="fundvalue">${bills.get(repairFund)} pln</div>
         </div>
         <div class="fundbar">
             <div class="fundname">CO i CW - Opłata stała</div>
-            <div class="fundvalue">${bills.get(coAndCW)}</div>
+            <div class="fundvalue">${bills.get(coAndCW)} pln</div>
         </div>
         <div class="fundbar">
             <div class="fundname">Koszty zarządu</div>
-            <div class="fundvalue">${bills.get(managementCosts)}</div>
+            <div class="fundvalue">${bills.get(managementCosts)} pln</div>
         </div>
         <div class="fundbar">
             <div class="fundname">Centralne ogrzewanie</div>
-            <div class="fundvalue">${bills.get(centralHeating)}</div>
+            <div class="fundvalue">${bills.get(centralHeating)} pln</div>
         </div>
         <div class="fundbar">
             <div class="fundname">Wywóz nieczystości</div>
-            <div class="fundvalue">${bills.get(wasteDisposal)}</div>
+            <div class="fundvalue">${bills.get(wasteDisposal)} pln</div>
         </div>
         <div class="fundbar">
             <div class="fundname">Podgrzanie wody</div>
-            <div class="fundvalue">${bills.get(waterHeating)}</div>
+            <div class="fundvalue">${bills.get(waterHeating)} pln</div>
         </div>
         <div class="fundbar">
             <div class="fundname">Zimna woda i ścieki</div>
-            <div class="fundvalue">${bills.get(coldWater)}</div>
+            <div class="fundvalue">${bills.get(coldWater)} pln</div>
         </div>
         <div class="fundbar">
             <div class="fundname">Prąd</div>
-            <div class="fundvalue">${bills.get(energy)}</div>
+            <div class="fundvalue">${bills.get(energy)} pln</div>
         </div>
     </div>
     <div id="rightbar">
@@ -201,7 +202,7 @@
             <div id="menu">
                 <fieldset style="margin:15px; height:45%;">
                     <legend style="text-align:center">THE TOTAL AMOUNT TO PAY:</legend>
-                    <div id="sum"> ${billsToPay} zł </div>
+                    <div id="sum"> ${billsToPay} pln </div>
                 </fieldset>
                 <button id="pay" type="submit">Pay</button>
             </div>

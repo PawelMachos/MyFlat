@@ -26,7 +26,7 @@ public class Bill extends EntityBase {
     @Column(nullable = false)
     private Date invoiceDate;
     @Column(nullable = false)
-    private Integer grossAmount;
+    private Double grossAmount;
     @Column(nullable = false)
     private Boolean active = true;
     @ManyToOne

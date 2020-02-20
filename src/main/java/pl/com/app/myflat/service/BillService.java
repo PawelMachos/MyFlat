@@ -35,7 +35,7 @@ public class BillService {
         return sum;
     }
 
-    public Map<Category,Integer> allUnpaidBillsByCategory(Long id){
+    public Map<Category,Double> allUnpaidBillsByCategory(Long id){
         List<BillDTO> bills = userRepository.findAllBillsToPayForUser(id)
                 .stream()
                 .map(bill->{
@@ -48,7 +48,7 @@ public class BillService {
                     return billDTO;
                 })
                 .filter(billDTO-> billDTO.getActive()==true).collect(Collectors.toList());
-        Map<Category,Integer> billsByCategory = new HashMap<>();
+        Map<Category,Double> billsByCategory = new HashMap<>();
         for(BillDTO b : bills){
             billsByCategory.put(b.getCategory(),b.getGrossAmount());
         }
@@ -57,9 +57,9 @@ public class BillService {
 
     public Map<Category,Double> percentageOfGeneratedCosts(Long id){
         double sum = showAllBillsToPay(id);
-        Map<Category,Integer> bills = allUnpaidBillsByCategory(id);
+        Map<Category,Double> bills = allUnpaidBillsByCategory(id);
         Map<Category,Double> percentageMap = new HashMap<>();
-        for(Map.Entry<Category,Integer> e: bills.entrySet()){
+        for(Map.Entry<Category,Double> e: bills.entrySet()){
             percentageMap.put(e.getKey(),(e.getValue()*100)/sum);
         }
         return percentageMap;
