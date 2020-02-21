@@ -40,14 +40,13 @@ public class UserTaskController {
     }
 
     @GetMapping(params = "userId")
-    public String prepareSelectedUserAdvertsPage(Long userId, Model model, Principal principal) {
+    public String prepareSelectedUserTasksPage(Long userId, Model model, Principal principal) {
         Optional<User> optionalUser = userRepository.findById(userId);
         User user = optionalUser.orElse(userRepository.findByUsername(principal.getName()));
 
         List<Task> userTasks = taskRepository.findAllByOwnerUsername(user.getUsername());
 
         model.addAttribute("tasks", userTasks);
-        //return "/WEB-INF/views/home-page.jsp";
         return "welcome-page";
     }
 

@@ -15,31 +15,20 @@
 <html>
 <head>
     <style>
-        * {
-            box-sizing: border-box;
-            color: #064579
-        }
 
-        ul {
-            list-style-type: none;
-        }
-
-        body {
-            font-family: Verdana, sans-serif;
-            background-color: lightgray
-        }
-
-        h1 {
-            font-family: Verdana, sans-serif;
-            color: coral;
+        * {box-sizing: border-box;}
+        ul {list-style-type: none;}
+        body {font-family: Verdana, sans-serif;
+            background-color: lightgray}
+        h1 {font-family: Verdana, sans-serif;
+            color: #064579;
             text-align: center;
         }
-
-        #main {
+        #main
+        {
             width: 100%;
             height: auto;
         }
-
         #todo
         {
             float:left;
@@ -55,32 +44,31 @@
             float:left;
             margin-left: 5%;
             margin-right: auto;
-            width:32%;
+            width:20%;
             border-style: solid;
             border-color: darkred;
         }
-
-        #some {
+        #some
+        {
             clear: both;
             width: 100%;
             background-color: lightcoral;
         }
+
     </style>
 </head>
 <body>
 
-<h1 style="color: #064579">Let's organize your flat!</h1><br/>
+        <h1>Let's organize your flat!</h1><br/>
 
-<div id="main">
+       <div id="main">
 
-    <div id="todo">
-        <jsp:include page="user-tasks-page.jsp"/>
-    </div>
-    <div id="cal">
-        <jsp:include page="calendar.jsp"/>
-    </div>
+           <div id="todo"><jsp:include page="checked-task-page.jsp"/></div>
+           <div id="cal"><jsp:include page="calendar.jsp"/></div>
 
-</div>
+
+
+       </div>
 
 </body>
 </html>

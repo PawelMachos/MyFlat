@@ -34,7 +34,7 @@
     <sec:authorize access="isAuthenticated()">
         <div class="row" style="margin-top: 40px; margin-bottom: 10px">
             <div class="col-1"></div>
-            <div class="col-6"><h2>Edit Your Task</h2></div>
+            <div class="col-6"><h2>Are You sure, that this task is done?</h2></div>
             <div class="col-5"></div>
         </div>
 
@@ -42,18 +42,18 @@
             <div class="col-2"></div>
             <div class="col-8">
 
-                <form method="post" action="/edit-task">
+                <form method="post" action="/checked-task">
                     <div class="form-group">
                         <label for="title">Task Title:</label>
-                        <input type="text" required name="title" id="title" class="form-control"
+                        <input type="text" required name="title" id="title" class="form-control" contenteditable="false"
                                value="${task.title}"/>
                     </div>
                     <div class="form-group">
                         <label for="description">Task Description:</label>
                         <textarea name="description" id="description"
-                                  class="form-control">${task.description}</textarea>
+                                  class="form-control" contenteditable="false">${task.description}</textarea>
                     </div>
-                    <button class="btn btn-primary" type="submit">Edit</button>
+                    <button class="btn btn-primary" type="submit">It's really done!</button>
                     <a href="/user-tasks" class="btn btn-secondary">Back</a>
                     <input type="hidden" name="id" value="${task.id}"/>
                     <input type="hidden" name="redirectTo" value="/user-tasks"/>

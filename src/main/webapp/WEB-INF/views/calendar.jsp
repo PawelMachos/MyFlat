@@ -1,12 +1,3 @@
-<%@ page import="java.time.LocalDate" %>
-<%@ page import="java.time.Month" %>
-<%@ page import="java.time.LocalDateTime" %><%--
-  Created by IntelliJ IDEA.
-  User: marta
-  Date: 19.02.2020
-  Time: 14:19
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page isELIgnored="false" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html >
@@ -45,7 +36,7 @@
         #calendar_content{
             -webkit-border-radius: 0px 0px 12px 12px;
             -moz-border-radius: 0px 0px 12px 12px;
-            border-radius: 12px 12px 12px 12px;
+            border-radius: 0px 0px 12px 12px;
         }
         #calendar_content div{
             float: left;
@@ -72,7 +63,7 @@
             padding: 18px 0;
             -webkit-border-radius: 12px 12px 0px 0px;
             -moz-border-radius: 12px 12px 0px 0px;
-            border-radius: 12px 12px 12px 12px;
+            border-radius: 12px 12px 0px 0px;
         }
         #calendar_header h1{
             font-size: 1.5em;
@@ -129,7 +120,6 @@
             l.find(".today").css("background-color", y);
             d()
         }
-
         function h() {
             var e = [];
             for (var r = 1; r < v(t, n) + 1; r++) {
@@ -137,14 +127,12 @@
             }
             return e
         }
-
         function p() {
             f.empty();
             for (var e = 0; e < 7; e++) {
                 f.append("<div>" + s[e].substring(0, 3) + "</div>")
             }
         }
-
         function d() {
             var t;
             var n = $("#calendar").css("width", e + "px");
@@ -155,29 +143,23 @@
             });
             n.find("#calendar_header").css({height: e * (1 / 7) + "px"}).find('i[class^="icon-chevron"]').css("line-height", e * (1 / 7) + "px")
         }
-
         function v(e, t) {
             return (new Date(e, t, 0)).getDate()
         }
-
         function m(e, t, n) {
             return (new Date(e, t - 1, n)).getDay()
         }
-
         function g(e) {
             return y(new Date) == y(e)
         }
-
         function y(e) {
             return e.getFullYear() + "/" + (e.getMonth() + 1) + "/" + e.getDate()
         }
-
         function b() {
             var e = new Date;
             t = e.getFullYear();
             n = e.getMonth() + 1
         }
-
         var e = 480;
         var t = 2013;
         var n = 9;
@@ -211,7 +193,6 @@
             }
         })
     })
-
 </script>
 
 </body>

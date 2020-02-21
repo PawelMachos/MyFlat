@@ -26,6 +26,22 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
             integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
             crossorigin="anonymous"></script>
+
+    <style>
+        * {
+            color: #064579;
+        }
+
+        .col-6 {
+            text-align: center;
+        }
+
+        .cell-breakAll {
+            word-break: break-all;
+        }
+
+    </style>
+
 </head>
 <body style="background-color: lightgray">
 
@@ -34,7 +50,7 @@
     <sec:authorize access="isAuthenticated()">
         <div class="row" style="margin-top: 40px; margin-bottom: 10px">
             <div class="col-1"></div>
-            <div class="col-6"><h2>Adding New Task</h2></div>
+            <div class="col-6"><h2 style="color: #064579">Add new Task</h2></div>
             <div class="col-5"></div>
         </div>
 
@@ -51,10 +67,10 @@
                     <div class="form-group">
                         <label for="description">Task Description:</label>
                         <textarea name="description" id="description"
-                                  class="form-control"
-                                  placeholder="Description"></textarea>
+                                  class="form-control" maxlength="200"
+                                  placeholder="Description, max 200 characters"></textarea>
                     </div>
-                    <button class="btn btn-primary" type="submit">Add</button>
+                    <button class="btn btn-warning" type="submit">Add</button>
                     <button class="btn btn-secondary" type="reset">Clear</button>
                     <input type="hidden" name="redirectTo" value="/user-tasks"/>
                     <sec:csrfInput/>
@@ -65,7 +81,7 @@
         </div>
     </sec:authorize>
 
-    <div class="row" style="margin-top: 40px; margin-bottom: 10px">
+    <div class="row" style="margin-top: 10%; margin-bottom: 10px; text-align: center">
         <div class="col-1"></div>
         <div class="col-6"><h2>Your TODO List:</h2></div>
         <div class="col-5"></div>
@@ -80,27 +96,47 @@
                     <th>Title</th>
                     <th>Description</th>
                     <th>When</th>
+                    <th>Status</th>
                     <th>Action</th>
                 </tr>
                 <c:forEach items="${tasks}" var="task" varStatus="stat">
                     <tr>
                         <td>${stat.count}</td>
                         <td><b>${task.title}</b></td>
-                        <td>${task.description}</td>
+                        <td class="cell-breakAll">${task.description}</td>
                         <td>${task.createdAt}</td>
+                        <td>${task.active}</td>
                         <td>
+                            <c:if test="${task.active==true}">
+
                             <div class="btn-group">
-                                <form class="form-inline" method="post" action="/delete-task">
-                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                <form class="form-inline" method="get" action="/checked-task">
+                                    <button type="submit" class="btn btn-success">&nbsp;Done&nbsp;</button>
                                     <input type="hidden" name="taskId" value="${task.id}"/>
                                     <sec:csrfInput/>
                                 </form>
                                 <form class="form-inline" style="margin-left: 1em" method="get" action="/edit-task">
-                                    <button type="submit" class="btn btn-primary">Edit</button>
+                                    <button type="submit" class="btn btn-primary">&nbsp;&nbsp;Edit&nbsp;&nbsp;</button>
+                                    <input type="hidden" name="taskId" value="${task.id}"/>
+                                    <sec:csrfInput/>
+                                </form>
+                                <form class="form-inline" style="margin-left: 1em" method="post" action="/delete-task">
+                                    <button type="submit" class="btn btn-danger" onclick="confirmDelete()">Delete
+                                    </button>
                                     <input type="hidden" name="taskId" value="${task.id}"/>
                                     <sec:csrfInput/>
                                 </form>
                             </div>
+                            </c:if>
+                            <c:if test="${task.active!=true}">
+                                    <form class="form-inline" style="margin-left: 11em" method="post" action="/delete-task">
+                                        <button type="submit" class="btn btn-danger" onclick="confirmDelete()">Delete
+                                        </button>
+                                        <input type="hidden" name="taskId" value="${task.id}"/>
+                                        <sec:csrfInput/>
+                                    </form>
+                                </div>
+                            </c:if>
                         </td>
                     </tr>
                 </c:forEach>
@@ -108,7 +144,13 @@
 
         </div>
     </div>
-
 </div>
+
+<script>
+    function confirmDelete() {
+        alert("Are You sure, You want to delete this task?");
+    }
+</script>
+
 </body>
 </html>

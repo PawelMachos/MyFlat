@@ -9,45 +9,29 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import pl.com.app.myflat.dto.TaskDTO;
 import pl.com.app.myflat.model.entities.Task;
-import pl.com.app.myflat.model.entities.User;
 import pl.com.app.myflat.model.repositories.TaskRepository;
-import pl.com.app.myflat.model.repositories.UserRepository;
+import pl.com.app.myflat.service.TaskService;
 
 import java.security.Principal;
-import java.time.LocalDateTime;
 import java.util.Optional;
 
 @Controller
 @Slf4j
 public class TaskController {
 
-    private final UserRepository userRepository;
     private final TaskRepository taskRepository;
+    private final TaskService taskService;
 
     @Autowired
-    public TaskController(UserRepository userRepository, TaskRepository taskRepository) {
-        this.userRepository = userRepository;
+    public TaskController(TaskRepository taskRepository, TaskService taskService) {
         this.taskRepository = taskRepository;
+        this.taskService = taskService;
     }
 
     @PostMapping("/add-task")
-    public String processAddAdvert(String title, String description, Principal principal, @RequestParam(defaultValue = "/") String redirectTo) {
-        String username = principal.getName();
-        log.debug("Dodawanie ogłoszenia dla zalogowanego użytkownika: {}", username);
+    public String processAddAdvert(TaskDTO taskDTO, Principal principal, @RequestParam(defaultValue = "/") String redirectTo) {
 
-        User user = userRepository.findByUsername(username);
-        log.debug("Zalogowany użytkownik: {}", user);
-
-        Task task = new Task();
-        task.setTitle(title);
-        task.setDescription(description);
-        task.setOwner(user);
-        task.setCreatedAt(LocalDateTime.now());
-
-        log.debug("Ogłoszenie do dodania: {}", task);
-        taskRepository.save(task);
-        log.debug("Zapisane ogłoszenie: {}", task);
-
+        taskService.saveTask(taskDTO, principal);
 
         return "redirect:" + redirectTo;
     }
@@ -64,7 +48,7 @@ public class TaskController {
     }
 
     @GetMapping("/edit-task")
-    public String prepageEditAdvert(Long taskId, Principal principal, Model model) {
+    public String prepareEditTask(Long taskId, Principal principal, Model model) {
         String username = principal.getName();
         Optional<Task> optionalTask = taskRepository.findByIdAndOwnerUsername(taskId, username);
         if (optionalTask.isPresent()) {
@@ -77,17 +61,47 @@ public class TaskController {
     }
 
     @PostMapping("/edit-task")
-    public String processEditAdvert(Long id, String title, String description, Principal principal) {
+    public String processEditTask(Long id, TaskDTO taskDTO, Principal principal) {
         String username = principal.getName();
         log.debug("Edycja ogłoszenia o id {} dla użytkownika {}", id, username);
 
         Optional<Task> optionalTask = taskRepository.findByIdAndOwnerUsername(id, username);
         optionalTask.ifPresent(task -> {
-            task.setTitle(title);
-            task.setDescription(description);
+            task.setTitle(taskDTO.getTitle());
+            task.setDescription(taskDTO.getDescription());
             taskRepository.save(task);
         });
 
         return "redirect:/user-tasks";
     }
+
+    @GetMapping("/checked-task")
+    public String prepareCheckedTask(Long taskId, Principal principal, Model model) {
+        String username = principal.getName();
+        Optional<Task> optionalTask = taskRepository.findByIdAndOwnerUsername(taskId, username);
+        if (optionalTask.isPresent()) {
+            model.addAttribute("task", optionalTask.get());
+            return "organizer-checked";
+        }
+        else {
+            return "redirect:/user-tasks";
+        }
+    }
+
+
+    @PostMapping("/checked-task")
+    public String processCheckedTask(Long id,Principal principal) {
+        String username = principal.getName();
+        log.debug("Edycja ogłoszenia o id {} dla użytkownika {}", id, username);
+
+        Optional<Task> optionalTask = taskRepository.findByIdAndOwnerUsername(id, username);
+        optionalTask.ifPresent(task -> {
+            task.setActive(false);
+            taskRepository.save(task);
+        });
+
+        return "redirect:/user-tasks";
+    }
+
+
 }

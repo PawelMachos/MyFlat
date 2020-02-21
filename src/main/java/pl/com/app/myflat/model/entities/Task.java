@@ -3,6 +3,7 @@ package pl.com.app.myflat.model.entities;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
@@ -19,6 +20,9 @@ public class Task extends EntityBase{
 
     @Column(columnDefinition = "TEXT")
     private String description;
+
+    private Boolean active;
+    private String status;
 
     @ManyToOne
     @JoinColumn(name = "owner_id")

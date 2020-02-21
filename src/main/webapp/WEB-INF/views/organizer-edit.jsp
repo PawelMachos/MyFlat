@@ -19,9 +19,9 @@
         * {box-sizing: border-box;}
         ul {list-style-type: none;}
         body {font-family: Verdana, sans-serif;
-        background-color: lightgray}
+            background-color: lightgray}
         h1 {font-family: Verdana, sans-serif;
-        color: #064579;
+            color: #064579;
             text-align: center;
         }
         #main
@@ -29,21 +29,24 @@
             width: 100%;
             height: auto;
         }
-
         #todo
         {
             float:left;
-            margin-left: auto;
+            margin-top: 3%;
+            margin-left: 3%;
             margin-right: auto;
-
-            width:53%;
+            width:60%;
+            border-style: solid;
+            border-color: darkred;
         }
         #cal
         {
             float:left;
-            margin-left: 20px;
+            margin-left: 5%;
             margin-right: auto;
-            width:30%;
+            width:20%;
+            border-style: solid;
+            border-color: darkred;
         }
         #some
         {
@@ -51,7 +54,6 @@
             width: 100%;
             background-color: lightcoral;
         }
-
     </style>
 </head>
 <body>
