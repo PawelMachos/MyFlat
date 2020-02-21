@@ -24,7 +24,7 @@ public class UserAdvertController  {
 
     @GetMapping
     public String showAdverts(){ return "adverts-page";}
-    
+
     }
 
 
