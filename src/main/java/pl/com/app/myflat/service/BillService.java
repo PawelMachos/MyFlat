@@ -69,7 +69,7 @@ public class BillService {
         return percentageMap;
     }
 
-    public Map<Date,Double> findInvoicesForEnergy(Long id, Category category){
+    public List<BillDTO> getInvoicesByCategory(Long id, Category category){
 
         List<BillDTO> bills = userRepository.findAllBillsToPayForUser(id)
                 .stream()
@@ -84,11 +84,7 @@ public class BillService {
                 })
                 .filter(billDTO -> billDTO.getCategory()==category).collect(Collectors.toList());
 
-        Map<Date,Double> output = new HashMap<>();
-        for(BillDTO b: bills){
-            output.put(b.getInvoiceDate(),b.getGrossAmount());
-        }
-        return output;
+        return bills;
     }
 
 }

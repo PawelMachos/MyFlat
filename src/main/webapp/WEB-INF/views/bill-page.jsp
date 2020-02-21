@@ -175,7 +175,42 @@
 
         }
     </script>
+    <script>
+        window.onload = function () {
 
+            var chart = new CanvasJS.Chart("lineChart", {
+                theme: "light2", // "light1", "light2", "dark1", "dark2"
+                animationEnabled: true,
+                title:{
+                    text: "Trend of your costs"
+                },
+                axisX: {
+                    interval: 1,
+                    intervalType: "month",
+                    valueFormatString: "MMM"
+                },
+                axisY:{
+                    title: "Price (in PLN)",
+                    valueFormatString: "$#0"
+                },
+                data: [{
+                    type: "line",
+                    markerSize: 12,
+                    xValueFormatString: "MMM, YYYY",
+                    yValueFormatString: "pln###.#",
+                    dataPoints: [
+            <c:forEach items="${statistics}" var="stat">
+                { x: new Date(${stat.invoiceDate.year}, ${stat.invoiceDate.month}, ${stat.invoiceDate.day}) , y: ${stat.grossAmount}, indexLabel: "gain", markerType: "triangle",  markerColor: "#6B8E23" },
+                        </c:forEach>
+
+
+        ]
+        }]
+        });
+            chart.render();
+
+        }
+    </script>
 </head>
 <body>
 <div id="container">
@@ -219,7 +254,9 @@
     </div>
     <div id="rightbar">
         <div id="topbar">
-            <div id="pieChart"><script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script></div>
+            <div id="pieChart">
+                <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+            </div>
             <div id="menu">
                 <fieldset style="margin:15px; height:45%;">
                     <legend style="text-align:center">THE TOTAL AMOUNT TO PAY:</legend>
@@ -234,7 +271,9 @@
                 <div class="button"><a href="/bills/water" classs="media">Water</a></div>
                 <div class="button"><a href="/bills/heating" classs="media">Heating</a></div>
             </div>
-            <div id="lineChart"></div>
+            <div id="lineChart">
+                <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+            </div>
         </div>
 
     </div>
