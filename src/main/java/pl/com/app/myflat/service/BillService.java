@@ -9,10 +9,13 @@ import pl.com.app.myflat.model.enums.Category;
 import pl.com.app.myflat.model.repositories.BillRepository;
 import pl.com.app.myflat.model.repositories.UserRepository;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+
+
 
 @Service
 public class BillService {
@@ -48,6 +51,7 @@ public class BillService {
                     return billDTO;
                 })
                 .filter(billDTO-> billDTO.getActive()==true).collect(Collectors.toList());
+
         Map<Category,Double> billsByCategory = new HashMap<>();
         for(BillDTO b : bills){
             billsByCategory.put(b.getCategory(),b.getGrossAmount());
@@ -63,6 +67,28 @@ public class BillService {
             percentageMap.put(e.getKey(),(e.getValue()*100)/sum);
         }
         return percentageMap;
+    }
+
+    public Map<Date,Double> findInvoicesForEnergy(Long id, Category category){
+
+        List<BillDTO> bills = userRepository.findAllBillsToPayForUser(id)
+                .stream()
+                .map(bill->{
+                    BillDTO billDTO = new BillDTO();
+                    billDTO.setActive(bill.getActive());
+                    billDTO.setCategory(bill.getCategory());
+                    billDTO.setGrossAmount(bill.getGrossAmount());
+                    billDTO.setInvoiceDate(bill.getInvoiceDate());
+                    billDTO.setInvoiceNumber(bill.getInvoiceNumber());
+                    return billDTO;
+                })
+                .filter(billDTO -> billDTO.getCategory()==category).collect(Collectors.toList());
+
+        Map<Date,Double> output = new HashMap<>();
+        for(BillDTO b: bills){
+            output.put(b.getInvoiceDate(),b.getGrossAmount());
+        }
+        return output;
     }
 
 }

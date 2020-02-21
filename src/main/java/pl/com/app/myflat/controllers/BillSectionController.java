@@ -29,4 +29,21 @@ public class BillSectionController {
             model.addAttribute("percentage",billService.percentageOfGeneratedCosts(user.getId()));
         return  "bill-page";
     }
+    @GetMapping("/energy")
+    public String getEnergyStat(Model model, Principal principal){
+
+        return "redirect:/bills";
+    }
+
+    @GetMapping("/water")
+    public String getWaterStat(Model model, Principal principal){
+
+        return "redirect:/bills";
+    }
+
+    @GetMapping("/heating")
+    public String getHeatingStat(Model model, Principal principal){
+
+        return "redirect:/bills";
+    }
 }

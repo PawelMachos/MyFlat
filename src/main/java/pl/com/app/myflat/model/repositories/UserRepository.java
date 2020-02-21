@@ -4,6 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import pl.com.app.myflat.model.entities.Bill;
 import pl.com.app.myflat.model.entities.User;
+import pl.com.app.myflat.model.enums.Category;
 
 import java.util.List;
 

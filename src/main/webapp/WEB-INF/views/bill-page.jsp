@@ -124,10 +124,26 @@
             float:right;
         }
         .button{
+            padding-top: 7px;
+            background-color: #3095d3;
             border: 1px solid black;
             margin:10px;
             height:25%;
+            text-align: center;
         }
+        .button:hover{
+            background-color: #2084c2;
+        }
+        a.media{
+
+            text-decoration: none;
+            display: block;
+            width: 100%;
+            height: 100%;
+            cursor:pointer;
+            text-decoration: none;
+        }
+
     </style>
     <script>
         window.onload = function() {
@@ -214,9 +230,9 @@
         </div>
         <div id="stat">
             <div id="slicer">
-                <div class="button"></div>
-                <div class="button"></div>
-                <div class="button"></div>
+                <div class="button"><a href="/bills/energy" classs="media">Energy</a></div>
+                <div class="button"><a href="/bills/water" classs="media">Water</a></div>
+                <div class="button"><a href="/bills/heating" classs="media">Heating</a></div>
             </div>
             <div id="lineChart"></div>
         </div>
