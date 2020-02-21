@@ -171,14 +171,7 @@
                     ]
                 }]
             });
-            chart.render();
-
-        }
-    </script>
-    <script>
-        window.onload = function () {
-
-            var chart = new CanvasJS.Chart("lineChart", {
+            var chart2 = new CanvasJS.Chart("lineChart", {
                 theme: "light2", // "light1", "light2", "dark1", "dark2"
                 animationEnabled: true,
                 title:{
@@ -191,7 +184,7 @@
                 },
                 axisY:{
                     title: "Price (in PLN)",
-                    valueFormatString: "$#0"
+                    valueFormatString: "pln#0"
                 },
                 data: [{
                     type: "line",
@@ -199,18 +192,20 @@
                     xValueFormatString: "MMM, YYYY",
                     yValueFormatString: "pln###.#",
                     dataPoints: [
-            <c:forEach items="${statistics}" var="stat">
-                { x: new Date(${stat.invoiceDate.year}, ${stat.invoiceDate.month}, ${stat.invoiceDate.day}) , y: ${stat.grossAmount}, indexLabel: "gain", markerType: "triangle",  markerColor: "#6B8E23" },
+                        <c:forEach items="${statistics}" var="stat">
+                        { x: new Date(${stat.invoiceDate.year}, ${stat.invoiceDate.month}, ${stat.invoiceDate.day}) , y: ${stat.grossAmount}, markerType: "triangle",  markerColor: "#6B8E23" },
                         </c:forEach>
 
 
-        ]
-        }]
-        });
+                    ]
+                }]
+            });
             chart.render();
+            chart2.render();
 
         }
     </script>
+
 </head>
 <body>
 <div id="container">
@@ -272,7 +267,7 @@
                 <div class="button"><a href="/bills/heating" classs="media">Heating</a></div>
             </div>
             <div id="lineChart">
-                <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<%--                <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>--%>
             </div>
         </div>
 
