@@ -1,9 +1,19 @@
 package pl.com.app.myflat.model.entities;
 
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Date;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @MappedSuperclass
 public class EntityBase  {
 
@@ -13,42 +23,11 @@ public class EntityBase  {
     private Long id;
 
     @Column(name = "created_at", updatable = false)
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date createdAt;
+    private LocalDateTime createdAt;
 
     @Column(name = "updated_at")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date updatedAt;
+    private LocalDateTime updatedAt;
 
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Date getCreatedAt() {
-        return createdAt;
-    }
-
-    public Date getUpdatedAt() {
-        return updatedAt;
-    }
-
-    @PreUpdate
-    protected void preUpdate() {
-        this.updatedAt = new Date();
-    }
-
-    @PrePersist
-    protected void prePersist() {
-        this.createdAt = new Date();
-    }
 
 }
 

@@ -31,7 +31,6 @@ public class UserService {
             user.setActive(true);
             user.setRole("USER");
             userRepository.save(user);
-
     }
 
 }

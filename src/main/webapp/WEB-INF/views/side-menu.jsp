@@ -54,7 +54,7 @@
     <a href="#">Bills</a>
     <a href="#">Messages</a>
     <a href="#">Adverts</a>
-    <a href="#">Organizer</a>
+    <a href="/user-tasks">Organizer</a>
 </div>
 
 
