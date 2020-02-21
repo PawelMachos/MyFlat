@@ -42,7 +42,7 @@
         <div class="col-8">
 
             <sec:authorize access="isAuthenticated()">
-                <form method="post" action="/add-advert">
+                <form method="post" action="/adverts">
                     <div class="form-group">
                     <label for="title">Tytuł:</label> <br>
                 <input type="text" required name="title" id="title">

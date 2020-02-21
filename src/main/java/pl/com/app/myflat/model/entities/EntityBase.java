@@ -2,6 +2,7 @@ package pl.com.app.myflat.model.entities;
 
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @MappedSuperclass
@@ -20,7 +21,7 @@ public class EntityBase  {
     @Temporal(TemporalType.TIMESTAMP)
     private Date updatedAt;
 
-    public void setCreatedAt(Date createdAt) {
+    public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
     }
 
