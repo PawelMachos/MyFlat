@@ -22,6 +22,7 @@
     <c:set var="energy" value="<%=Category.ENERGY%>" />
     <title>Bill section</title>
     <link href="/static/css/bill.css" type="text/css" rel="stylesheet">
+    <link href="../../static/css/style.css" type="text/css" rel="stylesheet">
 
     <script>
         window.onload = function() {
@@ -86,7 +87,15 @@
 
 </head>
 <body>
-<div id="container">
+<section id="container">
+    <header class="header black-bg">
+        <jsp:include page="header.jsp"/>
+    </header>
+    <div>
+    <div id="leftSideOfWeb">
+        <jsp:include page="side-menu.jsp"/>
+    </div>
+    <div id="rightSideOfWeb" >
     <div id="leftbar">
         <div class="fundbar">
             <div class="fundname">Fundusz celowy</div>
@@ -150,6 +159,8 @@
         </div>
 
     </div>
-</div>
+    </div>
+    </div>
+</section>
 </body>
 </html>

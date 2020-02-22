@@ -6,16 +6,13 @@
     <link href="../../static/css/style.css" type="text/css" rel="stylesheet">
 
 </head>
-<body background= "lightgrey">
+<body>
 <section id="container">
 
     <header class="header black-bg">
         <jsp:include page="header.jsp"/>
     </header>
 &nbsp;
-    <div>
-    <jsp:include page="navigation.jsp"/>
-    </div>
     &nbsp;
     <div>
     <jsp:include page="side-menu.jsp"/>
