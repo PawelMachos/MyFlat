@@ -23,15 +23,15 @@
 
 
 <div>
-    <jsp:include page="homePage/header.jsp"/>
+    <jsp:include page="header.jsp"/>
 </div>
 &nbsp;
 <div>
-    <jsp:include page="homePage/navigation.jsp"/>
+    <jsp:include page="navigation.jsp"/>
 </div>
 &nbsp;
 <div>
-    <jsp:include page="homePage/side-menu.jsp"/>
+    <jsp:include page="side-menu.jsp"/>
 </div>
 &nbsp;
 <div>
@@ -88,16 +88,21 @@
             <div>
                 <table>
                     <tr>
-                        <th></th>
-
+                        <c:forEach items="${adverts}" var="advert" varStatus="stat">
+                        <th>Użytkonwik:${advert.user.username}, Dodano:${advert.createdAt} </th><br><br>
+<%--                        ${advert.user.username}, Dodano:${advert.createdAt}<br><br>--%>
+                        ${advert.title}<br>
+                        ${advert.description}
                     </tr>
-                    <c:forEach items="${adverts}" var="advert" varStatus="stat">
+
+
+                   <%-- <c:forEach items="${adverts}" var="advert" varStatus="stat">
                         <tr>
                             <td><b>${advert.title}</b></td>
                             <td>${advert.description}</td>
                             <td>${advert.user.username}</td>
                             <td>${advert.createdAt}</td>
-                        </tr>
+                        </tr>--%>
                     </c:forEach>
                 </table>
             </div>
@@ -105,11 +110,11 @@
         </div>
     </div>
 
-    <jsp:include page="homePage/main-section.jsp"/>
+    <jsp:include page="main-section.jsp"/>
 </div>
 &nbsp;
 <div>
-    <jsp:include page="homePage/footer.jsp"/>
+    <jsp:include page="footer.jsp"/>
 </div>
 
 </body>
