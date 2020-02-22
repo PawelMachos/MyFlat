@@ -8,20 +8,18 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-<style>
-    .main {
-    object-position: right; /* Same width as the sidebar + left position in px */
-    font-size: 28px; /* Increased text to enable scrolling */
-    padding: 0px 10px;
-        border: darkcyan;
-        border-bottom-style: solid;
-        border-width: thin;
-    }
-</style>
+
+    <link href="/static/css/bill.css" type="text/css" rel="stylesheet">
+    <link href="../../static/css/style.css" type="text/css" rel="stylesheet">
+
 </head>
 <body>
 
-<div class="main">
+<div id="main-sec">
+
+
 </div>
+
+
 </body>
 </html>

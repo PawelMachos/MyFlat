@@ -402,6 +402,11 @@ ul.sidebar-menu li a.active i {
 #main-content {
     margin-left: 210px;
 }
+#main-sec {
+
+    height: 80%;
+
+}
 
 .header, .footer {
     min-height: 60px;
@@ -1688,7 +1693,7 @@ PANELS CONFIGURATIONS
 
 .project:hover .photo-wrapper {
   background-color: #4ECDC4;
-	background-image:url(../img/zoom.png);
+	/*background-image:url(../img/zoom.png);*/
 	background-repeat:no-repeat;
 	background-position:center;
 	top: 0;
@@ -1784,8 +1789,8 @@ label {
     position: relative;
     text-align: left;
     width: 80px;
-    -webkit-mask: url('../img/mask.png') 0 0 no-repeat;
-    mask: url('../img/mask.png') 0 0 no-repeat;
+    /*-webkit-mask: url('../img/mask.png') 0 0 no-repeat;*/
+    /*mask: url('../img/mask.png') 0 0 no-repeat;*/
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -1891,8 +1896,8 @@ label {
 .switch-square {
     border-radius: 6px;
     -webkit-border-radius: 6px;
-    -webkit-mask: url('../img/mask.png') 0 0 no-repeat;
-    mask: url('../img/mask.png') 0 0 no-repeat;
+    /*-webkit-mask: url('../img/mask.png') 0 0 no-repeat;*/
+    /*mask: url('../img/mask.png') 0 0 no-repeat;*/
 }
 .switch-square > div.switch-off label {
     border-color: #7f8c9a;

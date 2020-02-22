@@ -7,26 +7,30 @@
 
 </head>
 <body>
-<section id="container">
 
+<section id="container">
     <header class="header black-bg">
         <jsp:include page="header.jsp"/>
     </header>
-
     <div>
-    <jsp:include page="side-menu.jsp"/>
+        <div id="leftSideOfWeb">
+            <jsp:include page="side-menu.jsp"/>
+        </div>
+        <section id="main-content">
+            <section class="wrapper">
+
+                <div style="height:100%;"><jsp:include page="main-section.jsp"/></div>
+
+            </section>
+        </section>
     </div>
-
-    <div>
-        HomePage po zalogowaniu
-    <jsp:include page="main-section.jsp"/>
-    </div>
-
-
-
+    <footer class="site-footer">
+        <jsp:include page="footer.jsp"/>
+    </footer>
 </section>
-<footer class="site-footer">
-    <jsp:include page="footer.jsp"/>
-</footer>
+</body>
+</html>
+
+
 </body>
 </html>
