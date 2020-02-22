@@ -10,7 +10,6 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = "pl.com.app.myflat")
 public class WebConfig implements WebMvcConfigurer {
 
     @Bean

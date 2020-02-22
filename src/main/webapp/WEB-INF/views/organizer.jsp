@@ -14,6 +14,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link href="/static/css/bill.css" type="text/css" rel="stylesheet">
+    <link href="../../static/css/style.css" type="text/css" rel="stylesheet">
     <style>
         * {
             box-sizing: border-box;
@@ -69,6 +71,17 @@
 </head>
 <body>
 
+<section id="container">
+    <header class="header black-bg">
+        <jsp:include page="header.jsp"/>
+    </header>
+    <div>
+        <div id="leftSideOfWeb">
+            <jsp:include page="side-menu.jsp"/>
+        </div>
+        <section id="main-content">
+            <section class="wrapper">
+
 <h1 style="color: #064579">Let's organize your flat!</h1><br/>
 
 <div id="main">
@@ -81,6 +94,17 @@
     </div>
 
 </div>
+
+            </section>
+        </section>
+    </div>
+    <footer class="site-footer">
+        <jsp:include page="footer.jsp"/>
+    </footer>
+</section>
+</body>
+</html>
+
 
 </body>
 </html>
