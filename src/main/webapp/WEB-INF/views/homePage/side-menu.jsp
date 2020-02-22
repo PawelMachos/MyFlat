@@ -49,7 +49,7 @@
 <div class="side-menu">
     <a href="home-page.jsp">Homepage</a>
     <a href="#">Bills</a>
-    <a href="#">Messages</a>
+    <a href="messages.jsp">Messages</a>
     <a href="#">Organizer</a>
 </div>
 

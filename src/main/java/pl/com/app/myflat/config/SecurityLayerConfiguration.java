@@ -45,12 +45,12 @@ public class SecurityLayerConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/register").permitAll()
                 .antMatchers("/login").anonymous()
                 .antMatchers("/logout").authenticated()
+                .antMatchers("/messages").authenticated()
                 .antMatchers("/user", "/user/**").hasRole("USER")
                 .antMatchers("/admin", "/admin/**").hasRole("ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
-<<<<<<< HEAD
                 .loginPage("/login")
                 .defaultSuccessUrl("/")
                 .and()
@@ -58,16 +58,5 @@ public class SecurityLayerConfiguration extends WebSecurityConfigurerAdapter {
                 .logoutSuccessUrl("/")
                 .and()
                 .csrf().disable();
-=======
-
-                .defaultSuccessUrl("/home-page")
-                .and()
-                .logout()
-                .logoutSuccessUrl("/login")
-                .and()
-                .csrf().disable();
-
-
->>>>>>> b3db494bf02443ba8f33882fd3638d6dbfccf3e7
     }
 }
