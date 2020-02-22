@@ -6,21 +6,22 @@
     <link href="../../static/css/style.css" type="text/css" rel="stylesheet">
 
 </head>
-<body background= "lightgrey">
+<body>
 <section id="container">
 
     <header class="header black-bg">
         <jsp:include page="header.jsp"/>
     </header>
+
     <div>
     <jsp:include page="side-menu.jsp"/>
     </div>
-    &nbsp;
+
     <div>
         HomePage po zalogowaniu
     <jsp:include page="main-section.jsp"/>
     </div>
-    &nbsp;
+
 
 
 </section>
