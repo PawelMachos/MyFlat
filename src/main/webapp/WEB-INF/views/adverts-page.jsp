@@ -82,27 +82,30 @@
     <div class="row">
         <div class="col-12" style="padding-bottom: 20px">
 
+            <div class="wyszukiwarka">
             Szukaj ogłoszenia: <input type="search" name="search">
             <input type="submit" value="Szukaj">
-
+                <div>
+                    
             <div>
-                <table>
-                    <tr>
-                        <c:forEach items="${adverts}" var="advert" varStatus="stat">
-                        <th>Użytkonwik:${advert.user.username}, Dodano:${advert.createdAt} </th><br><br>
-<%--                        ${advert.user.username}, Dodano:${advert.createdAt}<br><br>--%>
-                        ${advert.title}<br>
-                        ${advert.description}
+                <table >
+                    <c:forEach items="${adverts}" var="advert" varStatus="stat">
+                    <td><br></td>
+
+                        <tr>
+                            <th>${advert.title}</th>
+                        </tr>
+
+                        <tr>
+                        <td>${advert.user.username}, dodano: ${advert.createdAt}</td>
+                        </tr>
+
+                        <tr>
+                       <td>
+                        ${advert.description}</td>
                     </tr>
 
 
-                   <%-- <c:forEach items="${adverts}" var="advert" varStatus="stat">
-                        <tr>
-                            <td><b>${advert.title}</b></td>
-                            <td>${advert.description}</td>
-                            <td>${advert.user.username}</td>
-                            <td>${advert.createdAt}</td>
-                        </tr>--%>
                     </c:forEach>
                 </table>
             </div>
