@@ -23,15 +23,15 @@
 
 
 <div>
-    <jsp:include page="homePage/header.jsp"/>
+    <jsp:include page="header.jsp"/>
 </div>
 &nbsp;
 <div>
-    <jsp:include page="homePage/navigation.jsp"/>
+    <jsp:include page="navigation.jsp"/>
 </div>
 &nbsp;
 <div>
-    <jsp:include page="homePage/side-menu.jsp"/>
+    <jsp:include page="side-menu.jsp"/>
 </div>
 &nbsp;
 <div>
@@ -105,11 +105,11 @@
         </div>
     </div>
 
-    <jsp:include page="homePage/main-section.jsp"/>
+    <jsp:include page="main-section.jsp"/>
 </div>
 &nbsp;
 <div>
-    <jsp:include page="homePage/footer.jsp"/>
+    <jsp:include page="footer.jsp"/>
 </div>
 
 </body>
