@@ -18,15 +18,14 @@
     </div>
 
     <div>
-        HomePage po zalogowaniu
     <jsp:include page="main-section.jsp"/>
     </div>
 
-
+    <footer class="site-footer">
+        <jsp:include page="footer.jsp"/>
+    </footer>
 
 </section>
-<footer class="site-footer">
-    <jsp:include page="footer.jsp"/>
-</footer>
+
 </body>
 </html>

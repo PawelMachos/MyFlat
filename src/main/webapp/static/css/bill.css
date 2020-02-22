@@ -4,11 +4,11 @@
 body{
     background-color:darkgrey;
 }
-#container{
-    border: 3px solid black;
-    height: 400px;
-    width: 100%
-}
+/*#container{*/
+/*    border: 3px solid black;*/
+/*    height: 400px;*/
+/*    width: 100%*/
+/*}*/
 #leftbar{
     border: 1px solid black;
     height: 100%;
