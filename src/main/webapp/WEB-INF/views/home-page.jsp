@@ -12,11 +12,6 @@
     <header class="header black-bg">
         <jsp:include page="header.jsp"/>
     </header>
-&nbsp;
-    <div>
-    <jsp:include page="navigation.jsp"/>
-    </div>
-    &nbsp;
     <div>
     <jsp:include page="side-menu.jsp"/>
     </div>
@@ -26,10 +21,11 @@
     <jsp:include page="main-section.jsp"/>
     </div>
     &nbsp;
-    <div>
-    <jsp:include page="footer.jsp"/>
-    </div>
+
 
 </section>
+<footer class="site-footer">
+    <jsp:include page="footer.jsp"/>
+</footer>
 </body>
 </html>
