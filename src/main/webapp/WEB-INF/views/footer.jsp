@@ -8,13 +8,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <style>
-        div.site-footer {max-height: 10px}
-    </style>
+    
 </head>
 <body>
 
-<footer class="site-footer" max-height: style="height: 10px">
+<footer class="site-footer">
     <div class="text-center">
             &copy; Copyrights <strong>Fantastic Four</strong>. All Rights Reserved
         <div class="credits">

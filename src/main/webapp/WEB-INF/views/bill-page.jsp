@@ -168,9 +168,11 @@
                         </section>
         </section>
     </div>
-    <footer class="site-footer">
-        <jsp:include page="footer.jsp"/>
-    </footer>
 </section>
+
+<footer class="site-footer">
+    <jsp:include page="footer.jsp"/>
+</footer>
+
 </body>
 </html>
