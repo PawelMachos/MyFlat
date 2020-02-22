@@ -8,31 +8,71 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <script type="text/javascript" src="http://java.com/js/dtjava.js"></script>
-    <script>
-        function deployIt() {
-            dtjava.embed(
-                {         id: "clientGui",
-                    url: "Fish.jnlp",
-                    width: 1000,
-                    height: 800,
-                    placeholder: "place"
-                },
-                { javafx: "2.1+" },
-                {}
-            );
+    <style>
+        * {
+            box-sizing: border-box;
+            color: #064579
         }
-        dtjava.addOnloadCallback(deployIt);
-    </script>
-</head>
-<body>
-<%--<body>--%>
-<%--<div >--%>
-<%--    <APPLET CODE="ClientGui.class" WIDTH="1000" HEIGHT="800"></APPLET>--%>
-<%--</div>--%>
-<%--</body>--%>
 
-    <div id="place"></div>
-    </body>
+        ul {
+            list-style-type: none;
+        }
+
+        body {
+            font-family: Verdana, sans-serif;
+            background-color: lightgray
+        }
+
+        h1 {
+            font-family: Verdana, sans-serif;
+            color: coral;
+            text-align: center;
+        }
+
+        #main {
+            width: 100%;
+            height: auto;
+        }
+
+        #todo
+        {
+            float:left;
+            margin-top: 3%;
+            margin-left: 3%;
+            margin-right: auto;
+            width:60%;
+            border-style: solid;
+            border-color: darkred;
+        }
+        #cal
+        {
+            float:left;
+            margin-left: 5%;
+            margin-right: auto;
+            width:32%;
+            border-style: solid;
+            border-color: darkred;
+        }
+
+        #some {
+            clear: both;
+            width: 100%;
+            background-color: lightcoral;
+        }
+    </style>
+    <title>Messages</title></head>
+<body>
+<div >
+<%--    <object width="1000" height="800" classid="clsid:8AD9C840-044E-11D1-B3E9-00805F499D93"--%>
+<%--            codebase="http://java.sun.com/products/plugin/autodl/jinstall-1_4-windows-i586.cab#Version=1,4,0,0">--%>
+<%--        <param name="class" value="ClientGui.class"/>--%>
+<%--        <param name="alt" value="Aby otworzyć komunikator, pobierz najnowsze oprogramowanie Java."/>--%>
+<%--    </object>--%>
+
+<%--    <object width="1000" height="800" class="placeholder" code="ClientGui.class">Komunikator</object>--%>
+<%--    <div id="place"></div>--%>
+
+</div>
+</body>
 
 </html>

@@ -1,6 +1,6 @@
 package pl.com.app.myflat.messenger;
 
-import java.applet.Applet;
+import java.applet.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
