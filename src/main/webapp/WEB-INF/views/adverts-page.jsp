@@ -85,7 +85,8 @@
                     <c:forEach items="${adverts}" var="advert" varStatus="stat">
                     <td><br></td>
                         <tr>
-                            <td>${advert.user.username}, dodano: ${advert.createdAt.format(DateTimeFormatter.ISO_DATE_TIME)}</td>
+                            <td>${advert.user.username}, dodano: ${advert.createdAt.format(DateTimeFormatter
+                            .ofPattern("dd/MM/yyyy  hh:mm a"))}</td>
                         </tr>
 
                     <tr>
