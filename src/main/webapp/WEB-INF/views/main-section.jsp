@@ -8,16 +8,16 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-<style>
-    .main {
-    object-position: right; /* Same width as the sidebar + left position in px */
-    font-size: 28px; /* Increased text to enable scrolling */
-    padding: 0px 10px;
-        border: darkcyan;
-        border-bottom-style: solid;
-        border-width: thin;
-    }
-</style>
+    <style>
+        .main {
+            object-position: right; /* Same width as the sidebar + left position in px */
+            font-size: 28px; /* Increased text to enable scrolling */
+            padding: 0px 10px;
+            border: darkcyan;
+            border-bottom-style: solid;
+            border-width: thin;
+        }
+    </style>
 </head>
 <body>
 

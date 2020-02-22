@@ -101,71 +101,70 @@
             <jsp:include page="side-menu.jsp"/>
         </div>
         <section id="main-content">
-                        <section class="wrapper">
-            <div id="leftbar">
-                <div class="fundbar">
-                    <div class="fundname">Fundusz celowy</div>
-                    <div class="fundvalue">${bills.get(embarkedFund)} pln</div>
-                </div>
-                <div class="fundbar">
-                    <div class="fundname">Fundusz remontowy</div>
-                    <div class="fundvalue">${bills.get(repairFund)} pln</div>
-                </div>
-                <div class="fundbar">
-                    <div class="fundname">CO i CW - Opłata stała</div>
-                    <div class="fundvalue">${bills.get(coAndCW)} pln</div>
-                </div>
-                <div class="fundbar">
-                    <div class="fundname">Koszty zarządu</div>
-                    <div class="fundvalue">${bills.get(managementCosts)} pln</div>
-                </div>
-                <div class="fundbar">
-                    <div class="fundname">Centralne ogrzewanie</div>
-                    <div class="fundvalue">${bills.get(centralHeating)} pln</div>
-                </div>
-                <div class="fundbar">
-                    <div class="fundname">Wywóz nieczystości</div>
-                    <div class="fundvalue">${bills.get(wasteDisposal)} pln</div>
-                </div>
-                <div class="fundbar">
-                    <div class="fundname">Podgrzanie wody</div>
-                    <div class="fundvalue">${bills.get(waterHeating)} pln</div>
-                </div>
-                <div class="fundbar">
-                    <div class="fundname">Zimna woda i ścieki</div>
-                    <div class="fundvalue">${bills.get(coldWater)} pln</div>
-                </div>
-                <div class="fundbar">
-                    <div class="fundname">Prąd</div>
-                    <div class="fundvalue">${bills.get(energy)} pln</div>
-                </div>
-            </div>
-            <div id="rightbar">
-                <div id="topbar">
-                    <div id="pieChart">
-                        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+            <section class="wrapper">
+                <div id="leftbar">
+                    <div class="fundbar">
+                        <div class="fundname">Fundusz celowy</div>
+                        <div class="fundvalue">${bills.get(embarkedFund)} pln</div>
                     </div>
-                    <div id="menu">
-                        <fieldset style="margin:15px; height:45%;">
-                            <legend style="text-align:center">THE TOTAL AMOUNT TO PAY:</legend>
-                            <div id="sum"> ${billsToPay} pln</div>
-                        </fieldset>
-                        <button id="pay" type="submit">Pay</button>
+                    <div class="fundbar">
+                        <div class="fundname">Fundusz remontowy</div>
+                        <div class="fundvalue">${bills.get(repairFund)} pln</div>
+                    </div>
+                    <div class="fundbar">
+                        <div class="fundname">CO i CW - Opłata stała</div>
+                        <div class="fundvalue">${bills.get(coAndCW)} pln</div>
+                    </div>
+                    <div class="fundbar">
+                        <div class="fundname">Koszty zarządu</div>
+                        <div class="fundvalue">${bills.get(managementCosts)} pln</div>
+                    </div>
+                    <div class="fundbar">
+                        <div class="fundname">Centralne ogrzewanie</div>
+                        <div class="fundvalue">${bills.get(centralHeating)} pln</div>
+                    </div>
+                    <div class="fundbar">
+                        <div class="fundname">Wywóz nieczystości</div>
+                        <div class="fundvalue">${bills.get(wasteDisposal)} pln</div>
+                    </div>
+                    <div class="fundbar">
+                        <div class="fundname">Podgrzanie wody</div>
+                        <div class="fundvalue">${bills.get(waterHeating)} pln</div>
+                    </div>
+                    <div class="fundbar">
+                        <div class="fundname">Zimna woda i ścieki</div>
+                        <div class="fundvalue">${bills.get(coldWater)} pln</div>
+                    </div>
+                    <div class="fundbar">
+                        <div class="fundname">Prąd</div>
+                        <div class="fundvalue">${bills.get(energy)} pln</div>
                     </div>
                 </div>
-                <div id="stat">
-                    <div id="slicer">
-                        <div class="button"><a href="/bills/energy" classs="media">Energy</a></div>
-                        <div class="button"><a href="/bills/water" classs="media">Water</a></div>
-                        <div class="button"><a href="/bills/heating" classs="media">Heating</a></div>
+                <div id="rightbar">
+                    <div id="topbar">
+                        <div id="pieChart">
+                            <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+                        </div>
+                        <div id="menu">
+                            <fieldset style="margin:15px; height:45%;">
+                                <legend style="text-align:center">THE TOTAL AMOUNT TO PAY:</legend>
+                                <div id="sum"> ${billsToPay} pln</div>
+                            </fieldset>
+                            <button id="pay" type="submit">Pay</button>
+                        </div>
                     </div>
-                    <div id="lineChart">
-                        <%--                <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>--%>
+                    <div id="stat">
+                        <div id="slicer">
+                            <div class="button"><a href="/bills/energy" classs="media">Energy</a></div>
+                            <div class="button"><a href="/bills/water" classs="media">Water</a></div>
+                            <div class="button"><a href="/bills/heating" classs="media">Heating</a></div>
+                        </div>
+                        <div id="lineChart">
+                            <%--                <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>--%>
+                        </div>
                     </div>
                 </div>
-
-            </div>
-                        </section>
+            </section>
         </section>
     </div>
     <footer class="site-footer">
