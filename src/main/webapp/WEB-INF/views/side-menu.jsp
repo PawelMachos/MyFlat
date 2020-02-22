@@ -15,14 +15,17 @@
         }
 
         .side-menu {
-            width: 130px;
-            position: fixed;
+            width: 200px;
+           object-position: left ;
             z-index: 1;
             top: 20px;
             left: 10px;
             background: #eee;
             overflow-x: hidden;
             padding: 8px 0;
+            border: darkcyan;
+            border-bottom-style: solid;
+            border-width: thin;
         }
 
         .side-menu a {
@@ -51,6 +54,9 @@
     <a href="#">Bills</a>
     <a href="messages.jsp">Messages</a>
     <a href="#">Organizer</a>
+    <a href="#">Messages</a>
+    <a href="#">Adverts</a>
+    <a href="/user-tasks">Organizer</a>
 </div>
 
 

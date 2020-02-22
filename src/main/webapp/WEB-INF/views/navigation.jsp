@@ -8,11 +8,23 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Navigation-bar</title>
+    <style>
+    .navigation-bar {
+    width: fit-content;
+    position: center;
+    background: #eee;
+    overflow-x: hidden;
+    padding: 8px 0;
+        margin: auto;
+        border: darkcyan;
+        border-bottom-style: solid;
+        border-width: thin;
+    }
+    </style>
 </head>
 <body>
 <div class="navigation-bar">
-    <a href="/login-page.jsp">Logout</a>
+    <a href="/logout">Logout</a>
     <a href="#">MyAccount</a>
 </div>
 </body>

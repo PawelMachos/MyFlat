@@ -1,6 +1,7 @@
 package pl.com.app.myflat.model.entities;
 
 import jdk.nashorn.internal.objects.annotations.Constructor;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -11,33 +12,29 @@ import java.util.Date;
 @Entity
 @Getter
 @Setter
-@ToString
+@ToString(exclude = {"user"})
+@EqualsAndHashCode(of="id")
 @Table(name="bills")
 public class Bill extends EntityBase {
 
-    public Bill() {
-    }
 
-    @Column
+    @Column(nullable = false)
     private String category;
-    @Column
+    @Column(nullable = false)
     private String invoiceNumber;
-    @Column
+    @Column(nullable = false)
     private Date invoiceDate;
-    @Column
+    @Column(nullable = false)
     private Integer netto;
-    @Column
+    @Column(nullable = false)
     private Integer vat;
     @Column(nullable = false)
     private Integer brutto;
     @Column(nullable = false)
     private String company;
-    @Column
+    @Column(nullable = false)
     private Boolean active = true;
-
     @ManyToOne
     @JoinColumn(name="user_id", nullable = false)
     private User user;
-
-
 }

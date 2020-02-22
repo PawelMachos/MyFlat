@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Entity
 @Getter
 @Setter
-@ToString
+@ToString(exclude = "user")
 @EqualsAndHashCode
 @Table(name = "messages")
 public class Message extends EntityBase {

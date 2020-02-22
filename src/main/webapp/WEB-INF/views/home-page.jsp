@@ -14,17 +14,32 @@
 <%--    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"--%>
 <%--            integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"--%>
 <%--            crossorigin="anonymous"></script>--%>
+
 </head>
-<body>
+<body background= "lightgrey">
 <div class="container">
-    <jsp:include page="header.jsp"/>
+
+    <div>
+        <jsp:include page="header.jsp"/>
+    </div>
+&nbsp;
+    <div>
     <jsp:include page="navigation.jsp"/>
-
+    </div>
+    &nbsp;
+    <div>
     <jsp:include page="side-menu.jsp"/>
-
+    </div>
+    &nbsp;
+    <div>
+        HomePage po zalogowaniu
     <jsp:include page="main-section.jsp"/>
-
+    </div>
+    &nbsp;
+    <div>
     <jsp:include page="footer.jsp"/>
+    </div>
+
 </div>
 </body>
 </html>

@@ -1,27 +1,20 @@
 package pl.com.app.myflat.model.entities;
 
 
-import jdk.nashorn.internal.objects.annotations.Constructor;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+@Getter @Setter @AllArgsConstructor @NoArgsConstructor
+@EqualsAndHashCode(of = "id") @ToString (exclude = {"password", "bills","flat","tasks"})
 @Entity
-@Getter @Setter @ToString (exclude = "password")
 @Table(name="users")
 public class User extends EntityBase {
 
-    public User() {
-    }
 
-    //    @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    private Long id;
     @Column(unique = true, nullable = false)
     private String username;
     @Column(nullable = false)
@@ -48,13 +41,13 @@ public class User extends EntityBase {
     @OneToMany(mappedBy = "user")
     private List<Advert> advert;
 
-    @ManyToMany(cascade = {CascadeType.ALL})
-    @JoinTable(
-        name="users_tasks",
-            joinColumns = {@JoinColumn(name="user_id")},
-            inverseJoinColumns = {@JoinColumn(name="task_id")}
-    )
-    Set<Task> tasks = new HashSet<>();
+//    @ManyToMany(cascade = {CascadeType.ALL})
+//    @JoinTable(
+//        name="users_tasks",
+//            joinColumns = {@JoinColumn(name="user_id")},
+//            inverseJoinColumns = {@JoinColumn(name="task_id")}
+//    )
+//    Set<Task> tasks = new HashSet<>();
 
 
 }
