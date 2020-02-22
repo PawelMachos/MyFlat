@@ -9,6 +9,9 @@
 --%>
 <%@ page isELIgnored="false" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<%@ page import="java.time.format.DateTimeFormatter" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,11 +28,23 @@
         div.title {
     text-transform: uppercase;
     }
+        /*body {
+            background-image: url("/static/graphics/korek.jpg");
+        }*/
+
+        .active-cyan-2 input[type=text]:focus:not([readonly]) {
+            border-bottom: 1px solid #4dd0e1;
+            box-shadow: 0 1px 0 0 #4dd0e1;
+        }
+        .active-cyan input[type=text] {
+            border-bottom: 1px solid #4dd0e1;
+            box-shadow: 0 1px 0 0 #4dd0e1;
+        }
     </style>
-
-
 </head>
-<body background= "lightgrey">
+
+
+<body>
 <section id="container">
 
     <header class="header black-bg">
@@ -46,9 +61,70 @@
 
 &nbsp;
 <div>
-    <div class="row" style="margin-top: 40px; margin-bottom: 10px">
+
+
+    <div class="row" style="margin-top: 40px; margin-bottom: 10px" >
+        <div class="col-2"><h4>OGŁOSZENIA</h4></div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-12" style="padding-bottom: 20px">
+
+
+            <!-- Search form -->
+            <form class="form-inline md-form form-sm active-cyan-2 mt-2">
+                <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Szukaj ogłoszenia:"
+                       aria-label="Szukaj">
+                <i class="fas fa-search" aria-hidden="true"></i>
+            </form>
+
+
+            <div>
+                <table >
+                    <c:forEach items="${adverts}" var="advert" varStatus="stat">
+                    <td><br></td>
+                        <tr>
+                            <td>${advert.user.username}, dodano: ${advert.createdAt.format(DateTimeFormatter.ISO_DATE_TIME)}</td>
+                        </tr>
+
+                    <tr>
+                        <th><div class="title">${advert.title}</div></th>
+                    </tr>
+            </div>
+
+            <tr>
+                <td>
+                        ${advert.description}</td>
+            </tr>
+
+            <td>
+                <div class="btn-group">
+                    <form class="form-inline" method="post" action="/delete-advert">
+                        <button type="submit" class="btn btn-danger">Usuń</button>
+                        <input type="hidden" name="advertId" value="${advert.id}"/>
+                        <sec:csrfInput/>
+                    </form>
+                    <form class="form-inline" style="margin-left: 1em" method="get" action="/edit-advert">
+                        <button type="submit" class="btn btn-primary">Edytuj</button>
+                        <input type="hidden" name="advertId" value="${advert.id}"/>
+                        <sec:csrfInput/>
+                    </form>
+                </div>
+            </td>
+
+
+            </c:forEach>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+
+    <div class="row" style="margin-center: 40px; margin-bottom: 10px">
         <div class="col-1"></div>
-        <div class="col-6"><h2>Dodaj ogłoszenie</h2></div>
+        <div class="col-2"><h5>Dodaj ogłoszenie</h5></div>
         <div class="col-5"></div>
     </div>
 
@@ -61,7 +137,7 @@
                     <div class="form-group">
                     <label for="title">Tytuł:</label> <br>
                 <input type="text" required name="title" id="title">
-                    </div> <br><br>
+                    </div> <br>
 
                     <div class="form-group">
                     <label for="description">Ogłoszenie:</label><br>
@@ -84,46 +160,9 @@
         <div class="col-2"></div>
     </div>
 
-    <div class="row" style="margin-top: 40px; margin-bottom: 10px">
-        <div class="col-1"></div>
-        <div class="col-6"><h2>Lista ogłoszeń</h2></div>
-        <div class="col-5"></div>
-    </div>
-
-    <div class="row">
-        <div class="col-12" style="padding-bottom: 20px">
-
-            <div class="wyszukiwarka">
-            Szukaj ogłoszenia: <input type="search" name="search">
-            <input type="submit" value="Szukaj">
-                </div>
-
-            <div>
-                <table >
-                    <c:forEach items="${adverts}" var="advert" varStatus="stat">
-                    <td><br></td>
-
-                        <tr>
-                            <th><div class="title">${advert.title}</div></th>
-                        </tr>
-                        </div>
-
-                        <tr>
-                        <td>${advert.user.username}, dodano: ${advert.createdAt}</td>
-                        </tr>
-
-                        <tr>
-                       <td>
-                        ${advert.description}</td>
-                    </tr>
 
 
-                    </c:forEach>
-                </table>
-            </div>
 
-        </div>
-    </div>
 
 
 </section>
