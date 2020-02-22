@@ -2,14 +2,12 @@ package pl.com.app.myflat.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.com.app.myflat.dto.BillDTO;
-import pl.com.app.myflat.dto.LoggedUserDTO;
 import pl.com.app.myflat.model.entities.Bill;
-import pl.com.app.myflat.model.entities.User;
 import pl.com.app.myflat.model.enums.Category;
 import pl.com.app.myflat.model.repositories.BillRepository;
 import pl.com.app.myflat.model.repositories.UserRepository;
 
-import java.util.Date;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;

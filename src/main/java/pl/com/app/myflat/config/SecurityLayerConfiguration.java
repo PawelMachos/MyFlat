@@ -68,5 +68,4 @@ public class SecurityLayerConfiguration extends WebSecurityConfigurerAdapter {
                 .csrf().disable();
     }
 
-
 }
