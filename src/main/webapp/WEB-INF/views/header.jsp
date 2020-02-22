@@ -18,10 +18,12 @@
     <!--logo start-->
     <a href="index.html" class="logo"><b>my<span>Flat</span></b></a>
     <!--logo end-->
+    <div>                                                         </div>
 
-    </div>
-    <div class="top-menu">
-        <ul class="nav pull-right top-menu">
+    <div class="nav notify-row" id="top_menu"></div>
+    <div class="top-menu" style="float: right">
+
+        <ul class="nav -pull-right top-menu">
             <li><a class="logout" href="login.html">Logout</a></li>
             <li><a class="logout" href="login.html">Login</a></li>
         </ul>
