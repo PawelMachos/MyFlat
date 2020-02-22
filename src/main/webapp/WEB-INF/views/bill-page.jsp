@@ -104,40 +104,40 @@
                         <section class="wrapper">
             <div id="leftbar">
                 <div class="fundbar">
-                    <div class="fundname">Fundusz celowy</div>
-                    <div class="fundvalue">${bills.get(embarkedFund)} pln</div>
+                    <div class="fundname"><h4>Fundusz celowy</h4></div>
+                    <div class="fundvalue"><h4>${bills.get(embarkedFund)} pln</h4></div>
                 </div>
                 <div class="fundbar">
-                    <div class="fundname">Fundusz remontowy</div>
-                    <div class="fundvalue">${bills.get(repairFund)} pln</div>
+                    <div class="fundname"><h4>Fundusz remontowy</h4></div>
+                    <div class="fundvalue"><h4>${bills.get(repairFund)} pln</h4></div>
                 </div>
                 <div class="fundbar">
-                    <div class="fundname">CO i CW - Opłata stała</div>
-                    <div class="fundvalue">${bills.get(coAndCW)} pln</div>
+                    <div class="fundname"><h4>CO i CW - Opłata stała</h4></div>
+                    <div class="fundvalue"><h4>${bills.get(coAndCW)} pln</h4></div>
                 </div>
                 <div class="fundbar">
-                    <div class="fundname">Koszty zarządu</div>
-                    <div class="fundvalue">${bills.get(managementCosts)} pln</div>
+                    <div class="fundname"><h4>Koszty zarządu</h4></div>
+                    <div class="fundvalue"><h4>${bills.get(managementCosts)} pln</h4></div>
                 </div>
                 <div class="fundbar">
-                    <div class="fundname">Centralne ogrzewanie</div>
-                    <div class="fundvalue">${bills.get(centralHeating)} pln</div>
+                    <div class="fundname"><h4>Centralne ogrzewanie<h4/></div>
+                    <div class="fundvalue"><h4>${bills.get(centralHeating)} pln</h4></div>
                 </div>
                 <div class="fundbar">
-                    <div class="fundname">Wywóz nieczystości</div>
-                    <div class="fundvalue">${bills.get(wasteDisposal)} pln</div>
+                    <div class="fundname"><h4>Wywóz nieczystości</h4></div>
+                    <div class="fundvalue"><h4>${bills.get(wasteDisposal)} pln</h4></div>
                 </div>
                 <div class="fundbar">
-                    <div class="fundname">Podgrzanie wody</div>
-                    <div class="fundvalue">${bills.get(waterHeating)} pln</div>
+                    <div class="fundname"><h4>Podgrzanie wody</h4></div>
+                    <div class="fundvalue"><h4>${bills.get(waterHeating)} pln</h4></div>
                 </div>
                 <div class="fundbar">
-                    <div class="fundname">Zimna woda i ścieki</div>
-                    <div class="fundvalue">${bills.get(coldWater)} pln</div>
+                    <div class="fundname"><h4>Zimna woda i ścieki</h4></div>
+                    <div class="fundvalue"><h4>${bills.get(coldWater)} pln</h4></div>
                 </div>
                 <div class="fundbar">
-                    <div class="fundname">Prąd</div>
-                    <div class="fundvalue">${bills.get(energy)} pln</div>
+                    <div class="fundname"><h4>Prąd</h4></div>
+                    <div class="fundvalue"><h4>${bills.get(energy)} pln</h4></div>
                 </div>
             </div>
             <div id="rightbar">
@@ -146,9 +146,9 @@
                         <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
                     </div>
                     <div id="menu">
-                        <fieldset style="margin:15px; height:45%;">
-                            <legend style="text-align:center">THE TOTAL AMOUNT TO PAY:</legend>
-                            <div id="sum"> ${billsToPay} pln</div>
+                        <fieldset style="margin:15px; ">
+                            <legend style="text-align:center"><h5>THE TOTAL AMOUNT TO PAY:</h5></legend>
+                            <div id="sum"><h4> ${billsToPay} pln </h4></div>
                         </fieldset>
                         <button id="pay" type="submit">Pay</button>
                     </div>
