@@ -8,14 +8,15 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <style>
+        div.site-footer {max-height: 10px}
+    </style>
 </head>
 <body>
 
-<footer class="site-footer">
+<footer class="site-footer" max-height: style="height: 10px">
     <div class="text-center">
-        <p>
             &copy; Copyrights <strong>Fantastic Four</strong>. All Rights Reserved
-        </p>
         <div class="credits">
             <!--
               You are NOT allowed to delete the credit link to TemplateMag with free version.
@@ -25,7 +26,8 @@
             -->
             Created with Dashio template by <a href="https://templatemag.com/">TemplateMag</a>
         </div>
-        <a href="index.html#" class="go-top">
+
+        <a href="/home" class="go-top">
             <i class="fa fa-angle-up"></i>
         </a>
     </div>
