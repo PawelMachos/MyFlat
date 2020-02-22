@@ -48,16 +48,51 @@
 </head>
 <body>
 
+<aside>
+    <div id="sidebar" class="nav-collapse ">
+        <!-- sidebar menu start-->
+        <ul class="sidebar-menu" id="nav-accordion">
+            <p class="centered"><a href="profile.html"><img src="img/ui-sam.jpg" class="img-circle" width="80"></a></p>
+            <h5 class="centered">Sam Soffes</h5>
+            <li class="mt">
+                <a href="/home">Homepage
+                    <i class="fa fa-dashboard"></i>
+                </a>
+            </li>
+            <li class="mt">
+                <a href="/bills">Bills
+                    <i class="fa fa-dashboard"></i>
+                </a>
+            </li>
+            <li class="mt">
+                <a href="/messages">Messages
+                    <i class="fa fa-dashboard"></i>
+                </a>
+            </li>
+            <li class="mt">
+                <a href="/adverts">Adverts
+                    <i class="fa fa-dashboard"></i>
+                </a>
+            </li>
+            <li class="mt">
+                <a href="/user-tasks">Organizer
+                    <i class="fa fa-dashboard"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</aside>
 
-<div class="side-menu">
 
-    <a href="/home">Homepage</a>
-    <a href="/bills">Bills</a>
-    <a href="/messages">Messages</a>
-    <a href="/adverts">Adverts</a>
-    <a href="/user-tasks">Organizer</a>
+<%--<div class="side-menu">--%>
 
-</div>
+<%--    <a href="/home">Homepage</a>--%>
+<%--    <a href="/bills">Bills</a>--%>
+<%--    <a href="/messages">Messages</a>--%>
+<%--    <a href="/adverts">Adverts</a>--%>
+<%--    <a href="/user-tasks">Organizer</a>--%>
+
+<%--</div>--%>
 
 
 </body>

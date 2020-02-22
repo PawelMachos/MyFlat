@@ -11,12 +11,21 @@
     <title>Header</title>
 </head>
 <body>
-Header:
-<div class="row" style="margin-top: 40px">
-    <div class="col-1"></div>
-    <div class="col-10" style="padding-bottom: 60px"><h>MyFlat</h></div>
-    <div class="col-1"></div>
-</div>
+<header class="header black-bg">
+    <div class="sidebar-toggle-box">
+        <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+    </div>
+    <!--logo start-->
+    <a href="index.html" class="logo"><b>my<span>Flat</span></b></a>
+    <!--logo end-->
 
+    </div>
+    <div class="top-menu">
+        <ul class="nav pull-right top-menu">
+            <li><a class="logout" href="login.html">Logout</a></li>
+            <li><a class="logout" href="login.html">Login</a></li>
+        </ul>
+    </div>
+</header>
 </body>
 </html>
