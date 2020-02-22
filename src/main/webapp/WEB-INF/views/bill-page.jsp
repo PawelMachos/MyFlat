@@ -135,7 +135,6 @@
             background-color: #2084c2;
         }
         a.media{
-
             text-decoration: none;
             display: block;
             width: 100%;
