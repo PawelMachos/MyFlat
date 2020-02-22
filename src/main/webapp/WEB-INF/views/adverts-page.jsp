@@ -18,6 +18,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 
+    <link href="/static/css/bill.css" type="text/css" rel="stylesheet">
+    <link href="../../static/css/style.css" type="text/css" rel="stylesheet">
+
     <style>
         div.title {
     text-transform: uppercase;
@@ -27,17 +30,20 @@
 
 </head>
 <body background= "lightgrey">
-<div id="container">
+<section id="container">
 
+    <header class="header black-bg">
+        <jsp:include page="header.jsp"/>
+    </header>
 
-<div>
-    <jsp:include page="header.jsp"/>
-</div>
-&nbsp
-&nbsp
-<div>
-    <jsp:include page="side-menu.jsp"/>
-</div>
+    <div>
+        <div id="leftSideOfWeb">
+            <jsp:include page="side-menu.jsp"/>
+        </div>
+
+        <section id="main-content">
+            <section class="wrapper">
+
 &nbsp;
 <div>
     <div class="row" style="margin-top: 40px; margin-bottom: 10px">
@@ -119,11 +125,17 @@
         </div>
     </div>
 
-    <jsp:include page="main-section.jsp"/>
+
+</section>
+</section>
+
 </div>
+</section>
 &nbsp;
 <div>
-    <jsp:include page="footer.jsp"/>
+    <footer class="site-footer">
+        <jsp:include page="footer.jsp"/>
+    </footer>
 </div>
 
 </body>
