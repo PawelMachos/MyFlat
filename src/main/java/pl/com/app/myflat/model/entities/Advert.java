@@ -1,17 +1,14 @@
 package pl.com.app.myflat.model.entities;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 
+@Getter @Setter @NoArgsConstructor
+@AllArgsConstructor
+@ToString (exclude = {"user"}) @EqualsAndHashCode (of = "id")
+@Builder
 @Entity
-@Getter
-@Setter
-@ToString(exclude = "user")
-@EqualsAndHashCode
 @Table(name = "adverts")
 public class Advert extends EntityBase{
 

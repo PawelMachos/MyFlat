@@ -1,20 +1,17 @@
 package pl.com.app.myflat.model.entities;
 
-import jdk.nashorn.internal.objects.annotations.Constructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+
+import lombok.*;
 import pl.com.app.myflat.model.enums.Category;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDate;
 
+@Getter @Setter @NoArgsConstructor
+@AllArgsConstructor
+@ToString (exclude = {"user"}) @EqualsAndHashCode (of = "id")
+@Builder
 @Entity
-@Getter
-@Setter
-@ToString(exclude = {"user"})
-@EqualsAndHashCode(of="id")
 @Table(name="bills")
 public class Bill extends EntityBase {
 
@@ -24,7 +21,7 @@ public class Bill extends EntityBase {
     @Column(nullable = false)
     private String invoiceNumber;
     @Column(nullable = false)
-    private Date invoiceDate;
+    private LocalDate invoiceDate;
     @Column(nullable = false)
     private Double grossAmount;
     @Column(nullable = false)

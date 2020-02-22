@@ -4,12 +4,11 @@ package pl.com.app.myflat.model.entities;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @Getter @Setter @AllArgsConstructor @NoArgsConstructor
 @EqualsAndHashCode(of = "id") @ToString (exclude = {"password", "bills","flat","tasks"})
+@Builder
 @Entity
 @Table(name="users")
 public class User extends EntityBase {
