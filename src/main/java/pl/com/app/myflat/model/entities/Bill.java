@@ -6,6 +6,7 @@ import pl.com.app.myflat.model.enums.Category;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Date;
 
 @Getter @Setter @NoArgsConstructor
 @AllArgsConstructor
@@ -21,7 +22,7 @@ public class Bill extends EntityBase {
     @Column(nullable = false)
     private String invoiceNumber;
     @Column(nullable = false)
-    private LocalDate invoiceDate;
+    private Date invoiceDate;
     @Column(nullable = false)
     private Double grossAmount;
     @Column(nullable = false)
