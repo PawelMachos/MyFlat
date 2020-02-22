@@ -38,7 +38,12 @@ public class SecurityLayerConfiguration extends WebSecurityConfigurerAdapter {
                 .usersByUsernameQuery("SELECT username, password, active FROM users WHERE username = ?")
                 .authoritiesByUsernameQuery("SELECT username, 'ROLE_USER' FROM users WHERE username = ?");
     }
-    
+
+    @Override
+    public void configure(WebSecurity web) throws Exception {
+        web.ignoring().antMatchers("/static","/static/**");
+    }
+
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -61,4 +66,6 @@ public class SecurityLayerConfiguration extends WebSecurityConfigurerAdapter {
                 .and()
                 .csrf().disable();
     }
+
+
 }

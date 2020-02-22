@@ -32,12 +32,11 @@ public class UserService {
             user.setActive(true);
             user.setRole("USER");
             userRepository.save(user);
-
     }
 
     public LoggedUserDTO getUser(String username){
         LoggedUserDTO loggedUserDTO = null;
-        User user = userRepository.findUserByUsername(username);
+        User user = userRepository.findByUsername(username);
         if(user!=null){
             loggedUserDTO = new LoggedUserDTO();
             loggedUserDTO.setFirstName(user.getFirstName());
