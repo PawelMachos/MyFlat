@@ -6,6 +6,7 @@ import pl.com.app.myflat.model.enums.Category;
 import java.time.LocalDate;
 import java.util.Date;
 
+
 @Data
 public class BillDTO {
 

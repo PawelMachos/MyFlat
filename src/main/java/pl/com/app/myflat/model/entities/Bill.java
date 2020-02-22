@@ -4,6 +4,7 @@ import lombok.*;
 import pl.com.app.myflat.model.enums.Category;
 
 import javax.persistence.*;
+
 import java.util.Date;
 
 @Getter @Setter @NoArgsConstructor
