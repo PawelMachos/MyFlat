@@ -23,6 +23,13 @@ public class Bill extends EntityBase {
     @Column(nullable = false)
     private LocalDate invoiceDate;
     @Column(nullable = false)
+    private Integer netto;
+    @Column(nullable = false)
+    private Integer vat;
+    @Column(nullable = false)
+    private Integer brutto;
+    @Column(nullable = false)
+    private String company;
     private Double grossAmount;
     @Column(nullable = false)
     private Boolean active = true;
