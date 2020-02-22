@@ -40,6 +40,12 @@ public class SecurityLayerConfiguration extends WebSecurityConfigurerAdapter {
     }
 
     @Override
+    public void configure(WebSecurity web) throws Exception {
+        web.ignoring().antMatchers("/static","/static/**");
+    }
+
+
+    @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .antMatchers("/").permitAll()
@@ -60,10 +66,5 @@ public class SecurityLayerConfiguration extends WebSecurityConfigurerAdapter {
                 .and()
                 .csrf().disable();
     }
-
-    @Override
-    public void configure(WebSecurity web) throws Exception {
-        web.ignoring()
-        .antMatchers("/webjars/", "/webjars/**");
-    }
+    
 }

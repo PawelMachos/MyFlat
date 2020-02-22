@@ -51,7 +51,7 @@
 
 <div class="side-menu">
     <a href="home-page.jsp">Homepage</a>
-    <a href="#">Bills</a>
+    <a href="/bills">Bills</a>
     <a href="#">Messages</a>
     <a href="#">Adverts</a>
     <a href="/user-tasks">Organizer</a>

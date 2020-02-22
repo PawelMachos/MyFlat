@@ -1,0 +1,105 @@
+*{
+    box-sizing:border-box;
+}
+body{
+    background-color:darkgrey;
+}
+#container{
+    border: 3px solid black;
+    height: 400px;
+    width: 100%
+}
+#leftbar{
+    border: 1px solid black;
+    height: 100%;
+    width: 30%;
+    float: left;
+}
+#rightbar{
+    border: 1px solid black;
+    height: 100%;
+    width: 70%;
+    float: left;
+}
+.fundbar{
+    border: 1px solid black;
+    height:10%;
+    margin: 4px;
+    border-radius: 5px;
+}
+#topbar{
+    border: 1px solid black;
+    height:45%;
+    margin: 10px;
+
+}
+#stat{
+    border: 1px solid black;
+    height:45%;
+    margin: 10px;
+
+}
+#pieChart{
+    border: 1px solid black;
+    height:90%;
+    margin: 10px;
+    width: 60%;
+    float: left;
+    display: inline-block;
+}
+#menu{
+    border: 1px solid black;
+    height:90%;
+    margin: 10px;
+    width: 35%;
+    float: right;
+}
+#slicer{
+    border: 1px solid black;
+    height:90%;
+    margin: 10px;
+    width: 15%;
+    float: left;
+    display: inline-block;
+}
+#lineChart{
+    border: 1px solid black;
+    height:90%;
+    margin: 10px;
+    width: 80%;
+    float: left;
+    display: inline-block;
+}
+#sum{
+    border: 1px solid black;
+    text-align: center;
+    font-size: 35px;
+}
+
+#pay{
+    float: right;
+    margin-right: 30px;
+    background-color: darkgrey;
+    font-size:30px;
+}
+.fundname{
+    border: 1px solid black;
+    width:65%;
+    height:100%;
+    text-align:center;
+    padding-top:8px;
+    float: left;
+}
+.fundvalue{
+    border: 1px solid black;
+    width:30%;
+    height:100%;
+    text-align:center;
+    padding-top:8px;
+    float:right;
+}
+.button{
+    border: 1px solid black;
+    margin:10px;
+    height:25%;
+}

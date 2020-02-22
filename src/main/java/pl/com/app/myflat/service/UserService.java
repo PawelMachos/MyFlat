@@ -2,6 +2,7 @@ package pl.com.app.myflat.service;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import pl.com.app.myflat.dto.LoggedUserDTO;
 import pl.com.app.myflat.dto.RegisterUserDTO;
 import pl.com.app.myflat.model.entities.User;
 import pl.com.app.myflat.model.repositories.UserRepository;
@@ -32,5 +33,20 @@ public class UserService {
             user.setRole("USER");
             userRepository.save(user);
     }
+
+    public LoggedUserDTO getUser(String username){
+        LoggedUserDTO loggedUserDTO = null;
+        User user = userRepository.findByUsername(username);
+        if(user!=null){
+            loggedUserDTO = new LoggedUserDTO();
+            loggedUserDTO.setFirstName(user.getFirstName());
+            loggedUserDTO.setLastName(user.getLastName());
+            loggedUserDTO.setId(user.getId());
+            loggedUserDTO.setUsername(user.getUsername());
+
+        }
+        return loggedUserDTO;
+    }
+
 
 }
