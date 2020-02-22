@@ -1,11 +1,10 @@
 package pl.com.app.myflat.model.entities;
 
-
 import lombok.*;
 import pl.com.app.myflat.model.enums.Category;
 
 import javax.persistence.*;
-import java.time.LocalDate;
+
 import java.util.Date;
 
 @Getter @Setter @NoArgsConstructor

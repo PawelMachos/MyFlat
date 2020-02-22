@@ -17,19 +17,24 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+    <style>
+        div.title {
+    text-transform: uppercase;
+    }
+    </style>
+
+
 </head>
 <body background= "lightgrey">
-<div class="container">
+<div id="container">
 
 
 <div>
     <jsp:include page="header.jsp"/>
 </div>
-&nbsp;
-<div>
-    <jsp:include page="navigation.jsp"/>
-</div>
-&nbsp;
+&nbsp
+&nbsp
 <div>
     <jsp:include page="side-menu.jsp"/>
 </div>
@@ -82,22 +87,31 @@
     <div class="row">
         <div class="col-12" style="padding-bottom: 20px">
 
+            <div class="wyszukiwarka">
             Szukaj ogłoszenia: <input type="search" name="search">
             <input type="submit" value="Szukaj">
+                </div>
 
             <div>
-                <table>
-                    <tr>
-                        <th></th>
-
-                    </tr>
+                <table >
                     <c:forEach items="${adverts}" var="advert" varStatus="stat">
+                    <td><br></td>
+
                         <tr>
-                            <td><b>${advert.title}</b></td>
-                            <td>${advert.description}</td>
-                            <td>${advert.user.username}</td>
-                            <td>${advert.createdAt}</td>
+                            <th><div class="title">${advert.title}</div></th>
                         </tr>
+                        </div>
+
+                        <tr>
+                        <td>${advert.user.username}, dodano: ${advert.createdAt}</td>
+                        </tr>
+
+                        <tr>
+                       <td>
+                        ${advert.description}</td>
+                    </tr>
+
+
                     </c:forEach>
                 </table>
             </div>
