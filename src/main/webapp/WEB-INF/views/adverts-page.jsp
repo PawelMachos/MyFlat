@@ -19,7 +19,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 </head>
 <body background= "lightgrey">
-<div class="container">
+<div id="container">
 
 
 <div>
@@ -82,22 +82,30 @@
     <div class="row">
         <div class="col-12" style="padding-bottom: 20px">
 
+            <div class="wyszukiwarka">
             Szukaj ogłoszenia: <input type="search" name="search">
             <input type="submit" value="Szukaj">
+                <div>
 
             <div>
-                <table>
-                    <tr>
-                        <th></th>
-
-                    </tr>
+                <table >
                     <c:forEach items="${adverts}" var="advert" varStatus="stat">
+                    <td><br></td>
+
                         <tr>
-                            <td><b>${advert.title}</b></td>
-                            <td>${advert.description}</td>
-                            <td>${advert.user.username}</td>
-                            <td>${advert.createdAt}</td>
+                            <th>${advert.title}</th>
                         </tr>
+
+                        <tr>
+                        <td>${advert.user.username}, dodano: ${advert.createdAt}</td>
+                        </tr>
+
+                        <tr>
+                       <td>
+                        ${advert.description}</td>
+                    </tr>
+
+
                     </c:forEach>
                 </table>
             </div>
