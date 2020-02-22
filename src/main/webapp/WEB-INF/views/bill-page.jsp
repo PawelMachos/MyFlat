@@ -161,6 +161,9 @@
     </div>
     </div>
     </div>
+    <footer class="site-footer">
+        <jsp:include page="footer.jsp"/>
+    </footer>
 </section>
 </body>
 </html>
