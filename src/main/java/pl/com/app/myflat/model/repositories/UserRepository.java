@@ -8,15 +8,17 @@ import pl.com.app.myflat.model.enums.Category;
 
 import java.util.List;
 
-public interface UserRepository extends JpaRepository<User, Long> {
+import java.util.List;
 
+public interface UserRepository extends JpaRepository<User, Long> {
 
 //    User findUserByUsername(String username);
 
     @Query(value="SELECT b FROM User u JOIN u.bills b WHERE u.id = ?1")
     List<Bill> findAllBillsToPayForUser(Long id);
 
+    User findByUsername(String userName);
 
-    User findByUsername(String username); // TO DO to change with first line
+    List<User> findAllByUsername(String userName);
 
 }
