@@ -86,7 +86,7 @@
             Szukaj ogłoszenia: <input type="search" name="search">
             <input type="submit" value="Szukaj">
                 <div>
-                    
+
             <div>
                 <table >
                     <c:forEach items="${adverts}" var="advert" varStatus="stat">
