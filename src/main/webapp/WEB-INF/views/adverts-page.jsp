@@ -95,7 +95,7 @@
                         <tr>
                             <td><b>${advert.title}</b></td>
                             <td>${advert.description}</td>
-                            <td>${advert.owner.username}</td>
+                            <td>${advert.user.username}</td>
                             <td>${advert.createdAt}</td>
                         </tr>
                     </c:forEach>
