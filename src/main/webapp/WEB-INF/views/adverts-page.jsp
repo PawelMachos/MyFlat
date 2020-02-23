@@ -82,6 +82,7 @@
             <jsp:include page="side-menu.jsp"/>
         </div>
 
+
         <section id="main-content" >
             <section class="wrapper" style="min-height: 800px;">
 
@@ -202,6 +203,7 @@
 </section>
 &nbsp;
 <div>
+
     <footer class="site-footer">
         <jsp:include page="footer.jsp"/>
     </footer>

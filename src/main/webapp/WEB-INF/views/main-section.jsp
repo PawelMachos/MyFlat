@@ -31,9 +31,16 @@
 <div id="main-sec">
 
     <div class="main-tile"></div>
+    <div class="main-tile">
+        <fieldset style="margin:15px; height:45%; padding-top: 30px;">
+            <legend style="text-align:center">THE TOTAL AMOUNT TO PAY:</legend>
+            <div id="sum"> ${billsToPay} pln</div>
+        </fieldset>
+    </div>
     <div class="main-tile"></div>
-    <div class="main-tile"></div>
-    <div class="main-tile"></div>
+    <div class="main-tile">
+
+    </div>
     <div style="clear: both"></div>
 
 
