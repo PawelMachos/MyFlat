@@ -63,7 +63,7 @@ public class SecurityLayerConfiguration extends WebSecurityConfigurerAdapter {
                 .defaultSuccessUrl("/home")
                 .and()
                 .logout()
-                .logoutSuccessUrl("/login")
+                .logoutSuccessUrl("/")
                 .and()
                 .csrf().disable();
     }
