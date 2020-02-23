@@ -20,6 +20,9 @@
             crossorigin="anonymous"></script>
 
     <style>
+        *{
+            font-family: 'Ruda', sans-serif;
+        }
         .col-6
         {
             text-align: center;
@@ -27,7 +30,7 @@
     </style>
 
 </head>
-<body style="background-color: lightgray">
+<body style="background-color: lightgrey">
 
 <div class="container">
 

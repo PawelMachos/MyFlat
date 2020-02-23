@@ -8,7 +8,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head> </head>
-<body>
+
+<body style="font-size: 13px">
 
 <footer class="site-footer" style="object-position: bottom">
     <div class="text-center">

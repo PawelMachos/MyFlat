@@ -24,8 +24,9 @@
     <div class="top-menu" style="float: right">
 
         <ul class="nav -pull-right top-menu">
+
             <li><a class="logout" href="/logout">Logout</a></li>
-            <li><a class="logout" href="/login">Login</a></li>
+
         </ul>
     </div>
 </header>

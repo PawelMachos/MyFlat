@@ -12,7 +12,6 @@ import java.util.List;
 
 public interface UserRepository extends JpaRepository<User, Long> {
 
-//    User findUserByUsername(String username);
 
     @Query(value="SELECT b FROM User u JOIN u.bills b WHERE u.id = ?1")
     List<Bill> findAllBillsToPayForUser(Long id);

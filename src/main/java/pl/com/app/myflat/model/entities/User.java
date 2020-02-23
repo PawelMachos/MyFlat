@@ -40,13 +40,7 @@ public class User extends EntityBase {
     @OneToMany(mappedBy = "user")
     private List<Advert> advert;
 
-//    @ManyToMany(cascade = {CascadeType.ALL})
-//    @JoinTable(
-//        name="users_tasks",
-//            joinColumns = {@JoinColumn(name="user_id")},
-//            inverseJoinColumns = {@JoinColumn(name="task_id")}
-//    )
-//    Set<Task> tasks = new HashSet<>();
+
 
 
 }
