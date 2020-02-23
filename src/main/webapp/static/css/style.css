@@ -3330,6 +3330,7 @@ ul.chat-available-user li a:hover {
     color: #fff;
     padding: 15px 0;
     text-align: center;
+    object-position: bottom;
 }
 
 .site-footer p {

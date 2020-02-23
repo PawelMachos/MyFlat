@@ -12,7 +12,7 @@
 </head>
 <body style="font-size: 13px">
 
-<footer class="site-footer">
+<footer class="site-footer" style="object-position: bottom">
     <div class="text-center">
             &copy; Copyrights <strong>Fantastic Four</strong>. All Rights Reserved
         <div class="credits">
