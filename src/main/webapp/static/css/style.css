@@ -1098,9 +1098,9 @@ PANELS CONFIGURATIONS
 
 /* Weather 1 */
 .weather {
-	background: url(../img/weather.jpg) no-repeat center top;
-	text-align: center;
-	background-position: center center;
+	/*background: url(../img/weather.jpg) no-repeat center top;*/
+	/*text-align: center;*/
+	/*background-position: center center;*/
 }
 .weather i {
 	color: white;
@@ -1244,9 +1244,9 @@ PANELS CONFIGURATIONS
 
 /* Instagram Panel*/
 .instagram-panel {
-	background: url(../img/instagram.jpg) no-repeat center top;
-	text-align: center;
-	background-position: center center;
+	/*background: url(../img/instagram.jpg) no-repeat center top;*/
+	/*text-align: center;*/
+	/*background-position: center center;*/
 }
 .instagram-panel i {
 	color: white;
@@ -1288,9 +1288,9 @@ PANELS CONFIGURATIONS
 
 /* Soptify Panel */
 #spotify {
-	background: url(../img/lorde.jpg) no-repeat center top;
+	/*background: url(../img/lorde.jpg) no-repeat center top;*/
 	margin-top: -15px;
-	background-attachment: relative;
+	/*background-attachment: relative;*/
 	background-position: center center;
 	min-height: 220px;
 	width: 100%;
@@ -1332,9 +1332,9 @@ PANELS CONFIGURATIONS
 
 /* BLOG PANEL */
 #blog-bg {
-	background: url(../img/blog-bg.jpg) no-repeat center top;
+	/*background: url(../img/blog-bg.jpg) no-repeat center top;*/
 	margin-top: -15px;
-	background-attachment: relative;
+	/*background-attachment: relative;*/
 	background-position: center center;
 	min-height: 150px;
 	width: 100%;
@@ -1457,9 +1457,9 @@ PANELS CONFIGURATIONS
 /* PROFILE PANELS */
 /* Profile 01*/
 #profile-01 {
-	background: url(../img/profile-01.jpg) no-repeat center top;
+	/*background: url(../img/profile-01.jpg) no-repeat center top;*/
 	margin-top: -15px;
-	background-attachment: relative;
+	/*background-attachment: relative;*/
 	background-position: center center;
 	min-height: 150px;
 	width: 100%;
@@ -1505,9 +1505,9 @@ PANELS CONFIGURATIONS
 
 /* Profile 02*/
 #profile-02 {
-	background: url(../img/profile-02.jpg) no-repeat center top;
+	/*background: url(../img/profile-02.jpg) no-repeat center top;*/
 	margin-top: -15px;
-	background-attachment: relative;
+	/*background-attachment: relative;*/
 	background-position: center center;
 	min-height: 200px;
 	width: 100%;
@@ -3330,6 +3330,7 @@ ul.chat-available-user li a:hover {
     color: #fff;
     padding: 15px 0;
     text-align: center;
+    object-position: bottom;
 }
 
 .site-footer p {

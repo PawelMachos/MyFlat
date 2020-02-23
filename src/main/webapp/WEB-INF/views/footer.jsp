@@ -7,13 +7,12 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<head>
+<head> </head>
 
-</head>
-<body>
-
+<body style="font-size: 13px">
 
 <footer class="site-footer">
+
     <div class="text-center">
             &copy; Copyrights <strong>Fantastic Four</strong>. All Rights Reserved
         <div class="credits">

@@ -2,6 +2,7 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <html>
 <head>
+    <title>myFlat</title>
 
     <link href="../../static/css/style.css" type="text/css" rel="stylesheet">
 
@@ -24,7 +25,7 @@
             </section>
         </section>
     </div>
-    <footer class="site-footer">
+    <footer class="site-footer" style="object-position: bottom">
         <jsp:include page="footer.jsp"/>
     </footer>
 </section>

@@ -9,13 +9,39 @@
 <html>
 <head>
 
+    <style>
+        .main-tile{
+            width: 50%;
+            height: 50%;
+            border-style: solid;
+            border-color: black;
+            float: left;
+        }
+
+    </style>
+
     <link href="/static/css/bill.css" type="text/css" rel="stylesheet">
     <link href="../../static/css/style.css" type="text/css" rel="stylesheet">
+
+
 
 </head>
 <body>
 
 <div id="main-sec">
+
+    <div class="main-tile"></div>
+    <div class="main-tile">
+        <fieldset style="margin:15px; height:45%; padding-top: 30px;">
+            <legend style="text-align:center">THE TOTAL AMOUNT TO PAY:</legend>
+            <div id="sum"> ${billsToPay} pln</div>
+        </fieldset>
+    </div>
+    <div class="main-tile"></div>
+    <div class="main-tile">
+
+    </div>
+    <div style="clear: both"></div>
 
 
 </div>
