@@ -87,8 +87,14 @@ body{
 #pay{
     float: right;
     margin-right: 30px;
-    background-color: darkgrey;
-    font-size:30px;
+    width:40%;
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+    touch-action: manipulation;
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 18px;
 }
 .fundname{
     /*border: 1px solid black;*/
