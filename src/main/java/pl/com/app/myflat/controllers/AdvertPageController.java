@@ -13,6 +13,7 @@ import pl.com.app.myflat.model.repositories.UserRepository;
 import java.security.Principal;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @Slf4j
@@ -50,6 +51,17 @@ public class AdvertPageController {
         log.info("Próba zapisu ogłoszenia: " + advert);
         advert = advertRepository.save(advert);
         log.info("Zapisano ogłoszenie: " + advert);
+
+        return "redirect:/adverts";
+    }
+
+    @PostMapping("/delete-advert")
+    public String processDeleteAdvert(Long advertId, Principal principal) {
+        String username = principal.getName();
+        log.debug("Usuwanie ogłoszenia o id {} dla użytkownika {}", advertId, username);
+
+        Optional<Advert> optionalAdvert = advertRepository.findByIdAndUserUsername(advertId, username);
+        optionalAdvert.ifPresent(advertRepository::delete);
 
         return "redirect:/adverts";
     }
