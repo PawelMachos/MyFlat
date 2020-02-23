@@ -23,8 +23,8 @@ public class Flat extends EntityBase {
     @JoinColumn(name="user_id", nullable = false)
     private User user;
 
-    @OneToMany(mappedBy = "flat")
-    private List<Bill> bills;
+//    @OneToMany(mappedBy = "flat")
+//    private List<Bill> bills;
 
 
 }
