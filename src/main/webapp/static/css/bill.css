@@ -84,17 +84,26 @@ body{
     font-size: 40px;
 }
 
-#pay{
+.payall{
     float: right;
     margin-right: 30px;
-    width:40%;
+    width:60%;
     color: #fff;
     background-color: #337ab7;
     border-color: #2e6da4;
-    touch-action: manipulation;
     cursor: pointer;
-    border-radius: 6px;
-    font-size: 18px;
+    border-radius:15px;
+    font-size: 22px;
+}
+#pay{
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+    cursor: pointer;
+    border-radius:15px;
+    font-size: 22px;
+    float: right;
+    margin-right: 30px;
 }
 .fundname{
     /*border: 1px solid black;*/
@@ -114,11 +123,15 @@ body{
 }
 .button{
     padding-top: 7px;
-    background-color: #3095d3;
-    border: 1px solid black;
     margin:10px;
     height:25%;
     text-align: center;
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+    cursor: pointer;
+    border-radius:15px;
+    font-size: 22px;
 }
 .button:hover{
     background-color: #2084c2;

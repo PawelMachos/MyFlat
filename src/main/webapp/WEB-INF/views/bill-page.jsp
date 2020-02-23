@@ -150,7 +150,10 @@
                                 <legend style="text-align:center">THE TOTAL AMOUNT TO PAY:</legend>
                                 <div id="sum"> ${billsToPay} pln</div>
                             </fieldset>
-                            <button type="button" id="pay"><a class="media" href="/bills/pay">Pay</a></button>
+                            <button type="submit" style="color: #fff;background-color: #337ab7;border-color: #2e6da4;cursor: pointer;
+                                                 border-radius:8px;font-size: 22px;float: right;margin-right: 30px;">
+                                <a href="/bills/pay" style="color: white">Pay</a></button>
+
                         </div>
                     </div>
                     <div id="stat">
