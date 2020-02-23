@@ -27,9 +27,6 @@
             crossorigin="anonymous"></script>
 
     <style>
-        * {
-            color: #064579;
-        }
 
         .col-6 {
             text-align: center;
@@ -42,14 +39,14 @@
     </style>
 
 </head>
-<body style="background-color: lightgray">
+<body style="background-color: lightgrey">
 
 <div class="container">
 
     <sec:authorize access="isAuthenticated()">
         <div class="row" style="margin-top: 40px; margin-bottom: 10px">
             <div class="col-1"></div>
-            <div class="col-6"><h2 style="color: #064579">Add new Task</h2></div>
+            <div class="col-6"><h2>Add new Task</h2></div>
             <div class="col-5"></div>
         </div>
 
@@ -96,7 +93,6 @@
                     <th>Description</th>
                     <th>When</th>
                     <th>Status</th>
-                    <th>Action</th>
                 </tr>
                 <c:forEach items="${tasks}" var="task" varStatus="stat">
                     <tr>
@@ -105,7 +101,9 @@
                         <td class="cell-breakAll">${task.description}</td>
                         <td>${task.createdAt}</td>
                         <td>${task.active}</td>
-                        <td>
+                    </tr>
+                <tr>
+                        <td colspan="4">
                             <c:if test="${task.active==true}">
 
                             <div class="btn-group">
@@ -115,7 +113,7 @@
                                     <sec:csrfInput/>
                                 </form>
                                 <form class="form-inline" style="margin-left: 1em" method="get" action="/edit-task">
-                                    <button type="submit" class="btn btn-primary">&nbsp;&nbsp;Edit&nbsp;&nbsp;</button>
+                                    <button type="submit" class="btn btn-info">&nbsp;&nbsp;Edit&nbsp;&nbsp;</button>
                                     <input type="hidden" name="taskId" value="${task.id}"/>
                                     <sec:csrfInput/>
                                 </form>

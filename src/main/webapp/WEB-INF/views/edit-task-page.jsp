@@ -27,7 +27,7 @@
     </style>
 
 </head>
-<body style="background-color: lightgray">
+<body style="background-color: lightgrey">
 
 <div class="container">
 
@@ -53,7 +53,7 @@
                         <textarea name="description" id="description"
                                   class="form-control">${task.description}</textarea>
                     </div>
-                    <button class="btn btn-primary" type="submit">Edit</button>
+                    <button class="btn btn-info" type="submit">Edit</button>
                     <a href="/user-tasks" class="btn btn-secondary">Back</a>
                     <input type="hidden" name="id" value="${task.id}"/>
                     <input type="hidden" name="redirectTo" value="/user-tasks"/>

@@ -14,54 +14,46 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+    <title>TODO List</title>
+
     <link href="/static/css/bill.css" type="text/css" rel="stylesheet">
     <link href="../../static/css/style.css" type="text/css" rel="stylesheet">
     <style>
         * {
             box-sizing: border-box;
-            color: #064579
-        }
 
+        }
         ul {
             list-style-type: none;
         }
-
         body {
-            font-family: Verdana, sans-serif;
-            background-color: lightgray
-        }
 
+            background-color: lightgrey;
+        }
         h1 {
-            font-family: Verdana, sans-serif;
-            color: coral;
+
             text-align: center;
         }
-
         #main {
             width: 100%;
             height: auto;
         }
-
         #todo
         {
             float:left;
             margin-top: 3%;
-            margin-left: 3%;
+            margin-left: 0.5%;
             margin-right: auto;
-            width:60%;
-            border-style: solid;
-            border-color: darkred;
+            width:56.5%;
         }
         #cal
         {
             float:left;
-            margin-left: 5%;
+            margin-left: 3%;
             margin-right: auto;
-            width:32%;
-            border-style: solid;
-            border-color: darkred;
+            width:40%;
         }
-
         #some {
             clear: both;
             width: 100%;
@@ -81,8 +73,6 @@
         </div>
         <section id="main-content">
             <section class="wrapper">
-
-                <h1 style="color: #064579">Let's organize your flat!</h1><br/>
 
                 <div id="main">
 

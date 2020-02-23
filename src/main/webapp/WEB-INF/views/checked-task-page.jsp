@@ -27,7 +27,7 @@
     </style>
 
 </head>
-<body style="background-color: lightgray">
+<body style="background-color: lightgrey">
 
 <div class="container">
 

@@ -83,7 +83,7 @@ $(function () {
     var r = [];
     var i = ["JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE", "JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER"];
     var s = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-    var o = ["#16a085", "#1abc9c", "#c0392b", "#27ae60", "#FF6860", "#f39c12", "#f1c40f", "#e67e22", "#2ecc71", "#e74c3c", "#d35400", "#2c3e50"];
+    var o = ["#1DA1F2", "#1DA1F2", "#1DA1F2", "#1DA1F2", "#1DA1F2", "#1DA1F2", "#1DA1F2", "#1DA1F2", "#1DA1F2", "#1DA1F2", "#1DA1F2", "#1DA1F2"];
     var u = $("#calendar");
     var a = u.find("#calendar_header");
     var f = u.find("#calendar_weekdays");
