@@ -23,6 +23,7 @@
     <title>Bill section</title>
     <link href="/static/css/bill.css" type="text/css" rel="stylesheet">
     <link href="../../static/css/style.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/fontello.css" type="text/css" />
 
     <script>
         window.onload = function () {
@@ -150,14 +151,17 @@
                                 <legend style="text-align:center">THE TOTAL AMOUNT TO PAY:</legend>
                                 <div id="sum"> ${billsToPay} pln</div>
                             </fieldset>
-                            <button id="pay" type="submit">Pay</button>
+                            <button type="submit" style="color: #fff;background-color: #337ab7;border-color: #2e6da4;cursor: pointer;
+                                                 border-radius:8px;font-size: 22px;float: right;margin-right: 30px;">
+                                <a href="/bills/pay" style="color: white">Pay</a></button>
+
                         </div>
                     </div>
                     <div id="stat">
                         <div id="slicer">
-                            <div class="button"><a href="/bills/energy" classs="media">Energy</a></div>
-                            <div class="button"><a href="/bills/water" classs="media">Water</a></div>
-                            <div class="button"><a href="/bills/heating" classs="media">Heating</a></div>
+                            <div class="button"><a href="/bills/energy" classs="media" style="color: white"><i class="icon-flash"></i></a></div>
+                            <div class="button"><a href="/bills/water" classs="media" style="color: white"><i class="icon-water"></i></a></div>
+                            <div class="button"><a href="/bills/heating" classs="media" style="color: white"><i class="icon-thermometer"></i></a></div>
                         </div>
                         <div id="lineChart">
                             <%--                <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>--%>
