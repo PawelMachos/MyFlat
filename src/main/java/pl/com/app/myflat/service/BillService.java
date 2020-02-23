@@ -85,4 +85,12 @@ public class BillService {
         return bills;
     }
 
+    public void payAllInvoices(Long id){
+        List<Bill> bills = userRepository.findAllBillsToPayForUser(id)
+                .stream().filter(bill->bill.getActive()==true).collect(Collectors.toList());
+        for(Bill b : bills){
+            b.setActive(false);
+        }
+    }
+
 }
