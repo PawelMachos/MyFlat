@@ -14,21 +14,34 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link href="/static/css/bill.css" type="text/css" rel="stylesheet">
+    <link href="../../static/css/style.css" type="text/css" rel="stylesheet">
     <style>
+        * {
+            box-sizing: border-box;
+            color: #064579
+        }
 
-        * {box-sizing: border-box;}
-        ul {list-style-type: none;}
-        body {font-family: Verdana, sans-serif;
-            background-color: lightgray}
-        h1 {font-family: Verdana, sans-serif;
-            color: #064579;
+        ul {
+            list-style-type: none;
+        }
+
+        body {
+            font-family: Verdana, sans-serif;
+            background-color: lightgray
+        }
+
+        h1 {
+            font-family: Verdana, sans-serif;
+            color: coral;
             text-align: center;
         }
-        #main
-        {
+
+        #main {
             width: 100%;
             height: auto;
         }
+
         #todo
         {
             float:left;
@@ -44,31 +57,54 @@
             float:left;
             margin-left: 5%;
             margin-right: auto;
-            width:20%;
+            width:32%;
             border-style: solid;
             border-color: darkred;
         }
-        #some
-        {
+
+        #some {
             clear: both;
             width: 100%;
             background-color: lightcoral;
         }
-
     </style>
 </head>
 <body>
 
-        <h1>Let's organize your flat!</h1><br/>
+<section id="container">
+    <header class="header black-bg">
+        <jsp:include page="header.jsp"/>
+    </header>
+    <div>
+        <div id="leftSideOfWeb">
+            <jsp:include page="side-menu.jsp"/>
+        </div>
+        <section id="main-content">
+            <section class="wrapper">
 
-       <div id="main">
+                <h1 style="color: #064579">Let's organize your flat!</h1><br/>
 
-           <div id="todo"><jsp:include page="checked-task-page.jsp"/></div>
-           <div id="cal"><jsp:include page="calendar.jsp"/></div>
+                <div id="main">
 
+                    <div id="todo">
+                        <jsp:include page="checked-task-page.jsp"/>
+                    </div>
+                    <div id="cal">
+                        <jsp:include page="calendar.jsp"/>
+                    </div>
 
+                </div>
 
-       </div>
+            </section>
+        </section>
+    </div>
+    <footer class="site-footer">
+        <jsp:include page="footer.jsp"/>
+    </footer>
+</section>
+</body>
+</html>
+
 
 </body>
 </html>

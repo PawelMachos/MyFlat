@@ -1,6 +1,7 @@
 package pl.com.app.myflat.controllers;
 
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,39 +20,37 @@ import java.util.List;
 @Slf4j
 public class MessagesController {
 
+    private static final Logger log = org.slf4j.LoggerFactory.getLogger(MessagesController.class);
+
     private final UserRepository userRepository;
     private final MessagesRepository messagesRepository;
-    private final ClientGui clientGui;
 
-    public MessagesController(UserRepository userRepository, MessagesRepository messagesRepository, ClientGui clientGui) {
+    public MessagesController(UserRepository userRepository, MessagesRepository messagesRepository) {
         this.userRepository = userRepository;
         this.messagesRepository = messagesRepository;
-        this.clientGui = clientGui;
     }
 
-    @GetMapping("/messages")
-    public String showMessages(final Model model) {
-        final List<Message> allMessages = this.messagesRepository.findAllByOrderByPostedDesc();
-        model.addAttribute("adverts", allMessages);
-        {
-            return "messages";
-        }
-    }
+    @PostMapping("/messages")
+    public String addAdvert(String title, String message, String receiver, Principal principal) {
+        String username = principal.getName();
+        User user = userRepository.findByUsername(username);
 
-    @PostMapping("/add-advert")
-    public String addAdvert(final String owner, final String message, final Principal principal){
-        final String userName = principal.getName();
-        final User user = this.userRepository.findByUsername(userName);
-
-        String message = new Message();
-        message.setMessage(message);
-        message.setUser(user);
-        message.setCreatedAt(LocalDateTime.now());
-
-        MessagesController.log.info("Nowa wiadomość: " + message);
-        message = messagesRepository.save(message);
-        MessagesController.log.info("Zapisana wiadomość: " + message);
+        Message msg = new Message();
+        msg.setTitle(title);
+        msg.setMessage(message);
+        msg.setReceiver(receiver);
+        log.info("Próba zapisu wiadomości: " + msg);
+        msg = messagesRepository.save(msg);
+        log.info("Zapisano wiadomość: " + msg);
 
         return "redirect:/messages";
+    }
+
+    @Override
+    public String toString() {
+        return "MessagesController{" +
+                "userRepository=" + userRepository +
+                ", messagesRepository=" + messagesRepository +
+                '}';
     }
 }

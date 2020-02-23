@@ -21,5 +21,11 @@ public class Message extends EntityBase {
 
     @ManyToOne
     @JoinColumn(name="user_id", nullable = false)
-    private User userId;
+    private User user;
+
+    public void setTitle(String title) {
+    }
+
+    public void setReceiver(String receiver) {
+    }
 }
