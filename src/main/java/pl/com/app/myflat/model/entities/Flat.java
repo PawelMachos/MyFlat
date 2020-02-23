@@ -23,4 +23,6 @@ public class Flat extends EntityBase {
     private User user;
 
 
+
+
 }
