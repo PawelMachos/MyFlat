@@ -29,9 +29,9 @@
     text-transform: uppercase;
             font-size: x-large;
     }
-        /*body {
-            background-image: url("/static/graphics/korek.jpg");
-        }*/
+        body {
+            background-image: url("/static/graphics/korek2.jpg");
+        }
 
         .active-cyan-2 input[type=text]:focus:not([readonly]) {
             border-bottom: 1px solid #4dd0e1;
@@ -52,6 +52,10 @@
         div.buttons {
             padding: 5px;
             margin: 10px;
+        }
+
+        h4, h5 {
+            color: white;
         }
     </style>
 </head>
@@ -153,12 +157,12 @@
     <sec:authorize access="isAuthenticated()">
         <form method="post" action="/add-advert">
             <div class="form-group">
-            <label for="title">Tytuł:</label> <br>
+            <label for="title" style="color: white">Tytuł:</label> <br>
         <input type="text" required name="title" id="title">
             </div> <br>
 
             <div class="form-group">
-            <label for="description">Ogłoszenie:</label><br>
+            <label for="description" style="color: white">Ogłoszenie:</label><br>
             <textarea name="description" id="description"
                       class="form-control" > </textarea>
             </div> <br>
