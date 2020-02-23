@@ -2,6 +2,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <style>
+        *{
+            font-family: 'Ruda', sans-serif;
+        }
+    </style>
+
     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
     <link href="/static/css/calendar-style.css" type="text/css" rel="stylesheet">
     <link href="../../static/css/calendar-style.css" type="text/css" rel="stylesheet">

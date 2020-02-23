@@ -22,6 +22,7 @@
     <style>
         * {
             box-sizing: border-box;
+            font-family: 'Ruda', sans-serif;
 
         }
         ul {

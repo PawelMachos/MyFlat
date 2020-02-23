@@ -28,6 +28,10 @@
 
     <style>
 
+        *{
+            font-family: 'Ruda', sans-serif;
+        }
+
         .col-6 {
             text-align: center;
         }

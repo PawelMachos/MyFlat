@@ -10,7 +10,7 @@
 <head>
 
 </head>
-<body>
+<body style="font-size: 13px">
 
 <footer class="site-footer">
     <div class="text-center">

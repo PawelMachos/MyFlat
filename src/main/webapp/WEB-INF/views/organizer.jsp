@@ -23,6 +23,7 @@
     <style>
         * {
             box-sizing: border-box;
+            font-family: 'Ruda', sans-serif;
 
         }
         ul {
@@ -90,7 +91,7 @@
             </section>
         </section>
     </div>
-    <footer class="site-footer">
+    <footer class="site-footer" style="font-size: 13px">
         <jsp:include page="footer.jsp"/>
     </footer>
 </section>
