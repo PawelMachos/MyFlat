@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="java.time.format.DateTimeFormatter" %>
 <html>
 <head>
 
@@ -18,19 +19,82 @@
             float: left;
         }
 
+        .hover a:hover {
+            color:white;
+            background:black;
+        }
+
+        div.advert {
+            object-position: center;
+            text-align:center;
+            background-color: lightyellow;
+            width: 90%;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        div.title {
+            text-transform: uppercase;
+            font-size: large;
+        }
+
+        div.autorzy{
+            font-size: small;
+        }
+
+        .fieldset{
+            block-size: content-box;
+        }
+
     </style>
 
     <link href="/static/css/bill.css" type="text/css" rel="stylesheet">
     <link href="../../static/css/style.css" type="text/css" rel="stylesheet">
-
-
 
 </head>
 <body>
 
 <div id="main-sec">
 
-    <div class="main-tile"></div>
+    <div class="main-tile">
+        <fieldset class="fieldset">
+            <a href="/adverts" style="font-size: large"><h4 style="text-align: center">NAJNOWSZE OGŁOSZENIE</h4></a>
+
+            <div class="advert">
+
+                <table>
+
+                    <tr>
+
+                        <td>
+                            <div class="autorzy">
+                                ${newestAdvert.user.username}, dodano: ${newestAdvert.createdAt.format(DateTimeFormatter
+                                .ofPattern("dd/MM/yyyy  hh:mm a"))}
+                            </div>
+                        </td>
+
+                    </tr>
+
+
+                    <td><hr></td>
+
+                    <tr>
+                        <th>
+                            <div class="title">${newestAdvert.title}</div>
+                        </th>
+                    </tr>
+
+                    <tr>
+                        <td>${newestAdvert.description}</td>
+                        <br>
+                    </tr>
+
+                </table>
+            </div>
+
+        </fieldset>
+    </div>
+
     <div class="main-tile">
         <fieldset style="margin:15px; height:45%; padding-top: 30px;">
             <legend style="text-align:center">THE TOTAL AMOUNT TO PAY:</legend>
