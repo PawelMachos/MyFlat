@@ -147,7 +147,7 @@
                             <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
                         </div>
                         <div id="menu">
-                            <fieldset style="margin:15px; height:45%;">
+                            <fieldset style="margin:15px; height:45%;  padding-top: 30px;">
                                 <legend style="text-align:center">THE TOTAL AMOUNT TO PAY:</legend>
                                 <div id="sum"> ${billsToPay} pln</div>
                             </fieldset>
