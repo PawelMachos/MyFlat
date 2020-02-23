@@ -27,6 +27,7 @@
     <style>
         div.title {
     text-transform: uppercase;
+            font-size: x-large;
     }
         /*body {
             background-image: url("/static/graphics/korek.jpg");
@@ -39,6 +40,18 @@
         .active-cyan input[type=text] {
             border-bottom: 1px solid #4dd0e1;
             box-shadow: 0 1px 0 0 #4dd0e1;
+        }
+
+        div.advert {
+            background-color: lightyellow;
+            width: 600px;
+            padding: 10px;
+            margin: 20px;
+        }
+
+        div.buttons {
+            padding: 5px;
+            margin: 10px;
         }
     </style>
 </head>
@@ -60,7 +73,7 @@
             <section class="wrapper">
 
 &nbsp;
-<div>
+
 
 
     <div class="row" style="margin-top: 40px; margin-bottom: 10px" >
@@ -69,36 +82,39 @@
 
 
     <div class="row">
-        <div class="col-12" style="padding-bottom: 20px">
-
+        <div class="col-6" style="padding-bottom: 20px">
 
             <!-- Search form -->
             <form class="form-inline md-form form-sm active-cyan-2 mt-2">
                 <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Szukaj ogłoszenia:"
                        aria-label="Szukaj">
-                <i class="fas fa-search" aria-hidden="true"></i>
+                <i class="fas fa-search" aria-hidden="false"></i>
             </form>
+        </div>
+    </div>
+<c:forEach items="${adverts}" var="advert" varStatus="stat">
+    <div class="advert">
 
+                    <table>
+                            <tr>
+                                <td>${advert.user.username}, dodano: ${advert.createdAt.format(DateTimeFormatter
+                                .ofPattern("dd/MM/yyyy  hh:mm a"))}</td>
+                            </tr>
 
-            <div>
-                <table >
-                    <c:forEach items="${adverts}" var="advert" varStatus="stat">
-                    <td><br></td>
+                        <td><hr></td>
+
                         <tr>
-                            <td>${advert.user.username}, dodano: ${advert.createdAt.format(DateTimeFormatter
-                            .ofPattern("dd/MM/yyyy  hh:mm a"))}</td>
+                            <th><div class="title">${advert.title}</div></th>
                         </tr>
 
+
                     <tr>
-                        <th><div class="title">${advert.title}</div></th>
+                        <td>${advert.description}</td><br>
                     </tr>
-            </div>
 
-            <tr>
-                <td>
-                        ${advert.description}</td>
-            </tr>
+                </table>
 
+        <div class="buttons">
             <td>
                 <div class="btn-group">
                     <form class="form-inline" method="post" action="/delete-advert">
@@ -114,52 +130,53 @@
                 </div>
             </td>
 
-
-            </c:forEach>
-            </table>
         </div>
-
     </div>
+</c:forEach>
+
+
+
+
+
+
+
+<div class="row" style="margin-center: 40px; margin-bottom: 10px">
+<div class="col-1"></div>
+<div class="col-2"><h5>Dodaj ogłoszenie</h5></div>
+<div class="col-5"></div>
 </div>
 
+<div class="row">
+<div class="col-2"></div>
+<div class="col-8">
 
-    <div class="row" style="margin-center: 40px; margin-bottom: 10px">
-        <div class="col-1"></div>
-        <div class="col-2"><h5>Dodaj ogłoszenie</h5></div>
-        <div class="col-5"></div>
-    </div>
+    <sec:authorize access="isAuthenticated()">
+        <form method="post" action="/add-advert">
+            <div class="form-group">
+            <label for="title">Tytuł:</label> <br>
+        <input type="text" required name="title" id="title">
+            </div> <br>
 
-    <div class="row">
-        <div class="col-2"></div>
-        <div class="col-8">
+            <div class="form-group">
+            <label for="description">Ogłoszenie:</label><br>
+            <textarea name="description" id="description"
+                      class="form-control" > </textarea>
+            </div> <br>
 
-            <sec:authorize access="isAuthenticated()">
-                <form method="post" action="/add-advert">
-                    <div class="form-group">
-                    <label for="title">Tytuł:</label> <br>
-                <input type="text" required name="title" id="title">
-                    </div> <br>
+        <input type="file" value="Załącz plik"> <br><br>
 
-                    <div class="form-group">
-                    <label for="description">Ogłoszenie:</label><br>
-                    <textarea name="description" id="description"
-                              class="form-control" > </textarea>
-                    </div> <br>
-
-                <input type="file" value="Załącz plik"> <br><br>
-
-                    <button class="btn btn-outline-primary" type="reset">Wyczyść dane</button>
-                    <button class="btn btn-primary" type="submit">Umieść ogłoszenie</button>
-                    <input type="hidden" name="redirectTo" value="/adverts"/>
-            </form>
+            <button class="btn btn-outline-primary" type="reset">Wyczyść dane</button>
+            <button class="btn btn-primary" type="submit">Umieść ogłoszenie</button>
+            <input type="hidden" name="redirectTo" value="/adverts"/>
+    </form>
 
 
-            </sec:authorize>
+    </sec:authorize>
 
 
-        </div>
-        <div class="col-2"></div>
-    </div>
+</div>
+<div class="col-2"></div>
+</div>
 
 
 
@@ -173,9 +190,9 @@
 </section>
 &nbsp;
 <div>
-    <footer class="site-footer">
-        <jsp:include page="footer.jsp"/>
-    </footer>
+<footer class="site-footer">
+<jsp:include page="footer.jsp"/>
+</footer>
 </div>
 
 </body>
