@@ -66,4 +66,33 @@ public class AdvertPageController {
         return "redirect:/adverts";
     }
 
+    @GetMapping("/edit-advert")
+    public String prepareEditAdvert(Long advertId, Principal principal, Model model) {
+        String username = principal.getName();
+        Optional<Advert> optionalAdvert = advertRepository.findByIdAndUserUsername(advertId, username);
+
+        if (optionalAdvert.isPresent()) {
+            model.addAttribute("advert", optionalAdvert.get());
+            return "/edit-advert-page";
+        }
+        else {
+            return "redirect:/adverts";
+        }
+    }
+
+    @PostMapping("/edit-advert")
+    public String processEditAdvert(Long id, String title, String description, Principal principal) {
+        String username = principal.getName();
+        log.debug("Edycja ogłoszenia o id {} dla użytkownika {}", id, username);
+
+        Optional<Advert> optionalAdvert = advertRepository.findByIdAndUserUsername(id, username);
+        optionalAdvert.ifPresent(advert -> {
+            advert.setTitle(title);
+            advert.setDescription(description);
+            advertRepository.save(advert);
+        });
+
+        return "redirect:/adverts";
+    }
+
 }
