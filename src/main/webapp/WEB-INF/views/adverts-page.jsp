@@ -73,8 +73,8 @@
             <jsp:include page="side-menu.jsp"/>
         </div>
 
-        <section id="main-content">
-            <section class="wrapper">
+        <section id="main-content" >
+            <section class="wrapper" style="min-height: 800px;">
 
 &nbsp;
 

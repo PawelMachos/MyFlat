@@ -4,6 +4,7 @@ import lombok.*;
 import org.springframework.web.bind.annotation.Mapping;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Getter @Setter @NoArgsConstructor
 @AllArgsConstructor
@@ -22,7 +23,8 @@ public class Flat extends EntityBase {
     @JoinColumn(name="user_id", nullable = false)
     private User user;
 
-
+    @OneToMany(mappedBy = "flat")
+    private List<Bill> bills;
 
 
 }
