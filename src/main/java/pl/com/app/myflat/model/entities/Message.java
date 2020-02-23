@@ -14,10 +14,10 @@ import javax.persistence.*;
 public class Message extends EntityBase {
 
     @Column(nullable = false)
-    private String title;
+    private String receiver;
 
     @Column(nullable = false)
-    private String receiver;
+    private String message;
 
     @ManyToOne
     @JoinColumn(name="user_id", nullable = false)

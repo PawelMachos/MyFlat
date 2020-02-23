@@ -1,6 +1,5 @@
 package pl.com.app.myflat.messenger;
 
-import java.applet.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -18,7 +17,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 
-public class ClientGui extends /*Thread*/ Applet {
+public class ClientGui extends Thread {
 
   final JTextPane jtextFilDiscu = new JTextPane();
   final JTextPane jtextListUsers = new JTextPane();
