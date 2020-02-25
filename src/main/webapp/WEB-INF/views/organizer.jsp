@@ -18,7 +18,7 @@
     <title>TODO List</title>
 
 
-    <link href="/static/css/bill.css" type="text/css" rel="stylesheet">
+
     <link href="../../static/css/style.css" type="text/css" rel="stylesheet">
     <style>
         * {
@@ -47,14 +47,14 @@
             margin-top: 3%;
             margin-left: 0.5%;
             margin-right: auto;
-            width:56.5%;
+            width:63.5%;
         }
         #cal
         {
             float:right;
             margin-top: 0.5%;
-            margin-right: 2%;
-            width:33%;
+            margin-right: 0%;
+            width:27%;
         }
         #some {
             clear: both;
@@ -67,7 +67,7 @@
 
 
 <section id="container">
-    <header class="header black-bg">
+    <header class="header black-bg" style="font-size: 24px">
         <jsp:include page="header.jsp"/>
     </header>
     <div>

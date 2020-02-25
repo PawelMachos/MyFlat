@@ -46,14 +46,14 @@
             margin-top: 3%;
             margin-left: 0.5%;
             margin-right: auto;
-            width:56.5%;
+            width:62.5%;
         }
         #cal
         {
-            float:left;
-            margin-left: 3%;
-            margin-right: auto;
-            width:40%;
+            float:right;
+            margin-top: 0.5%;
+            margin-right: 1%;
+            width:27%;
         }
         #some {
             clear: both;
@@ -81,7 +81,7 @@
                         <jsp:include page="checked-task-page.jsp"/>
                     </div>
                     <div id="cal">
-                        <jsp:include page="calendar2.jsp"/>
+                        <jsp:include page="cale.jsp"/>
                     </div>
 
                 </div>
