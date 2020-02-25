@@ -51,10 +51,10 @@
         }
         #cal
         {
-            float:left;
-            margin-left: 3%;
-            margin-right: auto;
-            width:40%;
+            float:right;
+            margin-top: 0.5%;
+            margin-right: 2%;
+            width:33%;
         }
         #some {
             clear: both;
@@ -75,7 +75,7 @@
             <jsp:include page="side-menu.jsp"/>
         </div>
         <section id="main-content">
-            <section class="wrapper">
+            <section class="wrapper" style="min-height: 800px;">
 
                 <div id="main">
 
@@ -83,7 +83,7 @@
                         <jsp:include page="user-tasks-page.jsp"/>
                     </div>
                     <div id="cal">
-                        <jsp:include page="calendar.jsp"/>
+                        <jsp:include page="cale.jsp"/>
                     </div>
 
                 </div>

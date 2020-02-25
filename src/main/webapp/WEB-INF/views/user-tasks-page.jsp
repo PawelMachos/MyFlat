@@ -1,4 +1,4 @@
-<%--
+<%@ page import="pl.com.app.myflat.model.enums.Status" %><%--
   Created by IntelliJ IDEA.
   User: marta
   Date: 18.01.2020
@@ -11,6 +11,25 @@
 
 <html>
 <head>
+
+    <style>
+
+        *{
+            font-family: 'Ruda', sans-serif;
+            font-size: 12px;
+        }
+
+        .col-6 {
+            text-align: center;
+        }
+
+        .cell-breakAll {
+            word-break: break-all;
+        }
+
+    </style>
+
+
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet"
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
@@ -26,21 +45,9 @@
             integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
             crossorigin="anonymous"></script>
 
-    <style>
+    <c:set var="active" value="<%=Status.ACTIVE.toString()%>"/>
+    <c:set var="inactive" value="<%=(Status.INACTIVE).toString()%>"/>
 
-        *{
-            font-family: 'Ruda', sans-serif;
-        }
-
-        .col-6 {
-            text-align: center;
-        }
-
-        .cell-breakAll {
-            word-break: break-all;
-        }
-
-    </style>
 
 </head>
 <body style="background-color: lightgrey">
@@ -65,11 +72,12 @@
                                placeholder="Title"/>
                     </div>
                     <div class="form-group">
-                        <label for="description">Task Description:</label>
-                        <textarea name="description" id="description"
-                                  class="form-control" maxlength="200"
-                                  placeholder="Description, max 200 characters"></textarea>
-                    </div>
+                    <label for="description">Task Description:</label>
+                    <textarea name="description" id="description"
+                              class="form-control" maxlength="200"
+                              placeholder="Description, max 200 characters"></textarea>
+                </div>
+
                     <button class="btn btn-warning" type="submit">Add</button>
                     <button class="btn btn-secondary" type="reset">Clear</button>
                     <input type="hidden" name="redirectTo" value="/user-tasks"/>
@@ -93,9 +101,10 @@
             <table class="table">
                 <tr>
                     <th>No.</th>
-                    <th>Title</th>
+                    <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Title&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
                     <th>Description</th>
-                    <th>When</th>
+                    <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;When&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                    <th>&nbsp;&nbsp;Deadline&nbsp;&nbsp;&nbsp;&nbsp;</th>
                     <th>Status</th>
                 </tr>
                 <c:forEach items="${tasks}" var="task" varStatus="stat">
@@ -103,8 +112,16 @@
                         <td>${stat.count}</td>
                         <td><b>${task.title}</b></td>
                         <td class="cell-breakAll">${task.description}</td>
-                        <td>${task.createdAt}</td>
-                        <td>${task.active}</td>
+                        <td>${task.startDate}</td>
+                        <td>${task.deadline}</td>
+                        <td>
+                            <c:if test="${task.active==true}">
+                                ${task.status}
+                        </c:if>
+                            <c:if test="${task.active==false}">
+                                ${inactive}
+                            </c:if>
+                        </td>
                     </tr>
                 <tr>
                         <td colspan="4">

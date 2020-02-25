@@ -20,13 +20,20 @@
             crossorigin="anonymous"></script>
 
     <style>
+
         *{
             font-family: 'Ruda', sans-serif;
+            font-size: 12px;
         }
-        .col-6
-        {
+
+        .col-6 {
             text-align: center;
         }
+
+        .cell-breakAll {
+            word-break: break-all;
+        }
+
     </style>
 
 </head>

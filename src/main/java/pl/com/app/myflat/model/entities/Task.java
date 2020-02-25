@@ -1,9 +1,11 @@
 package pl.com.app.myflat.model.entities;
 
 import lombok.*;
+import pl.com.app.myflat.model.enums.Status;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
@@ -23,6 +25,8 @@ public class Task extends EntityBase{
 
     private Boolean active;
     private String status;
+    private LocalDate startDate;
+    private LocalDate deadline;
 
     @ManyToOne
     @JoinColumn(name = "owner_id")
