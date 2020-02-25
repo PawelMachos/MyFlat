@@ -176,7 +176,7 @@
                                 <div class="form-group">
                                     <label for="description" style="color: white">Ogłoszenie:</label><br>
                                     <textarea name="description" id="description"
-                                              class="form-control"> </textarea>
+                                              class="form-control" maxlength="400"> </textarea>
                                 </div>
                                 <br>
 
