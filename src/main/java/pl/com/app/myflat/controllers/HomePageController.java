@@ -7,15 +7,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.com.app.myflat.dto.LoggedUserDTO;
 import pl.com.app.myflat.model.entities.Advert;
-import pl.com.app.myflat.model.entities.Task;
 import pl.com.app.myflat.model.repositories.AdvertRepository;
-import pl.com.app.myflat.model.repositories.TaskRepository;
 import pl.com.app.myflat.service.BillService;
+import pl.com.app.myflat.service.TaskService;
 import pl.com.app.myflat.service.UserService;
 
 import java.security.Principal;
-import java.util.List;
-import java.util.stream.Stream;
 
 @Controller
 @RequestMapping("/home")
@@ -24,29 +21,29 @@ public class HomePageController {
     private final BillService billService;
     private final UserService userService;
     private final AdvertRepository advertRepository;
-    private final TaskRepository taskRepository;
+    private final TaskService taskService;
 
 
     @Autowired
-    public HomePageController(BillService billService, UserService userService, AdvertRepository advertRepository, TaskRepository taskRepository) {
+    public HomePageController(BillService billService, UserService userService, AdvertRepository advertRepository, TaskService taskService) {
         this.billService = billService;
         this.userService = userService;
         this.advertRepository = advertRepository;
-        this.taskRepository = taskRepository;
+        this.taskService = taskService;
     }
 
     @GetMapping
     public String showHomePage(Model model, Principal principal) {
 
-        LoggedUserDTO user = userService.getUser(principal.getName());
+        String username = principal.getName();
+        LoggedUserDTO user = userService.getUser(username);
+
         model.addAttribute("billsToPay", billService.showAllBillsToPay(user.getId()));
 
+        model.addAttribute("allTasks", taskService.showMostUrgentTasks(username));
 
         Advert newestAdvert = advertRepository.findTopByOrderByCreatedAtDesc();
         model.addAttribute("newestAdvert", newestAdvert);
-
-        List<Task> all = taskRepository.findFirst5ByOwnerUsernameOrderByDeadlineAsc(principal.getName());
-        model.addAttribute("allTasks", all);
 
         return "home-page";
     }

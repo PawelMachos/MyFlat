@@ -38,12 +38,12 @@ public class TaskController {
     }
 
     @PostMapping("/delete-task")
-    public String processDeleteAdvert(Long taskId, Principal principal) {
+    public String processDeleteTask(Long taskId, Principal principal) {
         String username = principal.getName();
         log.debug("Usuwanie ogłoszenia o id {} dla użytkownika {}", taskId, username);
 
-        Optional<Task> optionalAdvert = taskRepository.findByIdAndOwnerUsername(taskId, username);
-        optionalAdvert.ifPresent(taskRepository::delete);
+        Optional<Task> optionalTask = taskRepository.findByIdAndOwnerUsername(taskId, username);
+        optionalTask.ifPresent(taskRepository::delete);
 
         return "redirect:/user-tasks";
     }

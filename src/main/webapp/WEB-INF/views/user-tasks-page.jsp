@@ -14,7 +14,7 @@
 
     <style>
 
-        *{
+        * {
             font-family: 'Ruda', sans-serif;
             font-size: 12px;
         }
@@ -78,11 +78,11 @@
                                placeholder="Title"/>
                     </div>
                     <div class="form-group">
-                    <label for="description">Task Description:</label>
-                    <textarea name="description" id="description"
-                              class="form-control" maxlength="200"
-                              placeholder="Description, max 200 characters"></textarea>
-                </div>
+                        <label for="description">Task Description:</label>
+                        <textarea name="description" id="description"
+                                  class="form-control" maxlength="200"
+                                  placeholder="Description, max 200 characters"></textarea>
+                    </div>
 
                     <button class="btn btn-warning" type="submit">Add</button>
                     <button class="btn btn-secondary" type="reset">Clear</button>
@@ -105,17 +105,17 @@
         <div class="col-12" style="padding-bottom: 20px">
 
             <div class="ex1">
-            <table class="table" >
-                <tr>
-                    <th>No.</th>
-                    <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Title&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
-                    <th>Description</th>
-                    <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;When&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
-                    <th>&nbsp;&nbsp;Deadline&nbsp;&nbsp;&nbsp;&nbsp;</th>
-                    <th>Status</th>
-                </tr>
-                <c:forEach items="${tasks}" var="task" varStatus="stat">
-                    <tr >
+                <table class="table">
+                    <tr>
+                        <th>No.</th>
+                        <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Title&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                        <th>Description</th>
+                        <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;When&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                        <th>&nbsp;&nbsp;Deadline&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                        <th>Status</th>
+                    </tr>
+                    <c:forEach items="${tasks}" var="task" varStatus="stat">
+                    <tr>
                         <td>${stat.count}</td>
                         <td><b>${task.title}</b></td>
                         <td class="cell-breakAll">${task.description}</td>
@@ -124,17 +124,17 @@
                         <td>
                             <c:if test="${task.active==true}">
                                 ${task.status}
-                        </c:if>
+                            </c:if>
                             <c:if test="${task.active==false}">
                                 ${inactive}
                             </c:if>
                         </td>
                     </tr>
-                <tr>
+                    <tr>
                         <td colspan="6">
                             <c:if test="${task.active==true}">
 
-                            <div class="btn-group" style="float: right; margin-right: 0px" >
+                            <div class="btn-group" style="float: right; margin-right: 0px">
                                 <form class="form-inline" method="get" action="/checked-task">
                                     <button type="submit" class="btn btn-success">&nbsp;Done&nbsp;</button>
                                     <input type="hidden" name="taskId" value="${task.id}"/>
@@ -146,7 +146,8 @@
                                     <sec:csrfInput/>
                                 </form>
                                 <form class="form-inline" style="margin-left: 1em" method="post" action="/delete-task">
-                                    <button type="submit" class="btn btn-danger" onclick="return confirmDelete();">Delete
+                                    <button type="submit" class="btn btn-danger" onclick="return confirmDelete();">
+                                        Delete
                                     </button>
                                     <input type="hidden" name="taskId" value="${task.id}"/>
                                     <sec:csrfInput/>
@@ -154,28 +155,29 @@
                             </div>
                             </c:if>
                             <c:if test="${task.active!=true}">
-                                    <form class="form-inline" style="float: right; margin-right: 1em" method="post" action="/delete-task">
-                                        <button type="submit" class="btn btn-danger" onclick="return confirmDelete();">Delete
-                                        </button>
-                                        <input type="hidden" name="taskId" value="${task.id}"/>
-                                        <sec:csrfInput/>
-                                    </form>
-                                </div>
-                            </c:if>
-                        </td>
-                    </tr>
-                </c:forEach>
+                            <form class="form-inline" style="float: right; margin-right: 1em" method="post"
+                                  action="/delete-task">
+                                <button type="submit" class="btn btn-danger" onclick="return confirmDelete();">Delete
+                                </button>
+                                <input type="hidden" name="taskId" value="${task.id}"/>
+                                <sec:csrfInput/>
+                            </form>
+            </div>
+            </c:if>
+            </td>
+            </tr>
+            </c:forEach>
             </table>
         </div>
 
-        </div>
     </div>
+</div>
 </div>
 
 <script>
     function confirmDelete() {
         var result = confirm("Are You sure, You want to delete this task??");
-        if (result==true) {
+        if (result == true) {
             return true;
         } else {
             return false;

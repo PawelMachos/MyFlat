@@ -51,12 +51,6 @@
             block-size: content-box;
         }
 
-        tr.table {
-            padding-top: 20px;
-            padding-bottom: 20px;
-            margin-top: 50px;
-            margin-bottom: 50px;
-        }
 
     </style>
 
@@ -86,7 +80,6 @@
                         </td>
 
                     </tr>
-
 
                     <td>
                         <hr>
@@ -126,6 +119,11 @@
                     <th>&nbsp;&nbsp;Deadline&nbsp;&nbsp;&nbsp;&nbsp;</th>
                     <th>Status</th>
                 </tr>
+                <tr>
+                    <td colspan="5">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </td>
+                </tr>
                 <c:forEach items="${allTasks}" var="task" varStatus="stat">
                     <tr>
                         <td>${stat.count}</td>
@@ -141,8 +139,11 @@
                             </c:if>
                         </td>
                     </tr>
-
-
+                    <tr>
+                        <td colspan="5">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                    </tr>
                 </c:forEach>
             </table>
         </fieldset>
@@ -151,7 +152,6 @@
     <div class="main-tile">
 
     </div>
-    <div style="clear: both"></div>
 
 
 </div>

@@ -11,6 +11,8 @@ import pl.com.app.myflat.model.repositories.UserRepository;
 
 import java.security.Principal;
 import java.time.LocalDate;
+import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TaskService {
@@ -24,58 +26,34 @@ public class TaskService {
         this.userRepository = userRepository;
     }
 
-
-//    public void saveTask(TaskDTO taskDTO, Principal principal) {
-//
-//        String username = principal.getName();
-//        User user = userRepository.findByUsername(username);
-//
-//        Task task = Task.builder()
-//                .title(taskDTO.getTitle())
-//                .description(taskDTO.getDescription())
-//                .active(taskDTO.getActive())
-//                .status((Status.ACTIVE).toString())
-//                .startDate(LocalDate.now())
-//                .deadline((LocalDate.now()).plusDays(7))
-//                .owner(user)
-//                .build();
-//
-//        taskRepository.save(task);
-//    }
-
-    public void saveTask(TaskDTO taskDTO, Principal principal){
+    public void saveTask(TaskDTO taskDTO, Principal principal) {
 
         String username = principal.getName();
-
         User user = userRepository.findByUsername(username);
 
-        Task task = new Task();
-        task.setTitle(taskDTO.getTitle());
-        task.setDescription(taskDTO.getDescription());
-        task.setActive(taskDTO.getActive());
-        task.setStatus((Status.ACTIVE).toString());
-        task.setStartDate(LocalDate.now());
-        task.setDeadline((LocalDate.now()).plusDays(7));
-        task.setOwner(user);
+        Task task = Task.builder()
+                .title(taskDTO.getTitle())
+                .description(taskDTO.getDescription())
+                .active(taskDTO.getActive())
+                .status((Status.ACTIVE).toString())
+                .startDate(LocalDate.now())
+                .deadline((LocalDate.now()).plusDays(7))
+                .owner(user)
+                .build();
+
         taskRepository.save(task);
     }
 
+    public List <Task> showAllLoggedUserTasks(String username){
+        return taskRepository.findAllByOwnerUsername(username);
+    }
 
-//    public List <TaskDTO> showTopFiveTasks(String username) {
-//
-//        List<TaskDTO> tasks = taskRepository.findAllByOwnerUsername(username)
-//                .stream()
-//                .map(task -> {
-//                TaskDTO taskDTO = new TaskDTO();
-//                taskDTO.setTitle(task.getTitle());
-//                taskDTO.setDescription(task.getDescription());
-//                taskDTO.setStatus(task.getStatus());
-//                taskDTO.setDeadline(task.getDeadline());
-//                return taskDTO;
-//                }).collect(Collectors.toList());
-//
-//        return tasks;
+
+    public List <Task> showMostUrgentTasks(String username) {
+        return taskRepository.findFirst5ByOwnerUsernameOrderByDeadlineAsc(username);
+    }
+
+
+//    public Object showAllTasksForSelectedUser(String username) {
 //    }
-
-
 }
