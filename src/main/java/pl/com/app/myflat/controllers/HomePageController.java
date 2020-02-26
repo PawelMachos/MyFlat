@@ -45,8 +45,7 @@ public class HomePageController {
         Advert newestAdvert = advertRepository.findTopByOrderByCreatedAtDesc();
         model.addAttribute("newestAdvert", newestAdvert);
 
-        List<Task> all = taskRepository.findFirst5ByOwnerUsernameOrderByCreatedAtDesc(principal.getName());
-
+        List<Task> all = taskRepository.findFirst5ByOwnerUsernameOrderByDeadlineAsc(principal.getName());
         model.addAttribute("allTasks", all);
 
         return "home-page";
