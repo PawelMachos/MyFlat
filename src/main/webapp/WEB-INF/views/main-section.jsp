@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Bea
@@ -11,22 +12,22 @@
 <head>
 
     <style>
-        .main-tile{
+        .main-tile {
             width: 50%;
             height: 50%;
-            border-style: solid;
-            border-color: black;
+            /*border-style: solid;*/
+            /*border-color: black;*/
             float: left;
         }
 
         .hover a:hover {
-            color:white;
-            background:black;
+            color: white;
+            background: black;
         }
 
         div.advert {
             object-position: center;
-            text-align:center;
+            text-align: center;
             background-color: lightyellow;
             width: 90%;
             padding: 10px;
@@ -38,12 +39,23 @@
             font-size: large;
         }
 
-        div.autorzy{
+        div.autorzy {
             font-size: small;
         }
 
-        .fieldset{
+        .fieldset {
             block-size: content-box;
+        }
+
+        .table {
+            block-size: content-box;
+        }
+
+        tr.table {
+            padding-top: 20px;
+            padding-bottom: 20px;
+            margin-top: 50px;
+            margin-bottom: 50px;
         }
 
     </style>
@@ -69,14 +81,16 @@
                         <td>
                             <div class="autorzy">
                                 ${newestAdvert.user.username}, dodano: ${newestAdvert.createdAt.format(DateTimeFormatter
-                                .ofPattern("dd/MM/yyyy  hh:mm a"))}
+                                    .ofPattern("dd/MM/yyyy  hh:mm a"))}
                             </div>
                         </td>
 
                     </tr>
 
 
-                    <td><hr></td>
+                    <td>
+                        <hr>
+                    </td>
 
                     <tr>
                         <th>
@@ -101,7 +115,39 @@
             <div id="sum"> ${billsToPay} pln</div>
         </fieldset>
     </div>
-    <div class="main-tile"></div>
+    <div class="main-tile">
+
+        <fieldset>
+            <table class="table">
+                <tr>
+                    <th>No.</th>
+                    <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Title&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                    <th>Description</th>
+                    <th>&nbsp;&nbsp;Deadline&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                    <th>Status</th>
+                </tr>
+                <c:forEach items="${allTasks}" var="task" varStatus="stat">
+                    <tr>
+                        <td>${stat.count}</td>
+                        <td><b>${task.title}</b></td>
+                        <td class="cell-breakAll">${task.description}</td>
+                        <td>${task.deadline}</td>
+                        <td>
+                            <c:if test="${task.active==true}">
+                                ${task.status}
+                            </c:if>
+                            <c:if test="${task.active==false}">
+                                ${inactive}
+                            </c:if>
+                        </td>
+                    </tr>
+
+
+                </c:forEach>
+            </table>
+        </fieldset>
+
+    </div>
     <div class="main-tile">
 
     </div>

@@ -37,7 +37,7 @@
     </style>
 
 </head>
-<body style="background-color: lightgrey">
+<body style="background-color: #eaeaea">
 
 <div class="container">
 

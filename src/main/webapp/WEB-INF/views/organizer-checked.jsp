@@ -30,7 +30,7 @@
         }
         body {
 
-            background-color: lightgrey;
+            background-color: #eaeaea;
         }
         h1 {
 
@@ -46,14 +46,16 @@
             margin-top: 3%;
             margin-left: 0.5%;
             margin-right: auto;
-            width:62.5%;
+            width:68.5%;
         }
         #cal
         {
             float:right;
             margin-top: 0.5%;
-            margin-right: 1%;
-            width:27%;
+            margin-right: 0%;
+            width:22%;
+            object-position: center;
+            text-align: center;
         }
         #some {
             clear: both;

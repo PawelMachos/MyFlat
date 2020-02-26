@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="../../static/css/theme1.css"/>
 </head>
 <body>
-<div id="caleandar" style="background-color: #8AFCF8; border-radius: 20px">
+<div id="caleandar" style="background-color: #4ECDC4; border-radius: 20px; object-position: center; color: white">
 
 </div>
 

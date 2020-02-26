@@ -20,18 +20,18 @@ public class UserService {
 
     public void saveUser(RegisterUserDTO userDTO){
 
-            String encodedPassword = passwordEncoder.encode(userDTO.getPassword());
+        String encodedPassword = passwordEncoder.encode(userDTO.getPassword());
 
-            User user = new User();
-            user.setUsername(userDTO.getUsername());
-            user.setFirstName(userDTO.getFirstName());
-            user.setLastName(userDTO.getLastName());
-            user.setEmail(userDTO.getEmail());
-            user.setFlatNumber(userDTO.getFlatNumber());
-            user.setPassword(encodedPassword);
-            user.setActive(true);
-            user.setRole("USER");
-            userRepository.save(user);
+        User user = new User();
+        user.setUsername(userDTO.getUsername());
+        user.setFirstName(userDTO.getFirstName());
+        user.setLastName(userDTO.getLastName());
+        user.setEmail(userDTO.getEmail());
+        user.setFlatNumber(userDTO.getFlatNumber());
+        user.setPassword(encodedPassword);
+        user.setActive(true);
+        user.setRole("USER");
+        userRepository.save(user);
     }
 
     public LoggedUserDTO getUser(String username){

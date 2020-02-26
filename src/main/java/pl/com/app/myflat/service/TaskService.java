@@ -25,6 +25,24 @@ public class TaskService {
     }
 
 
+//    public void saveTask(TaskDTO taskDTO, Principal principal) {
+//
+//        String username = principal.getName();
+//        User user = userRepository.findByUsername(username);
+//
+//        Task task = Task.builder()
+//                .title(taskDTO.getTitle())
+//                .description(taskDTO.getDescription())
+//                .active(taskDTO.getActive())
+//                .status((Status.ACTIVE).toString())
+//                .startDate(LocalDate.now())
+//                .deadline((LocalDate.now()).plusDays(7))
+//                .owner(user)
+//                .build();
+//
+//        taskRepository.save(task);
+//    }
+
     public void saveTask(TaskDTO taskDTO, Principal principal){
 
         String username = principal.getName();
@@ -42,23 +60,22 @@ public class TaskService {
         taskRepository.save(task);
     }
 
-    public Task taskForNewUser(Principal principal){
 
-        String username = principal.getName();
-        User user = userRepository.findByUsername(username);
-
-        Task task = Task.builder()
-                .title("Odbierz klucze")
-                .description("W ciągu pierwszych 7 dni odbierz klucze do głównego kubła")
-                .active(true)
-                .status((Status.ACTIVE).toString())
-                .startDate(LocalDate.now())
-                .deadline(LocalDate.now().plusDays(7))
-                .owner(user)
-                .build();
-
-                return task;
-    }
+//    public List <TaskDTO> showTopFiveTasks(String username) {
+//
+//        List<TaskDTO> tasks = taskRepository.findAllByOwnerUsername(username)
+//                .stream()
+//                .map(task -> {
+//                TaskDTO taskDTO = new TaskDTO();
+//                taskDTO.setTitle(task.getTitle());
+//                taskDTO.setDescription(task.getDescription());
+//                taskDTO.setStatus(task.getStatus());
+//                taskDTO.setDeadline(task.getDeadline());
+//                return taskDTO;
+//                }).collect(Collectors.toList());
+//
+//        return tasks;
+//    }
 
 
 }

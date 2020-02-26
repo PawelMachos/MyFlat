@@ -19,6 +19,12 @@
             font-size: 12px;
         }
 
+        div.ex1 {
+
+            height: 315px;
+            overflow: scroll;
+        }
+
         .col-6 {
             text-align: center;
         }
@@ -50,14 +56,14 @@
 
 
 </head>
-<body style="background-color: lightgrey">
+<body style="background-color: #eaeaea">
 
 <div class="container">
 
     <sec:authorize access="isAuthenticated()">
-        <div class="row" style="margin-top: 40px; margin-bottom: 10px">
+        <div class="row" style="margin-top: 40px; margin-bottom: 10px; text-align: left">
             <div class="col-1"></div>
-            <div class="col-6"><h2>Add new Task</h2></div>
+            <div class="col-6"><h2 style="text-align: left; margin-left: 20px">Add new Task:</h2></div>
             <div class="col-5"></div>
         </div>
 
@@ -91,14 +97,15 @@
 
     <div class="row" style="margin-top: 10%; margin-bottom: 10px; text-align: center">
         <div class="col-1"></div>
-        <div class="col-6"><h2>Your TODO List:</h2></div>
+        <div class="col-6"><h2 style="text-align: left">Your TODO List:</h2></div>
         <div class="col-5"></div>
     </div>
 
     <div class="row">
         <div class="col-12" style="padding-bottom: 20px">
 
-            <table class="table">
+            <div class="ex1">
+            <table class="table" >
                 <tr>
                     <th>No.</th>
                     <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Title&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
@@ -108,7 +115,7 @@
                     <th>Status</th>
                 </tr>
                 <c:forEach items="${tasks}" var="task" varStatus="stat">
-                    <tr>
+                    <tr >
                         <td>${stat.count}</td>
                         <td><b>${task.title}</b></td>
                         <td class="cell-breakAll">${task.description}</td>
@@ -124,10 +131,10 @@
                         </td>
                     </tr>
                 <tr>
-                        <td colspan="4">
+                        <td colspan="6">
                             <c:if test="${task.active==true}">
 
-                            <div class="btn-group">
+                            <div class="btn-group" style="float: right; margin-right: 0px" >
                                 <form class="form-inline" method="get" action="/checked-task">
                                     <button type="submit" class="btn btn-success">&nbsp;Done&nbsp;</button>
                                     <input type="hidden" name="taskId" value="${task.id}"/>
@@ -139,7 +146,7 @@
                                     <sec:csrfInput/>
                                 </form>
                                 <form class="form-inline" style="margin-left: 1em" method="post" action="/delete-task">
-                                    <button type="submit" class="btn btn-danger" onclick="confirmDelete()">Delete
+                                    <button type="submit" class="btn btn-danger" onclick="return confirmDelete();">Delete
                                     </button>
                                     <input type="hidden" name="taskId" value="${task.id}"/>
                                     <sec:csrfInput/>
@@ -147,8 +154,8 @@
                             </div>
                             </c:if>
                             <c:if test="${task.active!=true}">
-                                    <form class="form-inline" style="margin-left: 11em" method="post" action="/delete-task">
-                                        <button type="submit" class="btn btn-danger" onclick="confirmDelete()">Delete
+                                    <form class="form-inline" style="float: right; margin-right: 1em" method="post" action="/delete-task">
+                                        <button type="submit" class="btn btn-danger" onclick="return confirmDelete();">Delete
                                         </button>
                                         <input type="hidden" name="taskId" value="${task.id}"/>
                                         <sec:csrfInput/>
@@ -159,6 +166,7 @@
                     </tr>
                 </c:forEach>
             </table>
+        </div>
 
         </div>
     </div>
@@ -166,7 +174,12 @@
 
 <script>
     function confirmDelete() {
-        alert("Are You sure, You want to delete this task?");
+        var result = confirm("Are You sure, You want to delete this task??");
+        if (result==true) {
+            return true;
+        } else {
+            return false;
+        }
     }
 </script>
 

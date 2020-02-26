@@ -1,5 +1,6 @@
 package pl.com.app.myflat.dto;
 
+
 import lombok.Data;
 
 @Data
