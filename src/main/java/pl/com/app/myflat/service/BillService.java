@@ -10,11 +10,7 @@ import pl.com.app.myflat.model.repositories.BillRepository;
 import pl.com.app.myflat.model.repositories.UserRepository;
 
 
-
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 
@@ -106,7 +102,7 @@ public class BillService {
                 .active(true)
                 .category(Category.EARMARKED_FUND)
                 .grossAmount((double) 35)
-                .invoiceDate(new Date(2020,02,01))
+                .invoiceDate(new Date(2020,Calendar.FEBRUARY, 1))
                 .invoiceNumber("XY1234")
                 .user(byUsername)
                 .build();
@@ -114,7 +110,7 @@ public class BillService {
                 .active(true)
                 .category(Category.REPAIR_FUND)
                 .grossAmount((double) 21)
-                .invoiceDate(new Date(2020,02,01))
+                .invoiceDate(new Date(2020,Calendar.FEBRUARY, 1))
                 .invoiceNumber("51631")
                 .user(byUsername)
                 .build();
@@ -123,7 +119,7 @@ public class BillService {
                 .active(true)
                 .category(Category.CO_AND_CW_FIXED_FEE)
                 .grossAmount((double) 45)
-                .invoiceDate(new Date(2020,02,01))
+                .invoiceDate(new Date(2020,Calendar.FEBRUARY, 1))
                 .invoiceNumber("637235")
                 .user(byUsername)
                 .build();
@@ -132,7 +128,7 @@ public class BillService {
                 .active(true)
                 .category(Category.MANAGEMENT_COSTS)
                 .grossAmount((double) 12)
-                .invoiceDate(new Date(2020,02,01))
+                .invoiceDate(new Date(2020,Calendar.FEBRUARY, 1))
                 .invoiceNumber("12667")
                 .user(byUsername)
                 .build();
@@ -141,7 +137,7 @@ public class BillService {
                 .active(true)
                 .category(Category.CENTRAL_HEATING)
                 .grossAmount((double) 17)
-                .invoiceDate(new Date(2020,02,01))
+                .invoiceDate(new Date(2020,Calendar.FEBRUARY, 1))
                 .invoiceNumber("X23Y81234")
                 .user(byUsername)
                 .build();
@@ -150,7 +146,7 @@ public class BillService {
                 .active(true)
                 .category(Category.WASTE_DISPOSAL)
                 .grossAmount((double) 78)
-                .invoiceDate(new Date(2020,02,01))
+                .invoiceDate(new Date(2020,Calendar.FEBRUARY, 1))
                 .invoiceNumber("GHF251")
                 .user(byUsername)
                 .build();
@@ -159,7 +155,7 @@ public class BillService {
                 .active(true)
                 .category(Category.WATER_HEATING)
                 .grossAmount( 43.5)
-                .invoiceDate(new Date(2020,02,01))
+                .invoiceDate(new Date(2020,Calendar.FEBRUARY, 1))
                 .invoiceNumber("CTR24")
                 .user(byUsername)
                 .build();
@@ -168,7 +164,7 @@ public class BillService {
                 .active(true)
                 .category(Category.COLD_WATER_AND_SEWAGE)
                 .grossAmount( 28.5)
-                .invoiceDate(new Date(2020,02,01))
+                .invoiceDate(new Date(2020, Calendar.FEBRUARY, 1))
                 .invoiceNumber("777555")
                 .user(byUsername)
                 .build();
@@ -177,7 +173,7 @@ public class BillService {
                 .active(true)
                 .category(Category.ENERGY)
                 .grossAmount((double) 106)
-                .invoiceDate(new Date(2020,02,01))
+                .invoiceDate(new Date(2020,Calendar.FEBRUARY, 1))
                 .invoiceNumber("45")
                 .user(byUsername)
                 .build();

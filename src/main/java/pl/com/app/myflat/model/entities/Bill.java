@@ -29,6 +29,8 @@ public class Bill extends EntityBase {
     @ManyToOne
     @JoinColumn(name="user_id", nullable = false)
     private User user;
+    @Column(name = "user_id", insertable = false, updatable = false)
+    private Long userId;
 
 //    @ManyToOne
 //    @JoinColumn(name="flat_id", nullable = false)
