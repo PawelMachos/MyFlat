@@ -24,7 +24,7 @@ public class FlatService {
 
 
     public List<Flat> showAllAvailableFlats() {
-        return flatRepository.findAll();
+        return flatRepository.findAllByActive(true);
     }
 
     public void assignUserToFlat(RegisterUserDTO userDTO) {
@@ -37,6 +37,7 @@ public class FlatService {
         Long flatNumber = userDTO.getFlatNumber();
         Flat byFlatNumber = flatRepository.findByFlatNumber(flatNumber);
         byFlatNumber.setUserId(userId);
+        byFlatNumber.setActive(false);
         flatRepository.save(byFlatNumber);
 
     }

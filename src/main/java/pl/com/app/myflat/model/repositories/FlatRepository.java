@@ -10,5 +10,6 @@ public interface FlatRepository extends JpaRepository <Flat, Long> {
 
     Flat findByFlatNumber(Long flatNumber);
     Optional<Flat> findById(Long flatId);
+    List<Flat> findAllByActive(Boolean active);
 
 }

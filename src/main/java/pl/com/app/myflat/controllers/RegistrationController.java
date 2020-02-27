@@ -8,13 +8,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.com.app.myflat.dto.RegisterUserDTO;
+import pl.com.app.myflat.model.entities.Flat;
 import pl.com.app.myflat.service.BillService;
 import pl.com.app.myflat.service.FlatService;
 import pl.com.app.myflat.service.TaskService;
 import pl.com.app.myflat.service.UserService;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/register")
@@ -35,7 +38,14 @@ public class RegistrationController {
 
     @ModelAttribute(name = "flatNumbers", binding = false)
     public List<Long> flatNumbers(){
-        return Arrays.asList(1L,2L,3L,4L,5L,6L,7L,8L,9L,10L);
+
+        List<Long> list = new ArrayList<>();
+
+        List<Flat> availableFlats = flatService.showAllAvailableFlats();
+        for (Flat f:availableFlats) {
+            list.add(f.getFlatNumber());
+        }
+return list;
     }
 
 //    @ModelAttribute(name = "flatNumbers", binding = false)

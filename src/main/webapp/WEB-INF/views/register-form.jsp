@@ -47,8 +47,8 @@
                 <div><label for="flatNumber">Flat number:</label>
                     <select name="flatNumber" id="flatNumber">
                         <option value="-" selected> --Choose flat number--</option>
-                        <c:forEach items="${flatNumbers}" var="flatNumber">
-                            <option value="${flatNumber}">${flatNumber}</option>
+                        <c:forEach items="${flatNumbers}" var="flatNumbers">
+                            <option value="${flatNumbers}">${flatNumbers}</option>
                         </c:forEach>
                     </select></div>
 <%--                <div><label for="flatsNumber">Flat number:</label>--%>
