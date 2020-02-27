@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.com.app.myflat.dto.RegisterUserDTO;
+import pl.com.app.myflat.service.BillService;
 import pl.com.app.myflat.service.TaskService;
 import pl.com.app.myflat.service.UserService;
 
@@ -19,11 +20,13 @@ public class RegistrationController {
 
     private final UserService userService;
     private final TaskService taskService;
+    private final BillService billService;
 
     @Autowired
-    public RegistrationController(UserService userService, TaskService taskService) {
+    public RegistrationController(UserService userService, TaskService taskService, BillService billService) {
         this.userService = userService;
         this.taskService = taskService;
+        this.billService = billService;
     }
 
     @ModelAttribute(name = "flatNumbers", binding = false)
@@ -41,6 +44,7 @@ public class RegistrationController {
         try {
             userService.saveUser(userDTO);
             taskService.addObligatoryTasks(userDTO);
+            billService.addObligatoryBills(userDTO);
         } catch (RuntimeException d){
             d.printStackTrace();
             return "redirect:/register";
