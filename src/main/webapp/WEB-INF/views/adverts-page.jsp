@@ -154,6 +154,32 @@
                     </div>
                 </c:forEach>
 
+                <section class="comments">
+                    <article class="comment">
+                        <a class="comment-img" href="#non">
+                            <img src="https://pbs.twimg.com/profile_images/444197466133385216/UA08zh-B.jpeg" alt="" width="50" height="50">
+                        </a>
+                        <div class="comment-body">
+                            <div class="text">
+                                <p>Hello, this is an example from me</p>
+                            </div>
+                            <p class="attribution">by <a href="#non">${comment.username}</a> at 14:23pm, 4 Dec 2015</p>
+                        </div>
+                    </article>
+                    <article class="comment">
+                        <a class="comment-img" href="#non">
+                            <img src="https://pbs.twimg.com/profile_images/444197466133385216/UA08zh-B.jpeg" alt="" width="50" height="50">
+                        </a>
+                        <div class="comment-body">
+                            <div class="text">
+                                <p>if you are interested for  more about me visited my profile on social page</p>
+                                <p>To visit me you can click my name  <a target="_blank" href="http://www.facebook.com/besnik.hetemii">Besnik Hetemi</a> and send me frends request or send me a message in inbox</p>
+                            </div>
+                            <p class="attribution">by <a href="#non">Besnik Hetemi</a> at 14:23pm, 4 Dec 2015</p>
+                        </div>
+                    </article>
+                </section>
+
 
                 <div class="row" style="margin-center: 40px; margin-bottom: 10px">
                     <div class="col-1"></div>

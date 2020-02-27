@@ -7,8 +7,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import pl.com.app.myflat.model.entities.Advert;
+import pl.com.app.myflat.model.entities.Comment;
 import pl.com.app.myflat.model.entities.User;
 import pl.com.app.myflat.model.repositories.AdvertRepository;
+import pl.com.app.myflat.model.repositories.CommentRepository;
 import pl.com.app.myflat.model.repositories.UserRepository;
 import java.security.Principal;
 import java.time.LocalDateTime;
@@ -21,15 +23,17 @@ public class AdvertPageController {
 
     private final UserRepository userRepository;
     private final AdvertRepository advertRepository;
+    private final CommentRepository commentRepository;
 
     @Autowired
-    public AdvertPageController(UserRepository userRepository, AdvertRepository advertRepository) {
+    public AdvertPageController(UserRepository userRepository, AdvertRepository advertRepository, CommentRepository commentRepository) {
         this.advertRepository = advertRepository;
         this.userRepository = userRepository;
+        this.commentRepository = commentRepository;
     }
 
     @GetMapping("/adverts")
-    public String showAdverts(Model model){
+    public String showAdverts(Model model) {
         List<Advert> allAdverts = advertRepository.findAllBy();
         model.addAttribute("adverts", allAdverts);
 
@@ -37,7 +41,7 @@ public class AdvertPageController {
     }
 
     @PostMapping("/add-advert")
-    public String addAdvert(String title, String description, Principal principal){
+    public String addAdvert(String title, String description, Principal principal) {
         String userName = principal.getName();
         User user = userRepository.findByUsername(userName);
 
@@ -74,8 +78,7 @@ public class AdvertPageController {
         if (optionalAdvert.isPresent()) {
             model.addAttribute("advert", optionalAdvert.get());
             return "/edit-advert-page";
-        }
-        else {
+        } else {
             return "redirect:/adverts";
         }
     }
@@ -91,6 +94,36 @@ public class AdvertPageController {
             advert.setDescription(description);
             advertRepository.save(advert);
         });
+
+        return "redirect:/adverts";
+    }
+
+    @GetMapping("delete-comment")
+    public String processDeleteComment(Long commentId, Principal principal) {
+        String username = principal.getName();
+        log.debug("Usuwanie komentarza o id {} od użytkownika {}", commentId, username);
+
+        Optional<Comment> optionalAdvert = commentRepository.findByIdAndUserUsername(commentId, username);
+        optionalAdvert.ifPresent(commentRepository::delete);
+
+        return "redirect:/adverts";
+    }
+
+    @PostMapping("/add-comment")
+    public String processAddComment(String commentText, Principal principal) {
+        String userName = principal.getName();
+        User user = userRepository.findByUsername(userName);
+
+        Comment comment = new Comment();
+        comment.setUser(user);
+        comment.setCommentText(commentText);
+        comment.setCreatedAt(LocalDateTime.now());
+        comment.setActive(true);
+
+        log.info("Próba zapisu ogłoszenia: " + comment);
+        comment = commentRepository.save(comment);
+        log.info("Zapisano ogłoszenie: " + comment);
+
 
         return "redirect:/adverts";
     }
