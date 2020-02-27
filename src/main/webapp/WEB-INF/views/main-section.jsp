@@ -19,12 +19,10 @@
             /*border-color: black;*/
             float: left;
         }
-
         .hover a:hover {
             color: white;
             background: black;
         }
-
         div.advert {
             object-position: center;
             text-align: center;
@@ -33,25 +31,19 @@
             padding: 10px;
             margin: 10px;
         }
-
         div.title {
             text-transform: uppercase;
             font-size: large;
         }
-
         div.autorzy {
             font-size: small;
         }
-
         .fieldset {
             block-size: content-box;
         }
-
         .table {
             block-size: content-box;
         }
-
-
     </style>
 
     <link href="/static/css/bill.css" type="text/css" rel="stylesheet">
@@ -131,12 +123,12 @@
                         <td class="cell-breakAll">${task.description}</td>
                         <td>${task.deadline}</td>
                         <td>${task.status}
-<%--                            <c:if test="${task.active==true}">--%>
-<%--                                ${task.status}--%>
-<%--                            </c:if>--%>
-<%--                            <c:if test="${task.active==false}">--%>
-<%--                                ${inactive}--%>
-<%--                            </c:if>--%>
+                                <%--                            <c:if test="${task.active==true}">--%>
+                                <%--                                ${task.status}--%>
+                                <%--                            </c:if>--%>
+                                <%--                            <c:if test="${task.active==false}">--%>
+                                <%--                                ${inactive}--%>
+                                <%--                            </c:if>--%>
                         </td>
                     </tr>
                     <tr>

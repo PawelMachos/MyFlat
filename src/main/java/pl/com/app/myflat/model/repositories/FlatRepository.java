@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface FlatRepository extends JpaRepository <Flat, Long> {
 
-    List<Flat> findAll();
-    Flat getFlatByFlatNumber(Integer flatNumber);
-    Flat findFlatByUser(Long id);
+//    List<Flat> findAll();
+//    Flat getFlatByFlatNumber(Integer flatNumber);
+//    Flat findFlatByUser(Long id);
 }
