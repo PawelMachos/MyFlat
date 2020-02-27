@@ -2,6 +2,8 @@ package pl.com.app.myflat.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import pl.com.app.myflat.dto.LoggedUserDTO;
+import pl.com.app.myflat.dto.RegisterUserDTO;
 import pl.com.app.myflat.dto.TaskDTO;
 import pl.com.app.myflat.model.entities.Task;
 import pl.com.app.myflat.model.entities.User;
@@ -11,7 +13,11 @@ import pl.com.app.myflat.model.repositories.UserRepository;
 
 import java.security.Principal;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Stream;
 
 
 @Service
@@ -54,4 +60,63 @@ public class TaskService {
     }
 
 
+    public void addObligatoryTasks(RegisterUserDTO userDTO) {
+        User byUsername = userRepository.findByUsername(userDTO.getUsername());
+
+        Task task1 = Task.builder()
+                .title("Odbierz klucze")
+                .description("W ciągu 10 dni odbierz klucze go głównego kontenera na śmieci")
+                .active(true)
+                .status((Status.ACTIVE).toString())
+                .startDate(LocalDate.now().plusDays(1))
+                .deadline(LocalDate.now().plusDays(11))
+                .owner(byUsername)
+                .build();
+
+        Task task2 = Task.builder()
+                .title("Zgłoś odbiór instalacji")
+                .description("Masz tydzień na zgłoszenie odbioru technicznego instalacji wodnej i energetyczne w mieszkaniu")
+                .active(true)
+                .status((Status.ACTIVE).toString())
+                .startDate(LocalDate.now().plusDays(1))
+                .deadline(LocalDate.now().plusDays(8))
+                .owner(byUsername)
+                .build();
+
+        Task task3 = Task.builder()
+                .title("Opłać kaucję")
+                .description("Opłać kaucję w wysokości trzykrotności czynszu w ciągu 30 dni od zarejestrowania w aplikacji myFlat")
+                .active(true)
+                .status((Status.ACTIVE).toString())
+                .startDate(LocalDate.now().plusDays(1))
+                .deadline(LocalDate.now().plusDays(31))
+                .owner(byUsername)
+                .build();
+
+        Task task4 = Task.builder()
+                .title("Sprawdź skrzynkę e-mail")
+                .description("Wszystkie dokumenty zwiazane z wynajmem mieszkania zostaną wysłane do Ciebie drogą mailową. Prosze potwierdź ich otrzymanie za pomocą platformy autenti.com")
+                .active(true)
+                .status((Status.ACTIVE).toString())
+                .startDate(LocalDate.now().plusDays(1))
+                .deadline(LocalDate.now().plusDays(8))
+                .owner(byUsername)
+                .build();
+
+        Task task5 = Task.builder()
+                .title("Przywitaj się")
+                .description("Zarejestruj się na osiedlowym forum naszaosiedle.org i przywitaj się z sąsiadami")
+                .active(true)
+                .status((Status.ACTIVE).toString())
+                .startDate(LocalDate.now().plusDays(1))
+                .deadline(LocalDate.now().plusDays(15))
+                .owner(byUsername)
+                .build();
+
+        taskRepository.save(task1);
+        taskRepository.save(task2);
+        taskRepository.save(task3);
+        taskRepository.save(task4);
+        taskRepository.save(task5);
+    }
 }

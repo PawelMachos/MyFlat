@@ -48,6 +48,10 @@
                 <button class="btn btn-secondary" type="reset">Wyczyść dane</button>
                 <sec:csrfInput/>
             </form>
+            <div>
+                <a href="/register"> <button class="btn btn-secondary" >Zarejestruj się</button></a>
+                <a href="/"> <button class="btn btn-secondary" >Wróć do strony głównej</button></a>
+            </div>
         </div>
         <div class="col-5"></div>
     </div>

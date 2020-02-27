@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import pl.com.app.myflat.dto.LoggedUserDTO;
 import pl.com.app.myflat.dto.TaskDTO;
 import pl.com.app.myflat.model.entities.Task;
 import pl.com.app.myflat.model.enums.Status;
@@ -90,7 +91,7 @@ public class TaskController {
     }
 
     @PostMapping("/checked-task")
-    public String processCheckedTask(Long id,Principal principal) {
+    public String processCheckedTask(Long id, Principal principal, TaskDTO taskDTO) {
         String username = principal.getName();
 
         Optional<Task> optionalTask = taskRepository.findByIdAndOwnerUsername(id, username);

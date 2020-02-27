@@ -55,6 +55,8 @@
                 <button class="btn btn-secondary" type="reset">Clean</button>
                 <sec:csrfInput/>
             </form>
+            <a href="/login"> <button class="btn btn-secondary" >Zaloguj się</button></a>
+            <a href="/"> <button class="btn btn-secondary" >Wróć do strony głównej</button></a>
         </div>
         <div class="col-5"></div>
     </div>
