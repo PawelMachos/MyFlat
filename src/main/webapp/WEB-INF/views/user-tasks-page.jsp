@@ -1,4 +1,5 @@
-<%@ page import="pl.com.app.myflat.model.enums.Status" %><%--
+<%@ page import="pl.com.app.myflat.model.enums.Status" %>
+<%@ page import="java.time.LocalDate" %><%--
   Created by IntelliJ IDEA.
   User: marta
   Date: 18.01.2020
@@ -8,6 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 
 <html>
 <head>
@@ -53,6 +55,7 @@
 
     <c:set var="active" value="<%=Status.ACTIVE.toString()%>"/>
     <c:set var="inactive" value="<%=(Status.INACTIVE).toString()%>"/>
+    <c:set var="today" value="<%=LocalDate.now()%>" />
 
 
 </head>
@@ -63,7 +66,7 @@
     <sec:authorize access="isAuthenticated()">
         <div class="row" style="margin-top: 40px; margin-bottom: 10px; text-align: left">
             <div class="col-1"></div>
-            <div class="col-6"><h2 style="text-align: left; margin-left: 20px">Add new Task:</h2></div>
+            <div class="col-6"><h2 style="text-align: left; margin-left: 85px">Add new Task:</h2></div>
             <div class="col-5"></div>
         </div>
 
@@ -97,7 +100,7 @@
 
     <div class="row" style="margin-top: 10%; margin-bottom: 10px; text-align: center">
         <div class="col-1"></div>
-        <div class="col-6"><h2 style="text-align: left">Your TODO List:</h2></div>
+        <div class="col-6"><h2 style="text-align: right; font-size: 35px">Your TODO List:</h2></div>
         <div class="col-5"></div>
     </div>
 

@@ -45,18 +45,18 @@ public class UserTaskController {
         return "organizer";
     }
 
-//    @GetMapping(params = "userId")
-//    public String prepareSelectedUserTasksPage(Long userId, Model model, Principal principal) {
-//        UserDTO user1 = userService.getUser(principal.getName());
-//
-//        Optional<User> optionalUser = userRepository.findById(userId);
-//        User user = optionalUser.orElse(userRepository.findByUsername(principal.getName()));
-//
-//        List<Task> userTasks = taskRepository.findAllByOwnerUsername(user.getUsername());
-//
-//        model.addAttribute("tasks", taskService.showAllTasksForSelectedUser(user.getUsername()));
-//        return "welcome-page";
-//    }
+    @GetMapping(params = "userId")
+    public String prepareSelectedUserTasksPage(Long userId, Model model, Principal principal) {
+
+        Optional<User> optionalUser = userRepository.findById(userId);
+        User user = optionalUser.orElse(userRepository.findByUsername(principal.getName()));
+
+        List<Task> userTasks = taskRepository.findAllByOwnerUsername(user.getUsername());
+
+        model.addAttribute("tasks", userTasks);
+        return "welcome-page";
+    }
+
 
 
 

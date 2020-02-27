@@ -130,13 +130,13 @@
                         <td><b>${task.title}</b></td>
                         <td class="cell-breakAll">${task.description}</td>
                         <td>${task.deadline}</td>
-                        <td>
-                            <c:if test="${task.active==true}">
-                                ${task.status}
-                            </c:if>
-                            <c:if test="${task.active==false}">
-                                ${inactive}
-                            </c:if>
+                        <td>${task.status}
+<%--                            <c:if test="${task.active==true}">--%>
+<%--                                ${task.status}--%>
+<%--                            </c:if>--%>
+<%--                            <c:if test="${task.active==false}">--%>
+<%--                                ${inactive}--%>
+<%--                            </c:if>--%>
                         </td>
                     </tr>
                     <tr>

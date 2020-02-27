@@ -44,7 +44,7 @@
     <sec:authorize access="isAuthenticated()">
         <div class="row" style="margin-top: 40px; margin-bottom: 10px">
             <div class="col-1"></div>
-            <div class="col-6"><h2>Edit Your Task</h2></div>
+            <div class="col-6"><h2 style="text-align: left; margin-left: 85px">Edit Your Task:</h2></div>
             <div class="col-5"></div>
         </div>
 

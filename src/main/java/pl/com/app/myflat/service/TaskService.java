@@ -12,7 +12,7 @@ import pl.com.app.myflat.model.repositories.UserRepository;
 import java.security.Principal;
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Optional;
+
 
 @Service
 public class TaskService {
@@ -36,8 +36,8 @@ public class TaskService {
                 .description(taskDTO.getDescription())
                 .active(taskDTO.getActive())
                 .status((Status.ACTIVE).toString())
-                .startDate(LocalDate.now())
-                .deadline((LocalDate.now()).plusDays(7))
+                .startDate(LocalDate.now().plusDays(1))
+                .deadline(LocalDate.now().plusDays(8))
                 .owner(user)
                 .build();
 
@@ -50,10 +50,8 @@ public class TaskService {
 
 
     public List <Task> showMostUrgentTasks(String username) {
-        return taskRepository.findFirst5ByOwnerUsernameOrderByDeadlineAsc(username);
+        return taskRepository.findTasksByStatusAndOwnerUsernameOrderByDeadlineAsc(Status.ACTIVE.toString(), username);
     }
 
 
-//    public Object showAllTasksForSelectedUser(String username) {
-//    }
 }

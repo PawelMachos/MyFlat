@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import pl.com.app.myflat.dto.TaskDTO;
 import pl.com.app.myflat.model.entities.Task;
+import pl.com.app.myflat.model.enums.Status;
 import pl.com.app.myflat.model.repositories.TaskRepository;
 import pl.com.app.myflat.service.TaskService;
 
@@ -30,7 +31,7 @@ public class TaskController {
     }
 
     @PostMapping("/add-task")
-    public String processAddAdvert(TaskDTO taskDTO, Principal principal, @RequestParam(defaultValue = "/") String redirectTo) {
+    public String processAddTask(TaskDTO taskDTO, Principal principal, @RequestParam(defaultValue = "/") String redirectTo) {
 
         taskService.saveTask(taskDTO, principal);
 
@@ -40,13 +41,13 @@ public class TaskController {
     @PostMapping("/delete-task")
     public String processDeleteTask(Long taskId, Principal principal) {
         String username = principal.getName();
-        log.debug("Usuwanie ogłoszenia o id {} dla użytkownika {}", taskId, username);
 
         Optional<Task> optionalTask = taskRepository.findByIdAndOwnerUsername(taskId, username);
         optionalTask.ifPresent(taskRepository::delete);
 
         return "redirect:/user-tasks";
     }
+
 
     @GetMapping("/edit-task")
     public String prepareEditTask(Long taskId, Principal principal, Model model) {
@@ -64,7 +65,6 @@ public class TaskController {
     @PostMapping("/edit-task")
     public String processEditTask(Long id, TaskDTO taskDTO, Principal principal) {
         String username = principal.getName();
-        log.debug("Edycja ogłoszenia o id {} dla użytkownika {}", id, username);
 
         Optional<Task> optionalTask = taskRepository.findByIdAndOwnerUsername(id, username);
         optionalTask.ifPresent(task -> {
@@ -89,20 +89,18 @@ public class TaskController {
         }
     }
 
-
     @PostMapping("/checked-task")
     public String processCheckedTask(Long id,Principal principal) {
         String username = principal.getName();
-        log.debug("Edycja ogłoszenia o id {} dla użytkownika {}", id, username);
 
         Optional<Task> optionalTask = taskRepository.findByIdAndOwnerUsername(id, username);
         optionalTask.ifPresent(task -> {
             task.setActive(false);
+            task.setStatus(Status.INACTIVE.toString());
             taskRepository.save(task);
         });
 
         return "redirect:/user-tasks";
     }
-
 
 }
