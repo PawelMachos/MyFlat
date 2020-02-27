@@ -54,7 +54,6 @@ public class BillSectionController {
         model.addAttribute("percentage", billService.percentageOfGeneratedCosts(user.getId()));
         // new models
         model.addAttribute("statistics", billService.getInvoicesByCategory(user.getId(), Category.WATER_HEATING));
-        model.addAttribute("coldWater", billService.getInvoicesByCategory(user.getId(), Category.COLD_WATER_AND_SEWAGE));
         return "bill-page";
     }
 
