@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.com.app.myflat.dto.RegisterUserDTO;
+import pl.com.app.myflat.model.entities.Flat;
+import pl.com.app.myflat.service.FlatService;
 import pl.com.app.myflat.service.TaskService;
 import pl.com.app.myflat.service.UserService;
 
@@ -19,16 +21,23 @@ public class RegistrationController {
 
     private final UserService userService;
     private final TaskService taskService;
+    private final FlatService flatService;
 
     @Autowired
-    public RegistrationController(UserService userService, TaskService taskService) {
+    public RegistrationController(UserService userService, TaskService taskService, FlatService flatService) {
         this.userService = userService;
         this.taskService = taskService;
+        this.flatService = flatService;
     }
 
-    @ModelAttribute(name = "flatNumbers", binding = false)
-    public List<String> flatNumbers(){
-        return Arrays.asList("1", "2", "3", "4", "5", "6", "7", "8", "9","10", "11");
+//    @ModelAttribute(name = "flatNumbers", binding = false)
+//    public List<String> flatNumbers(){
+//        return Arrays.asList("1", "2", "3", "4", "5", "6", "7", "8", "9","10", "11");
+//    }
+
+    @ModelAttribute(name = "flatsNumber", binding = false)
+    public List<Flat> flatsNumber(){
+        return flatService.showAllAvailableFlats();
     }
 
     @GetMapping
@@ -41,6 +50,7 @@ public class RegistrationController {
         try {
             userService.saveUser(userDTO);
             taskService.addObligatoryTasks(userDTO);
+            flatService.assignFlatToUser(userDTO);
         } catch (RuntimeException d){
             d.printStackTrace();
             return "redirect:/register";

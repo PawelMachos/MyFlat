@@ -2,7 +2,6 @@ package pl.com.app.myflat.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pl.com.app.myflat.dto.LoggedUserDTO;
 import pl.com.app.myflat.dto.RegisterUserDTO;
 import pl.com.app.myflat.dto.TaskDTO;
 import pl.com.app.myflat.model.entities.Task;
@@ -13,11 +12,7 @@ import pl.com.app.myflat.model.repositories.UserRepository;
 
 import java.security.Principal;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Stream;
 
 
 @Service

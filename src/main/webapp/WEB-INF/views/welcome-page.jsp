@@ -21,7 +21,7 @@ OGŁOSZENIE DEWELOPERA: MIESZKANIA DO KUPIENIA.
 &nbsp
 <a href="/login" >Login</a>
 <a href="/register" >Register</a>
-<a href="/">Home</a>
+<a href="/home">Home</a>
 
 </body>
 </html>

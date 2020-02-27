@@ -13,13 +13,11 @@ public class UserService {
 
     private final PasswordEncoder passwordEncoder;
     private final UserRepository userRepository;
-    private final TaskService taskService;
 
     @Autowired
-    public UserService(PasswordEncoder passwordEncoder, UserRepository userRepository, TaskService taskService) {
+    public UserService(PasswordEncoder passwordEncoder, UserRepository userRepository) {
         this.passwordEncoder = passwordEncoder;
         this.userRepository = userRepository;
-        this.taskService = taskService;
     }
 
     public void saveUser(RegisterUserDTO userDTO) {
@@ -31,10 +29,11 @@ public class UserService {
         user.setFirstName(userDTO.getFirstName());
         user.setLastName(userDTO.getLastName());
         user.setEmail(userDTO.getEmail());
-        user.setFlatNumber(userDTO.getFlatNumber());
         user.setPassword(encodedPassword);
         user.setActive(true);
         user.setRole("USER");
+        user.setFlat(userDTO.getFlat());
+        user.setFlatNumber((userDTO.getFlat()).getId());
 
 //        User user = User.builder()
 //                .username(userDTO.getUsername())

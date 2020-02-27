@@ -25,7 +25,8 @@ public class User extends EntityBase {
     @Column(nullable = false)
     private String email;
     @Column(nullable = false)
-    private String flatNumber;
+    private Long flatNumber;
+
     @Column(nullable = false)
     private String role;
     @Column

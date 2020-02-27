@@ -44,11 +44,18 @@
                     <label for="email">E-mail</label>
                     <input type="email" required name="email" id="email" class="form-control" placeholder="Enter your e-mail"/>
                 </div>
-                <div><label for="flatNumber">Flat number:</label>
-                    <select name="flatNumber" id="flatNumber">
+<%--                <div><label for="flatNumber">Flat number:</label>--%>
+<%--                    <select name="flatNumber" id="flatNumber">--%>
+<%--                        <option value="-" selected> --Choose flat number--</option>--%>
+<%--                        <c:forEach items="${flatNumbers}" var="flatNumber">--%>
+<%--                            <option value="${flatNumber}">${flatNumber}</option>--%>
+<%--                        </c:forEach>--%>
+<%--                    </select></div>--%>
+                <div><label for="flatsNumber">Flat number:</label>
+                    <select name="flatsNumber" id="flatsNumber">
                         <option value="-" selected> --Choose flat number--</option>
-                        <c:forEach items="${flatNumbers}" var="flatNumber">
-                            <option value="${flatNumber}">${flatNumber}</option>
+                        <c:forEach items="${flatsNumber}" var="flatsNumber">
+                            <option value="${flatsNumber}">${flatsNumber}</option>
                         </c:forEach>
                     </select></div>
                 <button class="btn btn-primary" type="submit">Register</button>

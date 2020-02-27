@@ -15,12 +15,12 @@ import java.util.List;
 public class Flat extends EntityBase {
 
     @Column(nullable = false)
-    private String flatNumber;
+    private Integer flatNumber;
     @Column(nullable = false)
     private Boolean active;
 
     @OneToOne
-    @JoinColumn(name="user_id", nullable = false)
+    @JoinColumn(name="user_id")
     private User user;
 
 //    @OneToMany(mappedBy = "flat")
