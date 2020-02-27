@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.com.app.myflat.dto.RegisterUserDTO;
 import pl.com.app.myflat.service.BillService;
+import pl.com.app.myflat.service.FlatService;
 import pl.com.app.myflat.service.TaskService;
 import pl.com.app.myflat.service.UserService;
 
@@ -22,18 +23,25 @@ public class RegistrationController {
     private final UserService userService;
     private final TaskService taskService;
     private final BillService billService;
+    private final FlatService flatService;
 
     @Autowired
-    public RegistrationController(UserService userService, TaskService taskService, BillService billService) {
+    public RegistrationController(UserService userService, TaskService taskService, BillService billService, FlatService flatService) {
         this.userService = userService;
         this.taskService = taskService;
         this.billService = billService;
+        this.flatService = flatService;
     }
 
     @ModelAttribute(name = "flatNumbers", binding = false)
-    public List<String> flatNumbers(){
-        return Arrays.asList("1", "2", "3", "4", "5", "6", "7", "8", "9","10", "11");
+    public List<Long> flatNumbers(){
+        return Arrays.asList(1L,2L,3L,4L,5L,6L,7L,8L,9L,10L);
     }
+
+//    @ModelAttribute(name = "flatNumbers", binding = false)
+//    public List<Long> flatNumbers(){
+//        return Arrays.asList(1L,2L,3L,4L,5L,6L,7L,8L,9L,10L);
+//    }
 
     //    @ModelAttribute(name = "flatsNumber", binding = false)
 //    public List<Flat> flatsNumber(){
@@ -51,6 +59,8 @@ public class RegistrationController {
             userService.saveUser(userDTO);
             taskService.addObligatoryTasks(userDTO);
             billService.addObligatoryBills(userDTO);
+            flatService.assignUserToFlat(userDTO);
+
         } catch (RuntimeException d){
             d.printStackTrace();
             return "redirect:/register";

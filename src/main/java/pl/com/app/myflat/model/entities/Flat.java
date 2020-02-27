@@ -15,12 +15,14 @@ import java.util.List;
 public class Flat extends EntityBase {
 
     @Column(nullable = false)
-    private String flatNumber;
+    private Long flatNumber;
     @Column(nullable = false)
     private Boolean active;
 
-    @OneToOne
-    @JoinColumn(name="user_id", nullable = false)
+    @Column(name = "user_id")
+    private Long userId;
+
+    @OneToOne (mappedBy = "flat")
     private User user;
 
 //    @OneToMany(mappedBy = "flat")

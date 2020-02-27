@@ -25,7 +25,7 @@ public class User extends EntityBase {
     @Column(nullable = false)
     private String email;
     @Column(nullable = false)
-    private String flatNumber;
+    private Long flatNumber;
     @Column(nullable = false)
     private String role;
     @Column
@@ -37,7 +37,12 @@ public class User extends EntityBase {
     @OneToMany(mappedBy = "owner")
     private List<Task> tasks;
 
-    @OneToOne(mappedBy = "user")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinTable(name = "user_flat",
+            joinColumns =
+                    { @JoinColumn(name = "user_id", referencedColumnName = "id") },
+            inverseJoinColumns =
+                    { @JoinColumn(name = "flat_id", referencedColumnName = "id") })
     private Flat flat;
 
     @OneToMany(mappedBy = "user")

@@ -36,6 +36,8 @@ public class UserService {
         user.setActive(true);
         user.setRole("USER");
 
+        userRepository.save(user);
+
 //        User user = User.builder()
 //                .username(userDTO.getUsername())
 //                .firstName(userDTO.getFirstName())
@@ -46,7 +48,7 @@ public class UserService {
 //                .active(true)
 //                .role("USER")
 //                .build();
-        userRepository.save(user);
+
     }
 
     public LoggedUserDTO getUser(String username) {
