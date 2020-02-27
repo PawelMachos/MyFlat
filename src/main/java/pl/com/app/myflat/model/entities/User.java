@@ -34,6 +34,9 @@ public class User extends EntityBase {
     @OneToMany(mappedBy = "user")
     private List<Bill> bills;
 
+    @OneToMany(mappedBy = "owner")
+    private List<Task> tasks;
+
     @OneToOne(mappedBy = "user")
     private Flat flat;
 

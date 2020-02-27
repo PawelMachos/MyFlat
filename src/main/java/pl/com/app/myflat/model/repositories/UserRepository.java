@@ -4,11 +4,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import pl.com.app.myflat.model.entities.Bill;
 import pl.com.app.myflat.model.entities.User;
-import pl.com.app.myflat.model.enums.Category;
 
 import java.util.List;
 
-import java.util.List;
+import java.util.Optional;
 
 public interface UserRepository extends JpaRepository<User, Long> {
 
@@ -17,6 +16,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
     List<Bill> findAllBillsToPayForUser(Long id);
 
     User findByUsername(String userName);
+    Optional <User> findById(Long id);
 
     List<User> findAllByUsername(String userName);
 

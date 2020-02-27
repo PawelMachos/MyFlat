@@ -1,15 +1,13 @@
 package pl.com.app.myflat.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.com.app.myflat.dto.RegisterUserDTO;
-import pl.com.app.myflat.model.entities.User;
-import pl.com.app.myflat.model.repositories.UserRepository;
+import pl.com.app.myflat.service.TaskService;
 import pl.com.app.myflat.service.UserService;
 
 import java.util.Arrays;
@@ -20,10 +18,12 @@ import java.util.List;
 public class RegistrationController {
 
     private final UserService userService;
+    private final TaskService taskService;
 
     @Autowired
-    public RegistrationController(UserService userService) {
+    public RegistrationController(UserService userService, TaskService taskService) {
         this.userService = userService;
+        this.taskService = taskService;
     }
 
     @ModelAttribute(name = "flatNumbers", binding = false)
@@ -40,6 +40,7 @@ public class RegistrationController {
     public String processRegistrationPage(RegisterUserDTO userDTO) {
         try {
             userService.saveUser(userDTO);
+            taskService.addObligatoryTasks(userDTO);
         } catch (RuntimeException d){
             d.printStackTrace();
             return "redirect:/register";

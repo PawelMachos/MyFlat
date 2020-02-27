@@ -10,6 +10,9 @@ public interface TaskRepository extends JpaRepository<Task, Long> {
 
 
     Optional<Task> findByIdAndOwnerUsername(Long taskId, String username);
-    Optional<Task> findAllByActive(Boolean done);
     List<Task> findAllByOwnerUsername(String username);
+    List<Task> findFirst5ByOwnerUsernameOrderByDeadlineAsc(String username);
+    List <Task> findTasksByStatusAndOwnerUsernameOrderByDeadlineAsc(String status,String username);
+
+
 }
