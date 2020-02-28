@@ -79,7 +79,7 @@
             </a>
         </li>
             <li class="mt">
-                <a href="/user-profile">Settings
+                <a href="/profile">Settings
                     <i class="fa fa-dashboard"></i>
                 </a>
             </li>

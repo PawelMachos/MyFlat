@@ -8,17 +8,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.com.app.myflat.dto.LoggedUserDTO;
-import pl.com.app.myflat.dto.TaskDTO;
 import pl.com.app.myflat.model.entities.Task;
 import pl.com.app.myflat.model.entities.User;
 import pl.com.app.myflat.model.repositories.UserRepository;
 import pl.com.app.myflat.service.UserService;
 
 import java.security.Principal;
+import java.util.List;
 import java.util.Optional;
 
 @Controller
-@RequestMapping("/user-profile")
+@RequestMapping("/profile")
 @Slf4j
 public class UserProfileController {
 
@@ -32,34 +32,50 @@ public class UserProfileController {
     }
 
     @GetMapping
+    public String prepareLoggedUserProfilePage(Model model, Principal principal) {
+        String username = principal.getName();
+        model.addAttribute("user", userService.showUser(username));
+
+        return "user-profile-page";
+    }
+
+    @GetMapping(params = "userId")
+    public String prepareSelectedUserProfilePage(Long userId, Model model, Principal principal) {
+
+        Optional<User> optionalUser = userRepository.findById(userId);
+        if (optionalUser.isPresent()) {
+
+            model.addAttribute("user", optionalUser.get());
+        }
+        return "user-profile-page";
+    }
+
+    @GetMapping("/edit")
     public String prepareEditUser(Principal principal, Model model) {
         String username = principal.getName();
         Optional<User> optionalUser = userRepository.findByUsername(username);
         if (optionalUser.isPresent()) {
             model.addAttribute("user", optionalUser.get());
-            return "user-profile";
+            return "user-profile-edit-page";
         }
         else {
-            return "redirect:/home";
+            return "redirect:/user-profile-page";
         }
     }
 
-    @PostMapping
+    @PostMapping("/edit")
     public String processEditUser(LoggedUserDTO userDTO, Principal principal) {
         String username = principal.getName();
 
-        Optional<User> optionalUser = userRepository.findByUsername(username);
-        optionalUser.ifPresent(user -> {
+        User user = userRepository.getUserByUsername(username);
             user.setFirstName(userDTO.getFirstName());
             user.setLastName(userDTO.getLastName());
             user.setUsername(userDTO.getUsername());
             user.setEmail(userDTO.getEmail());
-            user.setPassword(userDTO.getPassword());
             userRepository.save(user);
-        });
 
 
-        return "redirect:/home";
+        return "redirect:/user-profile-page";
     }
 
 

@@ -52,7 +52,7 @@
             <div class="col-2"></div>
             <div class="col-8">
 
-                <form method="post" action="/user-profile/edit">
+                <form method="post" action="/profile/edit">
                     <div class="form-group">
                         <label for="username">Username:</label>
                         <input type="text" required name="username" id="username" class="form-control"
@@ -83,9 +83,9 @@
                     </div>
 
                     <button class="btn btn-info" type="submit">Edit</button>
-                    <a href="/home" class="btn btn-secondary">Back</a>
+                    <a href="/profile" class="btn btn-secondary">Back</a>
                     <input type="hidden" name="id" value="${user.id}"/>
-                    <input type="hidden" name="redirectTo" value="/user-profile"/>
+                    <input type="hidden" name="redirectTo" value="/profile"/>
                     <sec:csrfInput/>
                 </form>
 
