@@ -16,7 +16,7 @@
         <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
     </div>
     <!--logo start-->
-    <a href="/we" class="logo" style="font-size: 24px"><b>my<span style="font-size: 24px">Flat</span></b></a>
+    <a href="/we" class="logo" style="font-size: 20px"><b>my</b></a><a href="/"class="logo" style="font-size: 24px"><b><span style="font-size: 24px">Flat</span></b>
     <!--logo end-->
     <div>                                                         </div>
 

@@ -51,7 +51,7 @@ public class TaskService {
 
 
     public List <Task> showMostUrgentTasks(String username) {
-        return taskRepository.findTasksByStatusAndOwnerUsernameOrderByDeadlineAsc(Status.ACTIVE.toString(), username);
+        return taskRepository.findFirst4TasksByStatusAndOwnerUsernameOrderByDeadlineAsc(Status.ACTIVE.toString(), username);
     }
 
 
