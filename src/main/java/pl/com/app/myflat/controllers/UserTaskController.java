@@ -49,9 +49,8 @@ public class UserTaskController {
     public String prepareSelectedUserTasksPage(Long userId, Model model, Principal principal) {
 
         Optional<User> optionalUser = userRepository.findById(userId);
-        User user = optionalUser.orElse(userRepository.findByUsername(principal.getName()));
 
-        List<Task> userTasks = taskRepository.findAllByOwnerUsername(user.getUsername());
+        List<Task> userTasks = taskRepository.findAllByOwnerUsername(optionalUser.get().getUsername());
 
         model.addAttribute("tasks", userTasks);
         return "welcome-page";

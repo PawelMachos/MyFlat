@@ -74,7 +74,12 @@
                 </a>
             </li>
             <li class="mt">
-                <a href="/user-tasks">Organizer
+            <a href="/user-tasks">Organizer
+                <i class="fa fa-dashboard"></i>
+            </a>
+        </li>
+            <li class="mt">
+                <a href="/user-profile">Settings
                     <i class="fa fa-dashboard"></i>
                 </a>
             </li>

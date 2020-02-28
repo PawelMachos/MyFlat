@@ -9,6 +9,7 @@ import pl.com.app.myflat.model.repositories.FlatRepository;
 import pl.com.app.myflat.model.repositories.UserRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class FlatService {
@@ -30,9 +31,9 @@ public class FlatService {
     public void assignUserToFlat(RegisterUserDTO userDTO) {
 
         String username = userDTO.getUsername();
-        User user = userRepository.findByUsername(username);
+        Optional<User> optionalUser = userRepository.findByUsername(username);
 
-        Long userId = user.getId();
+        Long userId = optionalUser.get().getId();
 
         Long flatNumber = userDTO.getFlatNumber();
         Flat byFlatNumber = flatRepository.findByFlatNumber(flatNumber);
