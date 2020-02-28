@@ -21,7 +21,7 @@
 <div class="container">
     <div class="row" style="margin-top: 40px">
         <div class="col-1"></div>
-        <div class="col-10" style="padding-bottom: 20px"><h2>Logowanie</h2></div>
+        <div class="col-10" style="padding-bottom: 20px"><h2>Log in</h2></div>
         <div class="col-1"></div>
     </div>
     <div class="row">

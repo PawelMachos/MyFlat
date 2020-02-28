@@ -71,7 +71,7 @@
         <jsp:include page="header.jsp"/>
     </header>
     <div>
-        <div id="leftSideOfWeb">
+        <div id="leftSideOfWeb" style="color: #aeb2b7;">
             <jsp:include page="side-menu.jsp"/>
         </div>
         <section id="main-content">

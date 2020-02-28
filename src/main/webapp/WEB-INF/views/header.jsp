@@ -16,7 +16,7 @@
         <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
     </div>
     <!--logo start-->
-    <a href="/we" class="logo" style="font-size: 20px"><b>my</b></a><a href="/"class="logo" style="font-size: 24px"><b><span style="font-size: 24px">Flat</span></b>
+    <a href="/we" class="logo" style="font-size: 20px"><b>my</b><span style="font-size: 24px">Flat</span></a>
     <!--logo end-->
     <div>                                                         </div>
 
@@ -25,7 +25,9 @@
 
         <ul class="nav -pull-right top-menu">
 
-            <li><a class="logout" href="/logout">Logout</a></li>
+            <li><a class="logout" href="/logout">&nbsp&nbsp&nbspLogout&nbsp&nbsp&nbsp</a>
+<%--                <a class="logout" href="/">&nbsp&nbsp&nbspBack&nbsp&nbsp&nbsp</a></li>--%>
+                <a class="logout" href="/">Home Page</a></li>
 
         </ul>
     </div>
