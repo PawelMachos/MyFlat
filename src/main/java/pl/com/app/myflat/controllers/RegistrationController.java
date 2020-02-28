@@ -15,9 +15,7 @@ import pl.com.app.myflat.service.TaskService;
 import pl.com.app.myflat.service.UserService;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/register")
@@ -37,26 +35,17 @@ public class RegistrationController {
     }
 
     @ModelAttribute(name = "flatNumbers", binding = false)
-    public List<Long> flatNumbers(){
+    public List<Long> flatNumbers() {
 
         List<Long> list = new ArrayList<>();
 
         List<Flat> availableFlats = flatService.showAllAvailableFlats();
-        for (Flat f:availableFlats) {
+        for (Flat f : availableFlats) {
             list.add(f.getFlatNumber());
         }
-return list;
+        return list;
     }
 
-//    @ModelAttribute(name = "flatNumbers", binding = false)
-//    public List<Long> flatNumbers(){
-//        return Arrays.asList(1L,2L,3L,4L,5L,6L,7L,8L,9L,10L);
-//    }
-
-    //    @ModelAttribute(name = "flatsNumber", binding = false)
-//    public List<Flat> flatsNumber(){
-//        return flatService.showAllAvailableFlats();
-//    }
 
     @GetMapping
     public String prepareRegistrationPage() {
@@ -71,7 +60,7 @@ return list;
             billService.addObligatoryBills(userDTO);
             flatService.assignUserToFlat(userDTO);
 
-        } catch (RuntimeException d){
+        } catch (RuntimeException d) {
             d.printStackTrace();
             return "redirect:/register";
         }

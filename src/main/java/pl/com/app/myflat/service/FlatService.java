@@ -41,4 +41,8 @@ public class FlatService {
         flatRepository.save(byFlatNumber);
 
     }
+
+    public Integer howManyFlatsAreAvailable(){
+        return flatRepository.countAllByActive(true);
+    }
 }
