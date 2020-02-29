@@ -31,7 +31,8 @@
     <style>
         * {
             font-family: 'Ruda', sans-serif;
-            font-size: 12px;
+            font-size: 20px;
+            text-align: center;
         }
 
         .col-6 {
@@ -45,18 +46,27 @@
     <div class="col-12" style="padding-bottom: 20px">
 
         <div class="ex1">
-            <table class="table">
 
-                    <tr>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Username&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tr><br/>
-                <tr><b>${user.username}</b></tr><br/>
-                <tr>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Password&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tr><br/>
+                <div class="form-group">
+                    <tr><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Username&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></tr><br/>
+                <tr>${user.username}</tr><br/>
+                </div>
+            <div class="form-group">
+                <tr><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Password&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></tr><br/>
                 <tr><b>********</b></tr><br/>
-                    <tr>First name</tr><br/>
+            </div>
+            <div class="form-group">
+                <tr><b>First name</b></tr><br/>
                 <tr>${user.firstName}</tr><br/>
-                    <tr>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Last name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tr><br/>
+            </div>
+            <div class="form-group">
+                <tr><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Last name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></tr><br/>
                 <tr>${user.lastName}</tr><br/>
-                    <tr>&nbsp;&nbsp;E-mail&nbsp;&nbsp;&nbsp;&nbsp;</tr><br/>
+            </div>
+            <div class="form-group">
+                <tr><b>&nbsp;&nbsp;E-mail&nbsp;&nbsp;&nbsp;&nbsp;</b></tr><br/>
                 <tr>${user.email}</tr><br/>
+            </div>
 
                 <tr>
                     <td colspan="6">
@@ -64,7 +74,7 @@
                         <div class="btn-group" style="float: right; margin-right: 0px">
                             <form class="form-inline" style="margin-left: 1em" method="get" action="/profile/edit">
                                 <button type="submit" class="btn btn-info">&nbsp;&nbsp;Edit&nbsp;&nbsp;</button>
-                                <input type="hidden" name="taskId" value="${task.id}"/>
+                                <input type="hidden" name="userId" value="${user.id}"/>
                                 <sec:csrfInput/>
                             </form>
                             <form class="form-inline" style="margin-left: 1em" >
@@ -77,7 +87,6 @@
                         </form>
         </td>
         </tr>
-        </table>
     </div>
 
 </div>
