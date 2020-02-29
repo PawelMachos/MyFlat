@@ -54,7 +54,7 @@
         <ul class="sidebar-menu" id="nav-accordion">
             <p class="centered"><a href="home"><img src="/static/graphics/block.png" class="img-circle"></a></p>
             <li class="mt">
-                <a href="/home">Homepage
+                <a href="/home">Main
                     <i class="fa fa-dashboard"></i>
                 </a>
             </li>
