@@ -41,7 +41,10 @@ public class SecurityLayerConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/static","/static/**");
+        web.ignoring().antMatchers("/static","/static/**")
+                .antMatchers("/media/**")
+                .antMatchers("/webjars/**")
+                .antMatchers("/h2-console", "/h2-console/**"); // Tutaj wyłączamy Spring Security dla konsoli H2
     }
 
 
@@ -67,5 +70,6 @@ public class SecurityLayerConfiguration extends WebSecurityConfigurerAdapter {
                 .and()
                 .csrf().disable();
     }
+
 
 }
