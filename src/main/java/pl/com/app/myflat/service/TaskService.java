@@ -66,8 +66,8 @@ public class TaskService {
                 .description("W ciągu 10 dni odbierz klucze go głównego kontenera na śmieci")
                 .active(true)
                 .status((Status.ACTIVE).toString())
-                .startDate(LocalDate.now().plusDays(1))
-                .deadline(LocalDate.now().plusDays(11))
+                .startDate(LocalDate.now())
+                .deadline(LocalDate.now().plusDays(10))
                 .owner(optionalUser.get())
                 .build();
 
@@ -76,8 +76,8 @@ public class TaskService {
                 .description("Masz tydzień na zgłoszenie odbioru technicznego instalacji wodnej i energetyczne w mieszkaniu")
                 .active(true)
                 .status((Status.ACTIVE).toString())
-                .startDate(LocalDate.now().plusDays(1))
-                .deadline(LocalDate.now().plusDays(8))
+                .startDate(LocalDate.now())
+                .deadline(LocalDate.now().plusDays(7))
                 .owner(optionalUser.get())
                 .build();
 
@@ -86,8 +86,8 @@ public class TaskService {
                 .description("Opłać kaucję w wysokości trzykrotności czynszu w ciągu 30 dni od zarejestrowania w aplikacji myFlat")
                 .active(true)
                 .status((Status.ACTIVE).toString())
-                .startDate(LocalDate.now().plusDays(1))
-                .deadline(LocalDate.now().plusDays(31))
+                .startDate(LocalDate.now())
+                .deadline(LocalDate.now().plusDays(30))
                 .owner(optionalUser.get())
                 .build();
 
@@ -96,8 +96,8 @@ public class TaskService {
                 .description("Wszystkie dokumenty zwiazane z wynajmem mieszkania zostaną wysłane do Ciebie drogą mailową. Prosze potwierdź ich otrzymanie za pomocą platformy autenti.com")
                 .active(true)
                 .status((Status.ACTIVE).toString())
-                .startDate(LocalDate.now().plusDays(1))
-                .deadline(LocalDate.now().plusDays(8))
+                .startDate(LocalDate.now())
+                .deadline(LocalDate.now().plusDays(7))
                 .owner(optionalUser.get())
                 .build();
 
@@ -106,8 +106,8 @@ public class TaskService {
                 .description("Zarejestruj się na osiedlowym forum naszaosiedle.org i przywitaj się z sąsiadami")
                 .active(true)
                 .status((Status.ACTIVE).toString())
-                .startDate(LocalDate.now().plusDays(1))
-                .deadline(LocalDate.now().plusDays(15))
+                .startDate(LocalDate.now())
+                .deadline(LocalDate.now().plusDays(14))
                 .owner(optionalUser.get())
                 .build();
 
