@@ -20,8 +20,8 @@ public class Advert extends EntityBase{
     @Column(nullable = false)
     private Boolean active;
 
-    @OneToMany(mappedBy = "advert")
-    private List<Comment> comments;
+    /*@OneToMany(mappedBy = "advert")
+    private List<Comment> comments;*/
 
     @ManyToOne
     @JoinColumn(name="user_id", nullable = false)
