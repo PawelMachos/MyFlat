@@ -31,6 +31,10 @@
     <link href="/static/css/bill.css" type="text/css" rel="stylesheet">
     <link href="../../static/css/style.css" type="text/css" rel="stylesheet">
 
+    <link href="/webapp/static/css/comment.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
     <style>
         div.title {
             text-transform: uppercase;
@@ -109,6 +113,8 @@
                 <c:forEach items="${adverts}" var="advert" varStatus="stat">
                     <div class="advert">
 
+            <table id="adAndCom">
+                <th>
                         <table>
                             <tr>
                                 <td>${advert.user.username}, dodano: ${advert.createdAt.format(DateTimeFormatter
@@ -154,31 +160,34 @@
                     </div>
                 </c:forEach>
 
-                <section class="comments">
-                    <article class="comment">
-                        <a class="comment-img" href="#non">
-                            <img src="https://pbs.twimg.com/profile_images/444197466133385216/UA08zh-B.jpeg" alt="" width="50" height="50">
-                        </a>
-                        <div class="comment-body">
-                            <div class="text">
-                                <p>Hello, this is an example from me</p>
-                            </div>
-                            <p class="attribution">by <a href="#non">${comment.username}</a> at 14:23pm, 4 Dec 2015</p>
-                        </div>
-                    </article>
-                    <article class="comment">
-                        <a class="comment-img" href="#non">
-                            <img src="https://pbs.twimg.com/profile_images/444197466133385216/UA08zh-B.jpeg" alt="" width="50" height="50">
-                        </a>
-                        <div class="comment-body">
-                            <div class="text">
-                                <p>if you are interested for  more about me visited my profile on social page</p>
-                                <p>To visit me you can click my name  <a target="_blank" href="http://www.facebook.com/besnik.hetemii">Besnik Hetemi</a> and send me frends request or send me a message in inbox</p>
-                            </div>
-                            <p class="attribution">by <a href="#non">Besnik Hetemi</a> at 14:23pm, 4 Dec 2015</p>
-                        </div>
-                    </article>
-                </section>
+
+    <article class="comment">
+        <sec:authorize access="isAuthenticated()">
+        <form class="comment" method="post" action="/add-comment">
+            <input type="text" placeholder="Odpowiedz na ogłoszenie" title="commentText" id="commentText">
+
+            <button class="btn btn-outline-primary" type="submit">Dodaj</button>
+            <input type="hidden" name="id" value="${advert.id}"/>
+            <input type="hidden" name="id" value="${comment.id}"/>
+            <input type="hidden" name="redirectTo" value="/adverts"/>
+        </form>
+        </sec:authorize>
+
+        <c:forEach items="${comments}" var="comment" varStatus="stat">
+
+        <div class="comment-body">
+            <div class="text">
+                <p>${comment.commentText}</p>
+            </div>
+            <p class="attribution">od <a href="#non">${comment.user}</a> w ${comment.createdAt.format(DateTimeFormatter
+                    .ofPattern("dd/MM/yyyy  hh:mm a"))}</p>
+        </div>
+    </article>
+    </c:forEach>
+    </th>
+
+
+                </table>
 
 
                 <div class="row" style="margin-center: 40px; margin-bottom: 10px">

@@ -128,4 +128,12 @@ public class AdvertPageController {
         return "redirect:/adverts";
     }
 
+    @GetMapping("/comments")
+    public String showComments(Model model) {
+        List<Comment> allComments = commentRepository.findAllBy();
+        model.addAttribute("comments", allComments);
+
+        return "redirect:/adverts";
+    }
+
 }
