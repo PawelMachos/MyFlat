@@ -23,6 +23,9 @@ public class Comment extends EntityBase{
     private Boolean active;
 
     @ManyToOne
+    private Advert advert;
+
+    @ManyToOne
     @JoinColumn(name="user_id", nullable = false)
     private User user;
 }

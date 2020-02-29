@@ -3,6 +3,7 @@ package pl.com.app.myflat.model.entities;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Getter @Setter @NoArgsConstructor
 @AllArgsConstructor
@@ -18,6 +19,9 @@ public class Advert extends EntityBase{
     private String description;
     @Column(nullable = false)
     private Boolean active;
+
+    @OneToMany(mappedBy = "advert")
+    private List<Comment> comments;
 
     @ManyToOne
     @JoinColumn(name="user_id", nullable = false)
