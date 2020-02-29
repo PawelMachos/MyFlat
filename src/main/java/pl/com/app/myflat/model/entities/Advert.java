@@ -3,6 +3,7 @@ package pl.com.app.myflat.model.entities;
 import lombok.*;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Getter @Setter @NoArgsConstructor
@@ -19,6 +20,8 @@ public class Advert extends EntityBase{
     private String description;
     @Column(nullable = false)
     private Boolean active;
+    @Column
+    private LocalDateTime createdAt;
 
     /*@OneToMany(mappedBy = "advert")
     private List<Comment> comments;*/
