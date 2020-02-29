@@ -4,6 +4,7 @@
 
 <html>
 <head>
+    <title>Edit Your Profile</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet"
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
@@ -54,9 +55,9 @@
 
                 <form method="post" action="/profile/edit">
                     <div class="form-group">
-                        <label for="username">Username:</label>
-                        <input type="text" required name="username" id="username" class="form-control"
-                               value="${user.username}"/>
+                        <label>Username:</label><br/>
+                        <label>${user.username}</label>
+
                     </div>
                     <div class="form-group">
                         <label for="firstName">First name</label>
@@ -82,11 +83,17 @@
                                value="${user.email}"/>
                     </div>
 
-                    <button class="btn btn-info" type="submit">Edit</button>
-                    <a href="/profile" class="btn btn-secondary">Back</a>
+                    <form class="form-inline" style="margin-left: 1em" method="get" action="/profile/edit">
+                        <button type="submit" class="btn btn-info">&nbsp;&nbsp;Edit&nbsp;&nbsp;</button>
+                        <input type="hidden" name="userId" value="${user.id}"/>
+                        <sec:csrfInput/>
+                    </form>
+                    <form class="form-inline" style="margin-left: 1em" >
+                   <a href="/profile" class="btn btn-secondary">Back</a>
                     <input type="hidden" name="id" value="${user.id}"/>
                     <input type="hidden" name="redirectTo" value="/profile"/>
                     <sec:csrfInput/>
+                    </form>
                 </form>
 
             </div>

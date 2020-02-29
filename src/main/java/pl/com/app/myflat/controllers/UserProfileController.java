@@ -59,7 +59,7 @@ public class UserProfileController {
             return "user-profile-edit-page";
         }
         else {
-            return "redirect:/user-profile-page";
+            return "redirect:/profile";
         }
     }
 
@@ -75,7 +75,7 @@ public class UserProfileController {
             userRepository.save(user);
 
 
-        return "redirect:/user-profile-page";
+        return "redirect:/profile";
     }
 
 

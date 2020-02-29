@@ -11,7 +11,34 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>User Profile</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+          crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+            integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+            integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+            crossorigin="anonymous"></script>
+
+    <style>
+        * {
+            font-family: 'Ruda', sans-serif;
+            font-size: 12px;
+        }
+
+        .col-6 {
+            text-align: center;
+        }
+
+    </style>
 </head>
 <body>
 <div class="row">
@@ -19,33 +46,18 @@
 
         <div class="ex1">
             <table class="table">
-                <tr>
-                    <th>No.</th>
-                    <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Title&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
-                    <th>Description</th>
-                    <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;When&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
-                    <th>&nbsp;&nbsp;Deadline&nbsp;&nbsp;&nbsp;&nbsp;</th>
-                    <th>Status</th>
-                </tr>
-                <c:forEach items="${tasks}" var="task" varStatus="stat">
-                <tr>
-                    <td>${stat.count}</td>
-                    <td><b>${task.title}</b></td>
-                    <td class="cell-breakAll">${task.description}</td>
-                    <td>${task.startDate}</td>
-                    <td>${task.deadline}</td>
-                    <td>
-                        <c:if test="${task.active==true}">
-                            ${task.status}
-                        </c:if>
-                        <c:if test="${task.active==false}">
-                            ${inactive}
-                        </c:if>
-                    </td>
-                </tr>
+
+                    <tr>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Username&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tr><br/>
+                <tr><b>${user.username}</b></tr><br/>
+                    <tr>First name</tr><br/>
+                <tr>${user.firstName}</tr><br/>
+                    <tr>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Last name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tr><br/>
+                <tr>${user.lastName}</tr><br/>
+                    <tr>&nbsp;&nbsp;E-mail&nbsp;&nbsp;&nbsp;&nbsp;</tr><br/>
+                <tr>${user.email}</tr><br/>
+
                 <tr>
                     <td colspan="6">
-                        <c:if test="${task.active==true}">
 
                         <div class="btn-group" style="float: right; margin-right: 0px">
                             <form class="form-inline" style="margin-left: 1em" method="get" action="/profile/edit">
@@ -53,31 +65,20 @@
                                 <input type="hidden" name="taskId" value="${task.id}"/>
                                 <sec:csrfInput/>
                             </form>
-                            <form class="form-inline" style="margin-left: 1em" method="post" action="/delete-task">
-                                <button type="submit" class="btn btn-danger" onclick="return confirmDelete();">
-                                    Delete
-                                </button>
-                                <input type="hidden" name="taskId" value="${task.id}"/>
+                            <form class="form-inline" style="margin-left: 1em" >
+                                <a href="/home" class="btn btn-secondary">Back</a>
+                                <input type="hidden" name="id" value="${user.id}"/>
+                                <input type="hidden" name="redirectTo" value="/home"/>
                                 <sec:csrfInput/>
                             </form>
                         </div>
-                        </c:if>
-                        <c:if test="${task.active!=true}">
-                        <form class="form-inline" style="float: right; margin-right: 1em" method="post"
-                              action="/delete-task">
-                            <button type="submit" class="btn btn-danger" onclick="return confirmDelete();">Delete
-                            </button>
-                            <input type="hidden" name="taskId" value="${task.id}"/>
-                            <sec:csrfInput/>
                         </form>
-        </div>
-        </c:if>
         </td>
         </tr>
-        </c:forEach>
         </table>
     </div>
 
+</div>
 </div>
 </body>
 </html>
