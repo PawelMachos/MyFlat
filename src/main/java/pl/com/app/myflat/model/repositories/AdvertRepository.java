@@ -12,8 +12,6 @@ public interface AdvertRepository extends JpaRepository<Advert, Long> {
 
     List<Advert> findAllBy();
 
-    List<Advert> findByUser(String userName);
-
     Optional<Advert> findByIdAndUserUsername(Long advertId, String userName);
 
     Advert findTopByOrderByCreatedAtDesc();

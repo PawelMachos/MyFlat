@@ -31,6 +31,10 @@
     <link href="/static/css/bill.css" type="text/css" rel="stylesheet">
     <link href="../../static/css/style.css" type="text/css" rel="stylesheet">
 
+    <link href="/webapp/static/css/comment.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
     <style>
         div.title {
             text-transform: uppercase;
@@ -77,13 +81,13 @@
         <jsp:include page="header.jsp"/>
     </header>
 
-    <div>
+
         <div id="leftSideOfWeb">
             <jsp:include page="side-menu.jsp"/>
         </div>
 
 
-        <section id="main-content" >
+        <section id="main-content">
             <section class="wrapper" style="min-height: 800px;">
 
                 &nbsp;
@@ -106,100 +110,140 @@
                         </form>
                     </div>
                 </div>
+
                 <c:forEach items="${adverts}" var="advert" varStatus="stat">
-                    <div class="advert">
+                <div class="advert">
 
-                        <table>
-                            <tr>
-                                <td>${advert.user.username}, dodano: ${advert.createdAt.format(DateTimeFormatter
-                                        .ofPattern("dd/MM/yyyy  hh:mm a"))}</td>
-                            </tr>
+                    <table id="adAndCom">
+                        <th>
+                            <table>
+                                <tr>
+                                    <td>${advert.user.username}, dodano: ${advert.createdAt.format(DateTimeFormatter
+                                            .ofPattern("dd/MM/yyyy  hh:mm a"))}</td>
+                                </tr>
 
-                            <td>
-                                <hr>
-                            </td>
+                                <td>
+                                    <hr>
+                                </td>
 
-                            <tr>
-                                <th>
-                                    <div class="title">${advert.title}</div>
-                                </th>
-                            </tr>
+                                <tr>
+                                    <th>
+                                        <div class="title">${advert.title}</div>
+                                    </th>
+                                </tr>
 
 
-                            <tr>
-                                <td>${advert.description}</td>
-                                <br>
-                            </tr>
+                                <tr>
+                                    <td>${advert.description}</td>
+                                    <br>
+                                </tr>
 
-                        </table>
+                            </table>
 
-                        <div class="buttons">
-                            <td>
-                                <div class="btn-group">
-                                    <form class="form-inline" method="post" action="/delete-advert">
-                                        <button type="submit" class="btn btn-danger">Usuń</button>
-                                        <input type="hidden" name="advertId" value="${advert.id}"/>
-                                        <sec:csrfInput/>
-                                    </form>
-                                    <form class="form-inline" style="margin-left: 1em" method="get"
-                                          action="/edit-advert">
-                                        <button type="submit" class="btn btn-primary">Edytuj</button>
-                                        <input type="hidden" name="advertId" value="${advert.id}"/>
-                                        <sec:csrfInput/>
-                                    </form>
-                                </div>
-                            </td>
+                            <div class="buttons">
+                        <td>
+                            <div class="btn-group">
+                                <form class="form-inline" method="post" action="/delete-advert">
+                                    <button type="submit" class="btn btn-danger">Usuń</button>
+                                    <input type="hidden" name="advertId" value="${advert.id}"/>
+                                    <sec:csrfInput/>
+                                </form>
+                                <form class="form-inline" style="margin-left: 1em" method="get"
+                                      action="/edit-advert">
+                                    <button type="submit" class="btn btn-primary">Edytuj</button>
+                                    <input type="hidden" name="advertId" value="${advert.id}"/>
+                                    <sec:csrfInput/>
+                                </form>
+                            </div>
+                        </td>
+                    </table>
 
+
+                </div>
+
+
+                <article class="comment">
+                    <sec:authorize access="isAuthenticated()">
+                    <form class="comment" method="post" action="/add-comment">
+                        <input type="text" placeholder="Odpowiedz na ogłoszenie" name="commentText" id="commentText">
+
+                        <button class="btn btn-outline-primary" type="submit">Dodaj</button>
+                        <input type="hidden" name="advertId" value="${advert.id}"/>
+                        <input type="hidden" name="redirectTo" value="/adverts"/>
+                    </form>
+
+
+                    <c:forEach items="${advert.comments}" var="comment" varStatus="stat">
+
+                    <div class="comment-body">
+                        <div class="text">
+                            <p>${comment.commentText}</p>
                         </div>
+                        <p class="attribution">od <a href="#non">${comment.user}</a>
+                            w ${comment.createdAt.format(DateTimeFormatter
+                                .ofPattern("dd/MM/yyyy  hh:mm a"))}</p>
                     </div>
+                </article>
+
                 </c:forEach>
 
 
-                <div class="row" style="margin-center: 40px; margin-bottom: 10px">
-                    <div class="col-1"></div>
-                    <div class="col-2"><h5>Dodaj ogłoszenie</h5></div>
-                    <div class="col-5"></div>
-                </div>
+                </sec:authorize>
 
-                <div class="row">
-                    <div class="col-2"></div>
-                    <div class="col-8">
+                </c:forEach>
 
-                        <sec:authorize access="isAuthenticated()">
-                            <form method="post" action="/add-advert">
-                                <div class="form-group">
-                                    <label for="title" style="color: white">Tytuł:</label> <br>
-                                    <input type="text" required name="title" id="title">
-                                </div>
-                                <br>
-
-                                <div class="form-group">
-                                    <label for="description" style="color: white">Ogłoszenie:</label><br>
-                                    <textarea name="description" id="description"
-                                              class="form-control" maxlength="400"> </textarea>
-                                </div>
-                                <br>
-
-                                <input type="file" value="Załącz plik"> <br><br>
-
-                                <button class="btn btn-outline-primary" type="reset">Wyczyść dane</button>
-                                <button class="btn btn-primary" type="submit">Umieść ogłoszenie</button>
-                                <input type="hidden" name="redirectTo" value="/adverts"/>
-                            </form>
+                </th>
 
 
-                        </sec:authorize>
-
-
-                    </div>
-                    <div class="col-2"></div>
-                </div>
-
-
-            </section>
-        </section>
-
+                </table>
     </div>
+
+
+    <div class="row" style="margin-center: 40px; margin-bottom: 10px">
+        <div class="col-1"></div>
+        <div class="col-2"><h5>Dodaj ogłoszenie</h5></div>
+        <div class="col-5"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+
+            <sec:authorize access="isAuthenticated()">
+                <form method="post" action="/add-advert">
+                    <div class="form-group">
+                        <label for="title" style="color: white">Tytuł:</label> <br>
+                        <input type="text" required name="title" id="title">
+                    </div>
+                    <br>
+
+                    <div class="form-group">
+                        <label for="description" style="color: white">Ogłoszenie:</label><br>
+                        <textarea name="description" id="description"
+                                  class="form-control" maxlength="400"> </textarea>
+                    </div>
+                    <br>
+
+                    <input type="file" value="Załącz plik"> <br><br>
+
+                    <button class="btn btn-outline-primary" type="reset">Wyczyść dane</button>
+                    <button class="btn btn-primary" type="submit">Umieść ogłoszenie</button>
+                    <input type="hidden" name="redirectTo" value="/adverts"/>
+                </form>
+
+
+            </sec:authorize>
+
+
+        </div>
+        <div class="col-2"></div>
+    </div>
+
+
+</section>
+</section>
+
+
 </section>
 &nbsp;
 <div>

@@ -3,25 +3,27 @@ package pl.com.app.myflat.model.entities;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.List;
+import java.time.LocalDateTime;
 
-@Getter @Setter @NoArgsConstructor
+@Getter
+@Setter
+@NoArgsConstructor
 @AllArgsConstructor
 @ToString (exclude = {"user"}) @EqualsAndHashCode (of = "id")
 @Builder
 @Entity
-@Table(name = "adverts")
-public class Advert extends EntityBase{
+@Table(name = "comments")
+public class Comment extends EntityBase{
 
+//    @Column(nullable = false)
+//    private LocalDateTime createdAt;
     @Column(nullable = false)
-    private String title;
-    @Column(nullable = false)
-    private String description;
+    private String commentText;
     @Column(nullable = false)
     private Boolean active;
 
-    @OneToMany(mappedBy = "advert")
-    private List<Comment> comments;
+    @ManyToOne
+    private Advert advert;
 
     @ManyToOne
     @JoinColumn(name="user_id", nullable = false)
