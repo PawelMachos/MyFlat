@@ -4,7 +4,7 @@
 
 # -- current data
 
-INSERT INTO flats(active, flat_number, user_id) VALUES (true, 1, 1);
+INSERT INTO flats(active, flat_number) VALUES (true, 1);
 INSERT INTO flats(active, flat_number) VALUES (true, 2);
 INSERT INTO flats(active, flat_number) VALUES (true, 3);
 INSERT INTO flats(active, flat_number) VALUES (true, 4);
