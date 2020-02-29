@@ -1,10 +1,12 @@
 .cld-main{
-  width: 330px;
+  width: 100%;
+  position: center;
+  text-align: center;
 }
 .cld-main a{
   color: #333;
   font-weight: bold;
-  position: center;
+
 }
   .cld-datetime{
     position: relative;

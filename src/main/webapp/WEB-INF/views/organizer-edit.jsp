@@ -19,6 +19,7 @@
 
 
     <link href="../../static/css/style.css" type="text/css" rel="stylesheet">
+    <link href="/static/css/style.css" type="text/css" rel="stylesheet">
     <style>
         * {
             box-sizing: border-box;
@@ -30,7 +31,8 @@
         }
         body {
 
-            background-color: lightgrey;
+            /*background-color: lightgrey;*/
+            background-color: #eaeaea;
         }
         h1 {
 
@@ -46,14 +48,16 @@
             margin-top: 3%;
             margin-left: 0.5%;
             margin-right: auto;
-            width:62.5%;
+            width:68.5%;
         }
         #cal
         {
             float:right;
             margin-top: 0.5%;
-            margin-right: 1%;
-            width:27%;
+            margin-right: 0%;
+            width:22%;
+            object-position: center;
+            text-align: center;
         }
         #some {
             clear: both;
@@ -69,7 +73,7 @@
         <jsp:include page="header.jsp"/>
     </header>
     <div>
-        <div id="leftSideOfWeb">
+        <div id="leftSideOfWeb" style="color: #aeb2b7;">
             <jsp:include page="side-menu.jsp"/>
         </div>
         <section id="main-content">

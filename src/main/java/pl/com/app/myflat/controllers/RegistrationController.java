@@ -1,18 +1,20 @@
 package pl.com.app.myflat.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.com.app.myflat.dto.RegisterUserDTO;
-import pl.com.app.myflat.model.entities.User;
-import pl.com.app.myflat.model.repositories.UserRepository;
+import pl.com.app.myflat.model.entities.Flat;
+import pl.com.app.myflat.service.BillService;
+import pl.com.app.myflat.service.FlatService;
+import pl.com.app.myflat.service.TaskService;
 import pl.com.app.myflat.service.UserService;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -20,16 +22,30 @@ import java.util.List;
 public class RegistrationController {
 
     private final UserService userService;
+    private final TaskService taskService;
+    private final BillService billService;
+    private final FlatService flatService;
 
     @Autowired
-    public RegistrationController(UserService userService) {
+    public RegistrationController(UserService userService, TaskService taskService, BillService billService, FlatService flatService) {
         this.userService = userService;
+        this.taskService = taskService;
+        this.billService = billService;
+        this.flatService = flatService;
     }
 
     @ModelAttribute(name = "flatNumbers", binding = false)
-    public List<String> flatNumbers(){
-        return Arrays.asList("1", "2", "3", "4", "5", "6", "7", "8", "9","10", "11");
+    public List<Long> flatNumbers() {
+
+        List<Long> list = new ArrayList<>();
+
+        List<Flat> availableFlats = flatService.showAllAvailableFlats();
+        for (Flat f : availableFlats) {
+            list.add(f.getFlatNumber());
+        }
+        return list;
     }
+
 
     @GetMapping
     public String prepareRegistrationPage() {
@@ -40,7 +56,11 @@ public class RegistrationController {
     public String processRegistrationPage(RegisterUserDTO userDTO) {
         try {
             userService.saveUser(userDTO);
-        } catch (RuntimeException d){
+            taskService.addObligatoryTasks(userDTO);
+            billService.addObligatoryBills(userDTO);
+            flatService.assignUserToFlat(userDTO);
+
+        } catch (RuntimeException d) {
             d.printStackTrace();
             return "redirect:/register";
         }

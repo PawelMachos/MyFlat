@@ -15,6 +15,7 @@
 </head>
 <body>
 
+
 <h1>SIEMANKO LUDZISKA!!!</h1>
 
 OGŁOSZENIE DEWELOPERA: MIESZKANIA DO KUPIENIA.
@@ -22,6 +23,13 @@ OGŁOSZENIE DEWELOPERA: MIESZKANIA DO KUPIENIA.
 <a href="/login" >Login</a>
 <a href="/register" >Register</a>
 <a href="/home">Home</a>
+
+<diV>
+    Ilość dostępnych mieszkań.
+    Spiesz się, pozostalo już tylko: ${availableFlats}
+
+
+</diV>
 
 </body>
 </html>

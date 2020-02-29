@@ -4,8 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.com.app.myflat.dto.LoggedUserDTO;
 import pl.com.app.myflat.model.enums.Category;
@@ -56,7 +54,6 @@ public class BillSectionController {
         model.addAttribute("percentage", billService.percentageOfGeneratedCosts(user.getId()));
         // new models
         model.addAttribute("statistics", billService.getInvoicesByCategory(user.getId(), Category.WATER_HEATING));
-        model.addAttribute("coldWater", billService.getInvoicesByCategory(user.getId(), Category.COLD_WATER_AND_SEWAGE));
         return "bill-page";
     }
 

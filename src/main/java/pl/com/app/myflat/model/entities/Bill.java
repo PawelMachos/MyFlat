@@ -5,6 +5,7 @@ import pl.com.app.myflat.model.enums.Category;
 
 import javax.persistence.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Getter @Setter @NoArgsConstructor
@@ -29,6 +30,8 @@ public class Bill extends EntityBase {
     @ManyToOne
     @JoinColumn(name="user_id", nullable = false)
     private User user;
+    @Column(name = "user_id", insertable = false, updatable = false)
+    private Long userId;
 
 //    @ManyToOne
 //    @JoinColumn(name="flat_id", nullable = false)

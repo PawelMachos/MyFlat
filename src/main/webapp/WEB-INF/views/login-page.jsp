@@ -16,12 +16,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 </head>
-<body style="background-color: lightgray">
+<body style="background-color: #eaeaea;">
 <%--<jsp:include page="fragments/main-menu.jsp"/>--%>
 <div class="container">
     <div class="row" style="margin-top: 40px">
         <div class="col-1"></div>
-        <div class="col-10" style="padding-bottom: 20px"><h2>Logowanie</h2></div>
+        <div class="col-10" style="padding-bottom: 20px"><h2>Log in</h2></div>
         <div class="col-1"></div>
     </div>
     <div class="row">
@@ -48,6 +48,10 @@
                 <button class="btn btn-secondary" type="reset">Wyczyść dane</button>
                 <sec:csrfInput/>
             </form>
+            <div>
+                <a href="/register"> <button class="btn btn-secondary" >Zarejestruj się</button></a>
+                <a href="/"> <button class="btn btn-secondary" >Wróć do strony głównej</button></a>
+            </div>
         </div>
         <div class="col-5"></div>
     </div>

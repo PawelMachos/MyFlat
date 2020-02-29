@@ -1,6 +1,6 @@
---user, but without decoded password
-
---INSERT INTO users (username, password, first_name, last_name, email, flat_number, role) VALUES ('jnowak', 'jnowak', 'Jan', 'Nowak','nowak@ziom.com', '1', 'ROLE_USER');
+# --user, but without decoded password
+#
+# --INSERT INTO users (username, password, first_name, last_name, email, flat_number, role) VALUES ('jnowak', 'jnowak', 'Jan', 'Nowak','nowak@ziom.com', '1', 'ROLE_USER');
 
 -- current data
 INSERT INTO bills(user_id, category, invoice_number, invoice_date, gross_amount, active) VALUES (1,'EARMARKED_FUND','XY1234','2020-02-01',35,true);

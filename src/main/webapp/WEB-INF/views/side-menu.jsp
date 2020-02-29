@@ -78,9 +78,19 @@
                     <i class="fa fa-dashboard"></i>
                 </a>
             </li>
+            <li class="mt" onclick="goBack()">
+                <a >Go Back
+                    <i class="fa fa-dashboard"></i>
+                </a>
+            </li>
         </ul>
     </div>
 </aside>
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
 
 
 <%--<div class="side-menu">--%>
