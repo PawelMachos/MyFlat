@@ -112,12 +112,13 @@ public class AdvertPageController {
     @PostMapping("/add-comment")
     public String processAddComment(String commentText, Principal principal, Long advertId) {
         String userName = principal.getName();
-        Optional<User> optionalUser = userRepository.findByUsername(userName);
+        Optional<User> user = userRepository.findByUsername(userName);
+
 
         Advert advert = advertRepository.getOne(advertId);
 
         Comment comment = new Comment();
-        comment.setUser(optionalUser.get());
+        comment.setUser(user.get());
         comment.setCommentText(commentText);
         comment.setCreatedAt(LocalDateTime.now());
         comment.setAdvert(advert);

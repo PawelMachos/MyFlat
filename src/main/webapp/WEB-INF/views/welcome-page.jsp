@@ -13,7 +13,7 @@
     <title>Title</title>
 
 </head>
-<body>
+<body background="/static/graphics/back.jpg">
 
 
 <h1>SIEMANKO LUDZISKA!!!</h1>
