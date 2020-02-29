@@ -2,19 +2,18 @@ package pl.com.app.myflat.controllers;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.com.app.myflat.dto.LoggedUserDTO;
-import pl.com.app.myflat.model.entities.Task;
 import pl.com.app.myflat.model.entities.User;
 import pl.com.app.myflat.model.repositories.UserRepository;
 import pl.com.app.myflat.service.UserService;
 
 import java.security.Principal;
-import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -24,11 +23,13 @@ public class UserProfileController {
 
     private final UserRepository userRepository;
     private final UserService userService;
+    private final PasswordEncoder passwordEncoder;
 
     @Autowired
-    public UserProfileController(UserRepository userRepository, UserService userService) {
+    public UserProfileController(UserRepository userRepository, UserService userService, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
         this.userService = userService;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @GetMapping
@@ -66,11 +67,13 @@ public class UserProfileController {
     @PostMapping("/edit")
     public String processEditUser(LoggedUserDTO userDTO, Principal principal) {
         String username = principal.getName();
+        String encodedPassword = passwordEncoder.encode(userDTO.getPassword());
+
 
         User user = userRepository.getUserByUsername(username);
             user.setFirstName(userDTO.getFirstName());
             user.setLastName(userDTO.getLastName());
-            user.setUsername(userDTO.getUsername());
+            user.setPassword(encodedPassword);
             user.setEmail(userDTO.getEmail());
             userRepository.save(user);
 

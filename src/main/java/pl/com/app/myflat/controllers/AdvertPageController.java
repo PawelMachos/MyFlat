@@ -114,6 +114,7 @@ public class AdvertPageController {
         String userName = principal.getName();
         Optional<User> user = userRepository.findByUsername(userName);
 
+
         Advert advert = advertRepository.getOne(advertId);
 
         Comment comment = new Comment();

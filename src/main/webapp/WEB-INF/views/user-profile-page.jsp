@@ -49,6 +49,8 @@
 
                     <tr>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Username&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tr><br/>
                 <tr><b>${user.username}</b></tr><br/>
+                <tr>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Password&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tr><br/>
+                <tr><b>********</b></tr><br/>
                     <tr>First name</tr><br/>
                 <tr>${user.firstName}</tr><br/>
                     <tr>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Last name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tr><br/>
