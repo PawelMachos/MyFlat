@@ -8,6 +8,8 @@ import pl.com.app.myflat.dto.RegisterUserDTO;
 import pl.com.app.myflat.model.entities.User;
 import pl.com.app.myflat.model.repositories.UserRepository;
 
+import java.util.Optional;
+
 @Service
 public class UserService {
 
@@ -53,17 +55,19 @@ public class UserService {
 
     public LoggedUserDTO getUser(String username) {
         LoggedUserDTO loggedUserDTO = null;
-        User user = userRepository.findByUsername(username);
+        Optional <User> user = userRepository.findByUsername(username);
         if (user != null) {
             loggedUserDTO = new LoggedUserDTO();
-            loggedUserDTO.setFirstName(user.getFirstName());
-            loggedUserDTO.setLastName(user.getLastName());
-            loggedUserDTO.setId(user.getId());
-            loggedUserDTO.setUsername(user.getUsername());
-
+            loggedUserDTO.setFirstName(user.get().getFirstName());
+            loggedUserDTO.setLastName(user.get().getLastName());
+            loggedUserDTO.setId(user.get().getId());
+            loggedUserDTO.setUsername(user.get().getUsername());
         }
         return loggedUserDTO;
     }
 
 
+    public User showUser(String username) {
+        return userRepository.getUserByUsername(username);
+    }
 }

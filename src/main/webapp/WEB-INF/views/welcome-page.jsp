@@ -10,23 +10,25 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>myFlat Application</title>
 
 </head>
-<body>
+<body background="/static/graphics/back.jpg">
+<div style="float: right">
+    <button><a href="/login">Login</a></button>
+    <button><a href="/register" >Register</a></button>
+    <button><a href="/home">Your Profile</a></button>
+</div>
+
+<h1>Chcesz być częścią naszej społeczności?</h1>
+<h1>Spiesz się, pozostalo już tylko: ${availableFlats} mieszkań !!!</h1>
 
 
-<h1>SIEMANKO LUDZISKA!!!</h1>
-
-OGŁOSZENIE DEWELOPERA: MIESZKANIA DO KUPIENIA.
 &nbsp
-<a href="/login" >Login</a>
-<a href="/register" >Register</a>
-<a href="/home">Home</a>
 
-<diV>
-    Ilość dostępnych mieszkań.
-    Spiesz się, pozostalo już tylko: ${availableFlats}
+
+<diV >
+
 
 
 </diV>

@@ -13,6 +13,7 @@ import pl.com.app.myflat.model.repositories.UserRepository;
 import java.security.Principal;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
@@ -30,7 +31,9 @@ public class TaskService {
     public void saveTask(TaskDTO taskDTO, Principal principal) {
 
         String username = principal.getName();
-        User user = userRepository.findByUsername(username);
+        Optional<User> optionalUser = userRepository.findByUsername(username);
+
+
 
         Task task = Task.builder()
                 .title(taskDTO.getTitle())
@@ -39,7 +42,7 @@ public class TaskService {
                 .status((Status.ACTIVE).toString())
                 .startDate(LocalDate.now().plusDays(1))
                 .deadline(LocalDate.now().plusDays(8))
-                .owner(user)
+                .owner(optionalUser.get())
                 .build();
 
         taskRepository.save(task);
@@ -56,7 +59,7 @@ public class TaskService {
 
 
     public void addObligatoryTasks(RegisterUserDTO userDTO) {
-        User byUsername = userRepository.findByUsername(userDTO.getUsername());
+       Optional<User> optionalUser = userRepository.findByUsername(userDTO.getUsername());
 
         Task task1 = Task.builder()
                 .title("Odbierz klucze")
@@ -65,7 +68,7 @@ public class TaskService {
                 .status((Status.ACTIVE).toString())
                 .startDate(LocalDate.now().plusDays(1))
                 .deadline(LocalDate.now().plusDays(11))
-                .owner(byUsername)
+                .owner(optionalUser.get())
                 .build();
 
         Task task2 = Task.builder()
@@ -75,7 +78,7 @@ public class TaskService {
                 .status((Status.ACTIVE).toString())
                 .startDate(LocalDate.now().plusDays(1))
                 .deadline(LocalDate.now().plusDays(8))
-                .owner(byUsername)
+                .owner(optionalUser.get())
                 .build();
 
         Task task3 = Task.builder()
@@ -85,7 +88,7 @@ public class TaskService {
                 .status((Status.ACTIVE).toString())
                 .startDate(LocalDate.now().plusDays(1))
                 .deadline(LocalDate.now().plusDays(31))
-                .owner(byUsername)
+                .owner(optionalUser.get())
                 .build();
 
         Task task4 = Task.builder()
@@ -95,7 +98,7 @@ public class TaskService {
                 .status((Status.ACTIVE).toString())
                 .startDate(LocalDate.now().plusDays(1))
                 .deadline(LocalDate.now().plusDays(8))
-                .owner(byUsername)
+                .owner(optionalUser.get())
                 .build();
 
         Task task5 = Task.builder()
@@ -105,7 +108,7 @@ public class TaskService {
                 .status((Status.ACTIVE).toString())
                 .startDate(LocalDate.now().plusDays(1))
                 .deadline(LocalDate.now().plusDays(15))
-                .owner(byUsername)
+                .owner(optionalUser.get())
                 .build();
 
         taskRepository.save(task1);

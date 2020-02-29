@@ -43,12 +43,12 @@ public class AdvertPageController {
     @PostMapping("/add-advert")
     public String addAdvert(String title, String description, Principal principal) {
         String userName = principal.getName();
-        User user = userRepository.findByUsername(userName);
+        Optional<User> optionalUser = userRepository.findByUsername(userName);
 
         Advert advert = new Advert();
         advert.setTitle(title);
         advert.setDescription(description);
-        advert.setUser(user);
+        advert.setUser(optionalUser.get());
         advert.setCreatedAt(LocalDateTime.now());
         advert.setActive(true);
 
@@ -112,10 +112,11 @@ public class AdvertPageController {
     @PostMapping("/add-comment")
     public String processAddComment(String commentText, Principal principal) {
         String userName = principal.getName();
-        User user = userRepository.findByUsername(userName);
+        Optional<User> user = userRepository.findByUsername(userName);
+
 
         Comment comment = new Comment();
-        comment.setUser(user);
+        comment.setUser(user.get());
         comment.setCommentText(commentText);
         comment.setCreatedAt(LocalDateTime.now());
         comment.setActive(true);

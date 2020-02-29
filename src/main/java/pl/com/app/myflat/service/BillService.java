@@ -100,7 +100,7 @@ public class BillService {
     }
 
     public void addObligatoryBills(RegisterUserDTO userDTO) {
-        User byUsername = userRepository.findByUsername(userDTO.getUsername());
+       Optional<User> optionalUser = userRepository.findByUsername(userDTO.getUsername());
 
         LocalDate localDate = LocalDate.of(2020, Month.FEBRUARY, 2);
         Instant instant = localDate.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant();
@@ -113,7 +113,7 @@ public class BillService {
                 .grossAmount((double) 35)
                 .invoiceDate(date)
                 .invoiceNumber("XY1234")
-                .user(byUsername)
+                .user(optionalUser.get())
                 .build();
         Bill billRepairFeb = Bill.builder()
                 .active(true)
@@ -121,7 +121,7 @@ public class BillService {
                 .grossAmount((double) 21)
                 .invoiceDate(date)
                 .invoiceNumber("51631")
-                .user(byUsername)
+                .user(optionalUser.get())
                 .build();
 
         Bill billFixedFeb = Bill.builder()
@@ -130,7 +130,7 @@ public class BillService {
                 .grossAmount((double) 45)
                 .invoiceDate(date)
                 .invoiceNumber("637235")
-                .user(byUsername)
+                .user(optionalUser.get())
                 .build();
 
         Bill billManagementFeb = Bill.builder()
@@ -139,7 +139,7 @@ public class BillService {
                 .grossAmount((double) 12)
                 .invoiceDate(date)
                 .invoiceNumber("12667")
-                .user(byUsername)
+                .user(optionalUser.get())
                 .build();
 
         Bill billCentralFeb = Bill.builder()
@@ -148,7 +148,7 @@ public class BillService {
                 .grossAmount((double) 17)
                 .invoiceDate(date)
                 .invoiceNumber("X23Y81234")
-                .user(byUsername)
+                .user(optionalUser.get())
                 .build();
 
         Bill billWasteFeb = Bill.builder()
@@ -157,7 +157,7 @@ public class BillService {
                 .grossAmount((double) 78)
                 .invoiceDate(date)
                 .invoiceNumber("GHF251")
-                .user(byUsername)
+                .user(optionalUser.get())
                 .build();
 
         Bill billHeatingFeb = Bill.builder()
@@ -166,7 +166,7 @@ public class BillService {
                 .grossAmount( 43.5)
                 .invoiceDate(date)
                 .invoiceNumber("CTR24")
-                .user(byUsername)
+                .user(optionalUser.get())
                 .build();
 
         Bill billSewageFeb = Bill.builder()
@@ -175,7 +175,7 @@ public class BillService {
                 .grossAmount( 28.5)
                 .invoiceDate(date)
                 .invoiceNumber("777555")
-                .user(byUsername)
+                .user(optionalUser.get())
                 .build();
 
         Bill billEnergyFeb = Bill.builder()
@@ -184,7 +184,7 @@ public class BillService {
                 .grossAmount((double) 106)
                 .invoiceDate(date)
                 .invoiceNumber("45")
-                .user(byUsername)
+                .user(optionalUser.get())
                 .build();
 
         billRepository.save(billEarmarkedFeb);

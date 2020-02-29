@@ -6,7 +6,7 @@
     <link href="../../static/css/style.css" type="text/css" rel="stylesheet">
 
 </head>
-<body>
+<body >
 
 <section id="container">
     <header class="header black-bg">
@@ -16,10 +16,10 @@
         <div id="leftSideOfWeb">
             <jsp:include page="side-menu.jsp"/>
         </div>
-        <section id="main-content">
+        <section id="main-content"  style="min-height: 500px;">
             <section class="wrapper">
 
-                <div>Messages section</div>
+                <div style="padding-left: 150px;"><img src="/static/graphics/under-construction-1000x500.jpg"></div>
 
             </section>
         </section>
