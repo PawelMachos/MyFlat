@@ -19,7 +19,7 @@
         <section id="main-content"  style="min-height: 500px;">
             <section class="wrapper">
 
-                <div><img src="/static/graphics/under-construction-1000x500.jpg"></div>
+                <div style="padding-left: 150px;"><img src="/static/graphics/under-construction-1000x500.jpg"></div>
 
             </section>
         </section>
