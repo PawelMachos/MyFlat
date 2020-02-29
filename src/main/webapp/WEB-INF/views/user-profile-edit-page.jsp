@@ -60,6 +60,11 @@
 
                     </div>
                     <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" required name="password" id="password" class="form-control"
+                               value="********"/>
+                    </div>
+                    <div class="form-group">
                         <label for="firstName">First name</label>
                         <input type="text" required name="firstName" id="firstName" class="form-control"
                                value="${user.firstName}"/>
