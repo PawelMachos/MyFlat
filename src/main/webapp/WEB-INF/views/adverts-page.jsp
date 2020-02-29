@@ -173,7 +173,7 @@
                     </form>
 
 
-                    <c:forEach items="${advert.comments}" var="comment" varStatus="stat">
+                    <c:forEach items="${comments}" var="comment" varStatus="stat">
 
                     <div class="comment-body">
                         <div class="text">

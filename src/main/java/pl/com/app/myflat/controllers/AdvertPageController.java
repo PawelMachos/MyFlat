@@ -110,18 +110,15 @@ public class AdvertPageController {
     }
 
     @PostMapping("/add-comment")
-    public String processAddComment(String commentText, Principal principal, Long advertId) {
+    public String processAddComment(String commentText, Principal principal) {
         String userName = principal.getName();
         Optional<User> user = userRepository.findByUsername(userName);
 
-
-        Advert advert = advertRepository.getOne(advertId);
 
         Comment comment = new Comment();
         comment.setUser(user.get());
         comment.setCommentText(commentText);
         comment.setCreatedAt(LocalDateTime.now());
-        comment.setAdvert(advert);
         comment.setActive(true);
 
         log.info("Próba zapisu ogłoszenia: " + comment);

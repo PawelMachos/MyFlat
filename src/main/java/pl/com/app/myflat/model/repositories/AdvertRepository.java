@@ -2,6 +2,7 @@ package pl.com.app.myflat.model.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import pl.com.app.myflat.model.entities.Advert;
+import pl.com.app.myflat.model.entities.User;
 
 import java.time.LocalDateTime;
 import java.util.Date;
@@ -16,4 +17,7 @@ public interface AdvertRepository extends JpaRepository<Advert, Long> {
 
     Advert findTopByOrderByCreatedAtDesc();
 
+    //Advert findByUsername(String userName);
+
+    //Advert findByUser(User user);
 }
